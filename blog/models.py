@@ -76,16 +76,9 @@ class Blog(models.Model):
 
     get_summery.short_description = '摘要'
 
-    def get_add_blog(self):
-        """显示编辑blog的链接"""
-        return format_html('<a href="/blog/add/?id={}" class="label label-info">编辑</a>',self.id)
-
-    get_add_blog.short_description = ''
-    get_add_blog.allow_tags = True
-
     def show_cover(self):
         """显示封面图"""
-        return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>',self.cover)
+        return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.cover)
 
     show_cover.short_description = '封面'
     show_cover.allow_tags = True
@@ -96,7 +89,7 @@ class Blog(models.Model):
 
     def show_blog_onsite(self):
         """在站点查看该blog--自定义"""
-        return format_html('<a href="/blog/{}" target="_blank" class="viewsitelink"><i class="icon-eye-open icon-alpha75"></i></a>',self.id)
+        return format_html('<a href="/blog/{}" target="_blank"><i class="glyphicon glyphicon-eye-open"></i></a>', self.id)
 
     show_blog_onsite.short_description = '在站点查看'
     show_blog_onsite.allow_tags = True

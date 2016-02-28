@@ -9,7 +9,7 @@ class BlogTypeAdmin(admin.ModelAdmin):
 	search_fields = ('name',)
 
 class BlogAdmin(admin.ModelAdmin):
-	list_display = ('title','show_cover','get_summery','add_date','counts','is_recomment','status','type','get_add_blog','show_blog_onsite')
+	list_display = ('title','show_cover','get_summery','add_date','counts','is_recomment','status','type','show_blog_onsite')
 	search_fields = ('title','content_show')
 	list_per_page = 10
 	actions_on_bottom = True
