@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.request',#suit need
             ],
         },
     },
@@ -104,3 +106,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# suit config
+# SUIT_CONFIG = {
+#     'ADMIN_NAME':'后台管理系统',
+
+#     'HEADER_DATE_FORMAT':'Y年m月d日 l',
+#     'HEADER_TIME_FORMAT':'H:i',
+
+#     # 'MENU':(
+#     #     'sites',
+#     #     {'app':'auth','lable':'认证'},
+#     #     {'app':'dm','lable':'网站'},
+#     # )
+# }
+
