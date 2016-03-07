@@ -1,0 +1,76 @@
+{% extends 'blog_base.html' %}{% load staticfiles %}
+{% block title %}教程详情{% endblock %}
+{% block content %}
+	<div class="jumbotron">
+		<div class="container">
+		  	<h1>巨幕</h1>
+		  	<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+	  	</div>
+	</div>
+	<div class="container-fluid- container">
+		<div class="row">
+			<div class="col-sm-9">
+				<div class="media well">
+				  	<h3>标题</h3>
+				  	<p>内容</p>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="panel panel-info">
+				  	<div class="panel-heading">作者信息</div>
+				  	<div class="panel-body">
+				    	这里展示的是文章作者的信息
+				  	</div>
+				</div>
+				<div class="panel panel-info">
+				  	<div class="panel-heading">文章目录</div>
+				  	<div class="panel-body">
+				    	这里展示的是文章的目录
+				  	</div>
+				  	<!-- List group -->
+				  	<ul class="list-group">
+				    	<li class="list-group-item">Cras justo odio</li>
+				    	<li class="list-group-item">Dapibus ac facilisis in</li>
+				    	<li class="list-group-item">Morbi leo risus</li>
+				    	<li class="list-group-item">Porta ac consectetur ac</li>
+				    	<li class="list-group-item">Vestibulum at eros</li>
+				  	</ul>
+				</div>
+				<div class="panel panel-info">
+				  	<div class="panel-heading">我要分享</div>
+				  	<div class="panel-body">
+				    	这里展示的是文章的分享途径
+				  	</div>
+				</div>
+				<div class="panel panel-default">
+				  	<div class="panel-heading">
+				    	<h3 class="panel-title">文章分类</h3>
+				  	</div>
+				  	<div class="panel-body">
+				  		<ul class="nav nav-pills" role="tablist">
+					    	<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">金融时序</a></li>
+					    	<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">机器人</a></li>
+					  	</ul>
+				  	</div>
+				  	<div class="tab-content">
+					  	<ul class="list-group tab-pane active" id="home">
+					    	<li class="list-group-item">Cras justodd odio</li>
+					    	<li class="list-group-item">Dapibus ac facilisis in</li>
+					    	<li class="list-group-item">Morbi leo risus</li>
+					    	<li class="list-group-item">Porta ac consectetur ac</li>
+					    	<li class="list-group-item">Vestibulum at eros</li>
+					  	</ul>
+
+					  	<ul class="list-group tab-pane" id="profile">
+					    	<li class="list-group-item">Cras justo odio</li>
+					    	<li class="list-group-item">Dapibus ac facilisis in</li>
+					    	<li class="list-group-item">Morbi leo risus</li>
+					    	<li class="list-group-item">Porta ac consectetur ac</li>
+					    	<li class="list-group-item">Vestibulum at eros</li>
+					  	</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
