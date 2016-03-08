@@ -19,10 +19,15 @@ class SimditorMixin(object):
                      'blog/lib/simditor/mobilecheck.js',
                      'blog/lib/simditor/hotkeys.min.js',
                      'blog/lib/simditor/uploader.min.js',
-                     'blog/lib/simditor/simditor.min.js'))
+                     'blog/lib/simditor/simditor.min.js',
+                     'blog/lib/simditor/beautify-html.js',
+                     'blog/lib/simditor/simditor-html.js',
+                     'blog/lib/simditor/simditor-fullscreen.js'))
         css = {
             'all': _wrap(*('blog/css/font-awesome.min.css',
-                           'blog/lib/simditor/simditor.css'))
+                           'blog/lib/simditor/simditor.css',
+                           'blog/lib/simditor/simditor-html.css',
+                           'blog/lib/simditor/simditor-fullscreen.css'))
         }
 
 
