@@ -32,15 +32,15 @@ class SimditorMixin(object):
 
 
 class BlogBigTypeAdmin(admin.ModelAdmin):
-	list_display = ('name','add_date')
+	list_display = ('id', 'name','add_date')
 
 class BlogTypeAdmin(admin.ModelAdmin):
-	list_display = ('name','add_date','bigtype')
-	search_fields = ('name',)
+	list_display = ('id', 'name','add_date','bigtype')
+	search_fields = ('id', 'name')
 
 class BlogAdmin(SimditorMixin, admin.ModelAdmin):
-	list_display = ('title','show_cover','get_summery','add_date','counts','is_recomment','status','type','show_blog_onsite')
-	search_fields = ('title','content_show')
+	list_display = ('id', 'title','show_cover','get_summery','add_date','counts','is_recomment','status','type','show_blog_onsite')
+	search_fields = ('id', 'title','content_show')
 	list_per_page = 10
 	actions_on_bottom = True
 

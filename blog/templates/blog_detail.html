@@ -1,5 +1,5 @@
 {% extends 'blog_base.html' %}{% load staticfiles %}
-{% block title %}教程详情{% endblock %}
+{% block title %}{{blog.title}}-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}">
 <style>
@@ -73,26 +73,23 @@
 				  	</div>
 				  	<div class="panel-body">
 				  		<ul class="nav nav-pills" role="tablist">
-					    	<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">金融时序</a></li>
-					    	<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">机器人</a></li>
+				  			{% for obj in bigtype %}
+					    	<li role="presentation" {% if forloop.first%}class="active"{% endif %}><a href="#{{obj.id}}" aria-controls="{{obj.id}}" role="tab" data-toggle="tab">{{obj.name}}</a></li>
+					    	{% empty %}
+					    	<li>还没有大分类哦～</li>
+					    	{% endfor %}
 					  	</ul>
 				  	</div>
 				  	<div class="tab-content">
-					  	<ul class="list-group tab-pane active" id="home">
-					    	<li class="list-group-item">Cras justodd odio</li>
-					    	<li class="list-group-item">Dapibus ac facilisis in</li>
-					    	<li class="list-group-item">Morbi leo risus</li>
-					    	<li class="list-group-item">Porta ac consectetur ac</li>
-					    	<li class="list-group-item">Vestibulum at eros</li>
-					  	</ul>
-
-					  	<ul class="list-group tab-pane" id="profile">
-					    	<li class="list-group-item">Cras justo odio</li>
-					    	<li class="list-group-item">Dapibus ac facilisis in</li>
-					    	<li class="list-group-item">Morbi leo risus</li>
-					    	<li class="list-group-item">Porta ac consectetur ac</li>
-					    	<li class="list-group-item">Vestibulum at eros</li>
-					  	</ul>
+				  		{% for obj in bigtype %}
+				  		<ul class="list-group tab-pane {% if forloop.first %}active{% endif %}" id="{{obj.id}}">
+				  			{% for type in obj.getType %}
+				  			<li class="list-group-item"><a href="/blog/type/{{type.id}}/">{{type.name}}&nbsp;&nbsp;({{type.getCount}})</a></li>
+				  			{% empty %}
+				  			<li>还没有分类哦～</li>
+				  			{% endfor %}
+				  		</ul>
+				  		{% endfor%}
 					</div>
 				</div>
 			</div>

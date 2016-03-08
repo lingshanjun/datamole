@@ -11,76 +11,49 @@
 	<div class="container-fluid- container">
 		<div class="row">
 			<div class="col-sm-9">
+				{% for obj in blog %}
 				<div class="media well">
 				  	<div class="media-left media-middle col-sm-4">
-				    	<a href="#" class="thumbnail">
-				      	<img class="media-object" src="{% static 'blog/img/bg2.jpg'%}" alt="...">
+				    	<a href="/blog/{{obj.id}}/" class="thumbnail">
+				      	<img class="media-object" src="{{obj.cover}}" alt="cover">
 				    	</a>
 				  	</div>
 				  	<div class="media-body">
-				    	<h4 class="media-heading">Media heading</h4>
-				    	<p class="lead">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-				    	<p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-				    	<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-				    	<p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+				    	<h4 class="media-heading"><a href="/blog/{{obj.id}}/">{{obj.title}}</a></h4>
+				    	<p class="lead">{{obj.content_show | striptags | truncatechars:400}}</p>
 				  	</div>
 				</div>
-				<div class="media well">
-				  	<div class="media-left media-middle col-sm-4">
-				    	<a href="#" class="thumbnail">
-				      	<img class="media-object" src="{% static 'blog/img/bg3.jpg'%}" alt="...">
-				    	</a>
-				  	</div>
-				  	<div class="media-body">
-				    	<h4 class="media-heading">Media heading</h4>
-				    	<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-				    	<p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-				    	<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-				    	<p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-				  	</div>
-				</div>
-				<div class="media well">
-				  	<div class="media-left media-middle col-sm-4">
-				    	<a href="#" class="thumbnail">
-				      	<img class="media-object" src="{% static 'blog/img/bg4.jpg'%}" alt="...">
-				    	</a>
-				  	</div>
-				  	<div class="media-body">
-				    	<h4 class="media-heading">Media heading</h4>
-				    	<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-				    	<p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-				    	<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-				    	<p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-				  	</div>
-				</div>
+				{% empty %}
+				<p>还没有发布的文章哦～</p>
+				{% endfor %}
 			</div>
 			<div class="col-sm-3">
 				<div class="panel panel-info">
-				  	<div class="panel-heading">热门文章</div>
+				  	<div class="panel-heading">热门文章<a href="" class="pull-right"><i>></i></a></div>
 				  	<div class="panel-body">
 				    	这里展示的是最热门的文章
 				  	</div>
 				  	<!-- List group -->
 				  	<ul class="list-group">
-				    	<li class="list-group-item">Cras justo odio</li>
-				    	<li class="list-group-item">Dapibus ac facilisis in</li>
-				    	<li class="list-group-item">Morbi leo risus</li>
-				    	<li class="list-group-item">Porta ac consectetur ac</li>
-				    	<li class="list-group-item">Vestibulum at eros</li>
+				  		{% for obj in hot %}
+				    	<li class="list-group-item"><a href="/blog/{{obj.id}}/">{{forloop.counter}}&nbsp;&nbsp;{{obj.title}}&nbsp;&nbsp;({{obj.counts}})</a></li>
+				    	{% empty%}
+				    	<li class="list-group-item">还没有热门文章哦～</li>
+				    	{% endfor %}
 				  	</ul>
 				</div>
 				<div class="panel panel-info">
-				  	<div class="panel-heading">推荐文章</div>
+				  	<div class="panel-heading">推荐文章<a href="" class="pull-right"><i class="pull-right">></i></a></div>
 				  	<div class="panel-body">
 				    	这里展示的是推荐的文章
 				  	</div>
 				  	<!-- List group -->
 				  	<ul class="list-group">
-				    	<li class="list-group-item">Cras justo odio</li>
-				    	<li class="list-group-item">Dapibus ac facilisis in</li>
-				    	<li class="list-group-item">Morbi leo risus</li>
-				    	<li class="list-group-item">Porta ac consectetur ac</li>
-				    	<li class="list-group-item">Vestibulum at eros</li>
+				  		{% for obj in recomment %}
+				    	<li class="list-group-item"><a href="/blog/{{obj.id}}/">{{forloop.counter}}&nbsp;&nbsp;{{obj.title}}</a></li>
+				    	{% empty %}
+					  	<li class="list-group-item">还没有推荐文章哦～</li>
+					  	{% endfor %}
 				  	</ul>
 				</div>
 				<div class="panel panel-default">
@@ -89,26 +62,23 @@
 				  	</div>
 				  	<div class="panel-body">
 				  		<ul class="nav nav-pills" role="tablist">
-					    	<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">金融时序</a></li>
-					    	<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">机器人</a></li>
+				  			{% for obj in bigtype %}
+					    	<li role="presentation" {% if forloop.first%}class="active"{% endif %}><a href="#{{obj.id}}" aria-controls="{{obj.id}}" role="tab" data-toggle="tab">{{obj.name}}</a></li>
+					    	{% empty %}
+					    	<li>还没有大分类哦～</li>
+					    	{% endfor %}
 					  	</ul>
 				  	</div>
 				  	<div class="tab-content">
-					  	<ul class="list-group tab-pane active" id="home">
-					    	<li class="list-group-item">Cras justodd odio</li>
-					    	<li class="list-group-item">Dapibus ac facilisis in</li>
-					    	<li class="list-group-item">Morbi leo risus</li>
-					    	<li class="list-group-item">Porta ac consectetur ac</li>
-					    	<li class="list-group-item">Vestibulum at eros</li>
-					  	</ul>
-
-					  	<ul class="list-group tab-pane" id="profile">
-					    	<li class="list-group-item">Cras justo odio</li>
-					    	<li class="list-group-item">Dapibus ac facilisis in</li>
-					    	<li class="list-group-item">Morbi leo risus</li>
-					    	<li class="list-group-item">Porta ac consectetur ac</li>
-					    	<li class="list-group-item">Vestibulum at eros</li>
-					  	</ul>
+				  		{% for obj in bigtype %}
+				  		<ul class="list-group tab-pane {% if forloop.first %}active{% endif %}" id="{{obj.id}}">
+				  			{% for type in obj.getType %}
+				  			<li class="list-group-item"><a href="/blog/type/{{type.id}}/">{{type.name}}&nbsp;&nbsp;({{type.getCount}})</a></li>
+				  			{% empty %}
+				  			<li>还没有分类哦～</li>
+				  			{% endfor %}
+				  		</ul>
+				  		{% endfor%}
 					</div>
 				</div>
 			</div>
