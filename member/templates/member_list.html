@@ -6,18 +6,46 @@
 {% block content %}
 	<div class="jumbotron">
 		<div class="container">
-		  	<h1>团队成员</h1>
-		  	<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+		  	<div class="row">
+                <div class="col-md-12">
+                    <i class="fa fa-users page-title-icon"></i>
+                    <h2>团队 ｜</h2>
+                    <p>没有完美的个人，只有更好的团队</p>
+                </div>
+            </div>
 	  	</div>
 	</div>
 	<div class="container-fluid- container">
-		<div class="row">
-			<div class="col-sm-9">
-			</div>
-			<div class="col-sm-3">
-			</div>
+		<div class="row col-sm-12">
+			<div class="col-md-6 col-sm-6 col-xs-12">
+                <img src="{% static 'assets/img/team/team1.jpg' %}" height="570" width="1000" alt="" class="img-responsive">
+            </div>
+            <div class="team-us-text col-sm-6 col-xs-12">
+                <h4>我们们的团队</h4>
+                <p>企业成功来自于每一位员工的付出，没有完美的个人，只有完美的团队，团队精神是企业文化的核心。百川汇海可撼天，众志成城比金坚成就团队辉煌，助我人生成长培育合作员工，创造合作团队凝聚产生力量，团结诞生希望朋友间的不和就是敌人进攻的机会强化竞争意识，营造团队精神高绩效团队的三性特征：主动性、思考性、配合性同心才能走的更远，同德才能走的更近管理就是共享一份团队融洽的感情强化竞争意识，营造团队精神 培育合作员工，创造合作团队</p>
+            </div>
 		</div>
 	</div>
+	<div class="container">
+        <h3>团队成员</h3>
+        <div class="row">
+            {% for obj in members %}
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="team-text">
+                   <a href="/member/{{obj.id}}/"> <img src="{{obj.avatar.url}}" alt="{{obj.name}}" class="img-responsive"></a>
+                    <h4><a href="/team/{{obj.id}}/">{{obj.name}}</a></h4>
+                    <p>{{obj.descripe}}</p>
+                    <div class="social-links">
+                        <a href="{{obj.qq}}"><i class="fa fa-qq fa-lg"></i></a>
+                        <a href="{{obj.wechat}}"><i class="fa fa-weixin fa-lg"></i></a>
+                        <a href="{{obj.weibo}}"><i class="fa fa-weibo fa-lg"></i></a>
+                        <a href="{{obj.email}}"><i class="fa fa-envelope fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
 {% block js %}
 <!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
