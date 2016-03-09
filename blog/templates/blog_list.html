@@ -19,8 +19,13 @@
 				    	</a>
 				  	</div>
 				  	<div class="media-body">
+				  		<a href="/blog/type/{{obj.type.id}}/" class="btn btn-warning btn-xs pull-right">{{obj.type.name}}</a>
 				    	<h4 class="media-heading"><a href="/blog/{{obj.id}}/">{{obj.title}}</a></h4>
-				    	<p class="lead">{{obj.content_show | striptags | truncatechars:400}}</p>
+				    	<p class="lead">{{obj.content_show | striptags | truncatechars:100}}</p>
+				  	</div>
+				  	<div class="media-footer">
+				  		<span class="label label-info">发表于：{{obj.add_date }}</span>
+				  		<span class="label label-warning">热度：{{obj.counts}}&nbsp;&nbsp;℃</span>
 				  	</div>
 				</div>
 				{% empty %}
@@ -36,7 +41,7 @@
 				  	<!-- List group -->
 				  	<ul class="list-group">
 				  		{% for obj in hot %}
-				    	<li class="list-group-item"><a href="/blog/{{obj.id}}/">{{forloop.counter}}&nbsp;&nbsp;{{obj.title}}&nbsp;&nbsp;({{obj.counts}})</a></li>
+				    	<li class="list-group-item"><a href="/blog/{{obj.id}}/">{{forloop.counter}}&nbsp;&nbsp;{{obj.title}}&nbsp;&nbsp;<span class="badge">{{obj.counts}}</span></a></li>
 				    	{% empty%}
 				    	<li class="list-group-item">还没有热门文章哦～</li>
 				    	{% endfor %}
@@ -73,7 +78,7 @@
 				  		{% for obj in bigtype %}
 				  		<ul class="list-group tab-pane {% if forloop.first %}active{% endif %}" id="{{obj.id}}">
 				  			{% for type in obj.getType %}
-				  			<li class="list-group-item"><a href="/blog/type/{{type.id}}/">{{type.name}}&nbsp;&nbsp;({{type.getCount}})</a></li>
+				  			<li class="list-group-item"><a href="/blog/type/{{type.id}}/">{{type.name}}&nbsp;&nbsp;<span class="badge">{{type.getCount}}</span></a></li>
 				  			{% empty %}
 				  			<li>还没有分类哦～</li>
 				  			{% endfor %}

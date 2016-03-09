@@ -84,7 +84,7 @@
 				  		{% for obj in bigtype %}
 				  		<ul class="list-group tab-pane {% if forloop.first %}active{% endif %}" id="{{obj.id}}">
 				  			{% for type in obj.getType %}
-				  			<li class="list-group-item"><a href="/blog/type/{{type.id}}/">{{type.name}}&nbsp;&nbsp;({{type.getCount}})</a></li>
+				  			<li class="list-group-item"><a href="/blog/type/{{type.id}}/">{{type.name}}&nbsp;&nbsp;<span class="badge">{{type.getCount}}</span></a></li>
 				  			{% empty %}
 				  			<li>还没有分类哦～</li>
 				  			{% endfor %}
