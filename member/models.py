@@ -43,7 +43,7 @@ class Member(models.Model):
 
 	def show_cover(self):
 		"""显示该成员头像"""
-		return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.avatar)
+		return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.avatar.url)
 
 	show_cover.short_description = '头像'
 	show_cover.allow_tags = True
