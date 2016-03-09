@@ -37,7 +37,7 @@
 			<div class="col-sm-9">
 				<div class="media well">
 				  	<h3>{{blog.title}}</h3>
-				  	<p>{{blog.content_show |safe}}</p>
+				  	<div>{{blog.content_show |safe}}</div>
 				</div>
 			</div>
 			<div class="col-sm-3">
@@ -113,6 +113,15 @@
 	            $numbering.append($('<li/>').text(i));
 	        }
 		});
+
+		var $tables = $('table');
+		if($tables.length){
+			$tables.each(function(index, el) {
+				$(this)
+					.addClass('table table-bordered table-hover')
+					.wrap('<div class="table-responsive"></div>');
+			});
+		}
 	})
 </script>
 {% endblock %}
