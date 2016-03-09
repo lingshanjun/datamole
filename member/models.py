@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from django.db import models
+from django.utils.html import format_html
 
 class Member(models.Model):
 	SEX =[
@@ -33,3 +34,27 @@ class Member(models.Model):
 		db_table = 'member'
 		verbose_name = '成员列表'
 		verbose_name_plural = '成员列表'
+
+	def get_summery(self):
+		"""获取该成员的简介"""
+		return self.descripe[:20]
+
+	get_summery.short_description = '简介'
+
+	def show_cover(self):
+		"""显示该成员头像"""
+		return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.avatar)
+
+	show_cover.short_description = '头像'
+	show_cover.allow_tags = True
+
+	def get_absolute_url(self):
+		"""在站点查看该成员--admin默认"""
+		return '/member/%s' % self.id
+
+	def show_member_onsite(self):
+		"""在站点查看该成员--自定义"""
+		return format_html('<a href="/member/{}" target="_blank"><i class="glyphicon glyphicon-eye-open"></i></a>', self.id)
+
+	show_member_onsite.short_description = '在站点查看'
+	show_member_onsite.allow_tags = True
