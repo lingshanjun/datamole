@@ -31,4 +31,7 @@ urlpatterns = [
     url(r'^member/$', 'member.views.memberList', name='member_list'), #成员列表
     url(r'^member/(?P<id>\d+)/$', 'member.views.memberDetail', name='member_detail'), #成员详情
 
+    url(r'^science/paper/$', 'science.views.paperList', name='paper_list'), #论文列表
+    url(r'^science/paper/(?P<id>\d+)/$', 'science.views.paperDetail', name='paper_detail'), #论文详情
+
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

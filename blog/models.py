@@ -8,7 +8,7 @@ class BlogBigType(models.Model):
 
     """博客大分类"""
 
-    name = models.CharField('大分类名',max_length=50)
+    name = models.CharField('大分类名',max_length=50, help_text='*必填*')
     add_date = models.DateTimeField('创建时间',auto_now_add=True)
 
     def __unicode__(self):
@@ -27,9 +27,9 @@ class BlogType(models.Model):
 
     """博客分类"""
 
-    name = models.CharField('分类名',max_length=50)
+    name = models.CharField('分类名',max_length=50, help_text='*必填*')
     add_date = models.DateTimeField('创建时间',auto_now_add=True)
-    bigtype = models.ForeignKey(BlogBigType,verbose_name='所属大分类')
+    bigtype = models.ForeignKey(BlogBigType,verbose_name=u'所属大分类', help_text='*必填*')
 
     def __unicode__(self):
         return self.name
@@ -52,10 +52,10 @@ class Blog(models.Model):
         (0,'草稿'),
         (1,'发布'),
     ]
-    title = models.CharField('标题',max_length=100)
-    type = models.ForeignKey(BlogType,verbose_name='所属分类')
-    cover = models.CharField('封面图',max_length=500, null=True) # 博客导图
-    content_show = models.TextField('正文显示', null=True)
+    title = models.CharField('标题',max_length=100, help_text='*必填*')
+    type = models.ForeignKey(BlogType,verbose_name=u'所属分类', help_text='*必填*')
+    cover = models.CharField('封面图',max_length=500, blank=True) # 博客导图
+    content_show = models.TextField('正文显示', blank=True)
     add_date = models.DateTimeField('创建日期',auto_now_add=True)
     counts = models.IntegerField('点击数',default=0)     # 热度
     is_recomment = models.BooleanField('推荐',default=False)

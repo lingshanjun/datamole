@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import BlogType,Blog,BlogBigType
+from .models import BlogType, Blog, BlogBigType
 from django.contrib.staticfiles.storage import staticfiles_storage
+
 
 def _wrap(*args, **kwargs):
     """
@@ -12,6 +13,7 @@ def _wrap(*args, **kwargs):
     # This function acts like ` {% static 'url' %} `
     # Used for sae storage as CachedStaticFilesStorage
     return tuple(staticfiles_storage.url(path) for path in args)
+
 
 class SimditorMixin(object):
     class Media:
@@ -32,19 +34,26 @@ class SimditorMixin(object):
 
 
 class BlogBigTypeAdmin(admin.ModelAdmin):
-	list_display = ('id', 'name','add_date')
+    list_display = ('id', 'name', 'add_date')
+    list_display_links = ('name',)
+
 
 class BlogTypeAdmin(admin.ModelAdmin):
-	list_display = ('id', 'name','add_date','bigtype')
-	search_fields = ('id', 'name')
+    list_display = ('id', 'name', 'add_date', 'bigtype')
+    search_fields = ('id', 'name')
+    list_display_links = ('name', )
+
 
 class BlogAdmin(SimditorMixin, admin.ModelAdmin):
-	list_display = ('id', 'title','show_cover','get_summery','add_date','counts','is_recomment','status','type','show_blog_onsite')
-	search_fields = ('id', 'title','content_show')
-	list_per_page = 10
-	actions_on_bottom = True
+    list_display = ('id', 'title', 'show_cover', 'get_summery', 'add_date', 'counts', 'is_recomment', 'status', 'type',
+                    'show_blog_onsite')
+    search_fields = ('id', 'title', 'content_show')
+    list_display_links = ('title', )
+    radio_fields = {'status': admin.HORIZONTAL}
+    list_per_page = 10
+    actions_on_bottom = True
 
 
-admin.site.register(BlogBigType,BlogBigTypeAdmin)
-admin.site.register(BlogType,BlogTypeAdmin)
-admin.site.register(Blog,BlogAdmin)
+admin.site.register(BlogBigType, BlogBigTypeAdmin)
+admin.site.register(BlogType, BlogTypeAdmin)
+admin.site.register(Blog, BlogAdmin)
