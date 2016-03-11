@@ -1,6 +1,6 @@
 # coding=utf-8
 from django.shortcuts import render
-from .models import Paper
+from .models import Paper, Patent
 from django.http import HttpResponseServerError
 
 
@@ -21,3 +21,10 @@ def paperDetail(request, id=None):
         return HttpResponseServerError('论文不存在！')
 
     return render(request, 'paper_detail.html', data)
+
+
+def patentList(request):
+    """patent列表页"""
+    data = {'patents': Patent.objects.order_by('-id')}
+
+    return render(request, 'patent_list.html', data)

@@ -20,18 +20,20 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+                  url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^$', 'datamole.views.datamoleIndex', name='index'), #网站首页
+                  url(r'^$', 'datamole.views.datamoleIndex', name='index'),  # 网站首页
 
-    url(r'^blog/$', 'blog.views.blogList', name='blog_list'), #教程列表
-    url(r'^blog/type/(?P<id>\d+)/$', 'blog.views.type', name='blog_type'), #教程列表（根据分类显示）
-    url(r'^blog/(?P<id>\d+)/$', 'blog.views.blogDetail', name='blog_detail'), #教程列表（根据标签显示）
+                  url(r'^blog/$', 'blog.views.blogList', name='blog_list'),  # 教程列表
+                  url(r'^blog/type/(?P<id>\d+)/$', 'blog.views.type', name='blog_type'),  # 教程列表（根据分类显示）
+                  url(r'^blog/(?P<id>\d+)/$', 'blog.views.blogDetail', name='blog_detail'),  # 教程列表（根据标签显示）
 
-    url(r'^member/$', 'member.views.memberList', name='member_list'), #成员列表
-    url(r'^member/(?P<id>\d+)/$', 'member.views.memberDetail', name='member_detail'), #成员详情
+                  url(r'^member/$', 'member.views.memberList', name='member_list'),  # 成员列表
+                  url(r'^member/(?P<id>\d+)/$', 'member.views.memberDetail', name='member_detail'),  # 成员详情
 
-    url(r'^science/paper/$', 'science.views.paperList', name='paper_list'), #论文列表
-    url(r'^science/paper/(?P<id>\d+)/$', 'science.views.paperDetail', name='paper_detail'), #论文详情
+                  url(r'^science/paper/$', 'science.views.paperList', name='paper_list'),  # 论文列表
+                  url(r'^science/paper/(?P<id>\d+)/$', 'science.views.paperDetail', name='paper_detail'),  # 论文详情
 
-]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+                  url(r'^science/patent/$', 'science.views.patentList', name='patent_list'),  # 专利列表
+
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
