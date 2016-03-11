@@ -36,4 +36,6 @@ urlpatterns = [
 
                   url(r'^science/patent/$', 'science.views.patentList', name='patent_list'),  # 专利列表
 
+                  url(r'^science/soft/$', 'science.views.softList', name='soft_list'),  # 软著列表
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}{% load staticfiles %}
+{% block title %}{{blog.title}}软著列表-数据锚{% endblock %}
+{% block css %}
+<!-- <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}"> -->
+{% endblock %}
+{% block content %}
+	<div class="jumbotron">
+		<div class="container">
+		  	<h1>软著列表</h1>
+		  	<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+	  	</div>
+	</div>
+	<div class="container-fluid- container">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="panel panel-info">
+				  	<div class="panel-heading">侧栏导航<a href="" class="pull-right"><i>></i></a></div>
+				  	<div class="panel-body">
+				    	这里展示的是侧栏内容
+				  	</div>
+				  	<!-- List group -->
+				  	<ul class="list-group">
+				  		<li class="list-group-item">还没有热门文章哦～</li>
+				  		<li class="list-group-item">还没有热门文章哦～</li>
+				  		<li class="list-group-item">还没有热门文章哦～</li>
+				  		<li class="list-group-item">还没有热门文章哦～</li>
+				  		<li class="list-group-item">还没有热门文章哦～</li>
+				  	</ul>
+				  	{% comment %}
+				  	<ul class="list-group">
+				  		{% for obj in hot %}
+				    	<li class="list-group-item"><a href="/blog/{{obj.id}}/">{{forloop.counter}}&nbsp;&nbsp;{{obj.title}}&nbsp;&nbsp;<span class="badge">{{obj.counts}}</span></a></li>
+				    	{% empty%}
+				    	<li class="list-group-item">还没有热门文章哦～</li>
+				    	{% endfor %}
+				  	</ul>
+				  	{% endcomment%}
+				</div>
+			</div>
+			<div class="col-sm-9">
+				{% for obj in softs %}
+				<div class="well">
+					<ul class="list-group">
+						<li class="list-group-item">标题:{{obj.title}}</li>
+						<li class="list-group-item">作者:{% for creator in obj.creators.all %}{{creator}} {% endfor %}</li>
+						<li class="list-group-item">所有作者:{{obj.all_creators }}</li>
+						<li class="list-group-item">证书图片: <img src="{{obj.pic.url}}" alt=""></li>
+					</ul>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block js %}
+<!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
+{% endblock %}

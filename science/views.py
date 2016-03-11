@@ -1,6 +1,6 @@
 # coding=utf-8
 from django.shortcuts import render
-from .models import Paper, Patent
+from .models import Paper, Patent, Soft
 from django.http import HttpResponseServerError
 
 
@@ -28,3 +28,10 @@ def patentList(request):
     data = {'patents': Patent.objects.order_by('-id')}
 
     return render(request, 'patent_list.html', data)
+
+
+def softList(request):
+    """soft列表页"""
+    data = {'softs': Soft.objects.order_by('-id')}
+
+    return render(request, 'soft_list.html', data)

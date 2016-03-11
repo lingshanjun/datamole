@@ -97,7 +97,7 @@ class Patent(models.Model):
     get_summery.short_description = '摘要'
 
     def creator_in_member(self):
-        members = Paper.objects.get(pk=self.id).authors.all()
+        members = Patent.objects.get(pk=self.id).creators.all()
 
         html_str = []
         for obj in members:
@@ -111,11 +111,11 @@ class Patent(models.Model):
     creator_in_member.allow_tags = True
 
     def get_absolute_url(self):
-        """在站点查看该论文--admin默认"""
+        """在站点查看该专利--admin默认"""
         return '/science/patent/%s' % self.id
 
     def show_patent_onsite(self):
-        """在站点查看该论文--自定义"""
+        """在站点查看该专利--自定义"""
         return format_html(
             '<a href="/science/patent/{0}" target="_blank"><i class="glyphicon glyphicon-eye-open"></i></a>', self.id)
 
@@ -126,3 +126,60 @@ class Patent(models.Model):
         """使链接可点击"""
         return format_html(
             '<a href="{0}" target="_blank">{0}</a>', self.link)
+
+
+class Soft(models.Model):
+    title = models.CharField('软著名称', max_length=50, help_text='*必填*')
+    descripe = models.TextField('软著描述', help_text='*必填*')
+    creators = models.ManyToManyField(Member, verbose_name=u'发明人', help_text='在列表中选择包含的发明人')
+    all_creators = models.CharField('所有发明人', max_length=50, help_text='*必填*, 请按顺序输入所有发明人笔名，如“张三，李四，王五”')
+    number = models.CharField('编号', max_length=50, blank=True)
+    time = models.DateField('首次发表时间', blank=True)
+    pic = models.ImageField('证书图片', blank=True, upload_to='soft/pic/')
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        db_table = 'soft'
+        verbose_name = '软著'
+        verbose_name_plural = '软著'
+
+    def get_summery(self):
+        """软著描述"""
+        return self.descripe[:20]
+
+    get_summery.short_description = '摘要'
+
+    def creator_in_member(self):
+        members = Soft.objects.get(pk=self.id).creators.all()
+
+        html_str = []
+        for obj in members:
+            html_str.append(obj.name)
+
+        html_str = ','.join(html_str)
+
+        return html_str
+
+    creator_in_member.short_description = '成员发明人'
+    creator_in_member.allow_tags = True
+
+    def show_pic(self):
+        """显示该软著证书图片"""
+        return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.pic.url)
+
+    show_pic.short_description = '证书图片'
+    show_pic.allow_tags = True
+
+    def get_absolute_url(self):
+        """在站点查看该软著--admin默认"""
+        return '/science/soft/%s' % self.id
+
+    def show_soft_onsite(self):
+        """在站点查看该软著--自定义"""
+        return format_html(
+            '<a href="/science/soft/{0}" target="_blank"><i class="glyphicon glyphicon-eye-open"></i></a>', self.id)
+
+    show_soft_onsite.short_description = '在站点查看'
+    show_soft_onsite.allow_tags = True
