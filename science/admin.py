@@ -1,31 +1,6 @@
 from django.contrib import admin
 from .models import Paper, Patent, Soft, Prize
-from django.contrib.staticfiles.storage import staticfiles_storage
-
-
-def _wrap(*args, **kwargs):
-    """
-    Wrap Widget's media
-    """
-    return tuple(staticfiles_storage.url(path) for path in args)
-
-
-class SimditorMixin(object):
-    class Media:
-        js = _wrap(*('blog/lib/simditor/module.min.js',
-                     'blog/lib/simditor/mobilecheck.js',
-                     'blog/lib/simditor/hotkeys.min.js',
-                     'blog/lib/simditor/uploader.min.js',
-                     'blog/lib/simditor/simditor.min.js',
-                     'blog/lib/simditor/beautify-html.js',
-                     'blog/lib/simditor/simditor-html.js',
-                     'blog/lib/simditor/simditor-fullscreen.js'))
-        css = {
-            'all': _wrap(*('blog/css/font-awesome.min.css',
-                           'blog/lib/simditor/simditor.css',
-                           'blog/lib/simditor/simditor-html.css',
-                           'blog/lib/simditor/simditor-fullscreen.css'))
-        }
+from blog.admin import SimditorMixin, _wrap
 
 
 class PaperAdmin(admin.ModelAdmin):
