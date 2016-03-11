@@ -2,6 +2,7 @@
 
 from django.apps import AppConfig
 
-class memberConfig(AppConfig):
-	name = 'member'
-	verbose_name = u'团队成员'
+
+class MemberConfig(AppConfig):
+    name = 'member'
+    verbose_name = u'团队成员'

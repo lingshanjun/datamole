@@ -16,7 +16,7 @@ class Member(models.Model):
     ]
     name = models.CharField('姓名', max_length=10)
     sex = models.SmallIntegerField('性别', choices=SEX, default=0)
-    avatar = models.FileField('头像', blank=True, upload_to='team/')
+    avatar = models.ImageField('头像', blank=True, upload_to='team/')
     descripe = models.TextField('简介', default='一句话介绍自己')
     birthday = models.DateField('生日', blank=True)
     qq = models.CharField('QQ', max_length=15, blank=True)

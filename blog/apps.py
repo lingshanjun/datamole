@@ -2,6 +2,7 @@
 
 from django.apps import AppConfig
 
-class blogConfig(AppConfig):
-	name = 'blog'
-	verbose_name = u'教程博客'
+
+class BlogConfig(AppConfig):
+    name = 'blog'
+    verbose_name = u'教程博客'

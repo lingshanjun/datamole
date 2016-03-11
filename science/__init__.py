@@ -1,1 +1,1 @@
-default_app_config = 'science.apps.scienceConfig'
+default_app_config = 'science.apps.ScienceConfig'

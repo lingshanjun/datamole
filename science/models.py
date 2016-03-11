@@ -34,17 +34,16 @@ class Paper(models.Model):
     def author_in_member(self):
         members = Paper.objects.get(pk=self.id).authors.all()
 
-        html_str = ''
+        html_str = []
         for obj in members:
-            html_str = html_str + obj.name + ','
+            html_str.append(obj.name)
 
-        html_str.rstrip(',')
+        html_str = ','.join(html_str)
         
-        return format_html(html_str)
+        return html_str
 
     author_in_member.short_description = '成员作者'
     author_in_member.allow_tags = True
-
 
     def get_absolute_url(self):
         """在站点查看该论文--admin默认"""
