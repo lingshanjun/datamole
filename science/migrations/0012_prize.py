@@ -1,0 +1,33 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('member', '0003_auto_20160310_1826'),
+        ('science', '0011_auto_20160311_1619'),
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='Prize',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('title', models.CharField(help_text=b'*\xe5\xbf\x85\xe5\xa1\xab*', max_length=50, verbose_name=b'\xe8\x8e\xb7\xe5\xa5\x96\xe5\x90\x8d\xe7\xa7\xb0')),
+                ('prize_descripe', models.TextField(help_text=b'*\xe5\xbf\x85\xe5\xa1\xab*', verbose_name=b'\xe5\x86\x85\xe5\xae\xb9\xe6\x8f\x8f\xe8\xbf\xb0')),
+                ('all_persons', models.CharField(help_text=b'*\xe5\xbf\x85\xe5\xa1\xab*, \xe8\xaf\xb7\xe6\x8c\x89\xe9\xa1\xba\xe5\xba\x8f\xe8\xbe\x93\xe5\x85\xa5\xe6\x89\x80\xe6\x9c\x89\xe5\x8f\x91\xe6\x98\x8e\xe4\xba\xba\xe7\xac\x94\xe5\x90\x8d\xef\xbc\x8c\xe5\xa6\x82\xe2\x80\x9c\xe5\xbc\xa0\xe4\xb8\x89\xef\xbc\x8c\xe6\x9d\x8e\xe5\x9b\x9b\xef\xbc\x8c\xe7\x8e\x8b\xe4\xba\x94\xe2\x80\x9d', max_length=50, verbose_name=b'\xe6\x89\x80\xe6\x9c\x89\xe8\x8e\xb7\xe5\xa5\x96\xe4\xba\xba')),
+                ('time', models.DateField(verbose_name=b'\xe8\x8e\xb7\xe5\xa5\x96\xe6\x97\xb6\xe9\x97\xb4', blank=True)),
+                ('cover', models.ImageField(upload_to=b'prize/cover/', verbose_name=b'\xe5\xb0\x81\xe9\x9d\xa2\xe5\x9b\xbe', blank=True)),
+                ('grade', models.SmallIntegerField(help_text=b'*\xe5\xbf\x85\xe5\xa1\xab*', verbose_name=b'\xe5\xa5\x96\xe9\xa1\xb9\xe7\xba\xa7\xe5\x88\xab', choices=[(1, b'\xe5\x9b\xbd\xe9\x99\x85\xe7\xba\xa7'), (2, b'\xe5\x9b\xbd\xe5\xae\xb6\xe7\xba\xa7'), (3, b'\xe7\x9c\x81\xe5\xb8\x82\xe7\xba\xa7'), (4, b'\xe6\xa0\xa1\xe7\xba\xa7'), (0, b'\xe5\x85\xb6\xe5\xae\x83')])),
+                ('persons', models.ManyToManyField(help_text=b'\xe5\x9c\xa8\xe5\x88\x97\xe8\xa1\xa8\xe4\xb8\xad\xe9\x80\x89\xe6\x8b\xa9\xe5\x8c\x85\xe5\x90\xab\xe7\x9a\x84\xe5\x8f\x91\xe6\x98\x8e\xe4\xba\xba', to='member.Member', verbose_name='\u83b7\u5956\u4eba')),
+            ],
+            options={
+                'db_table': 'prize',
+                'verbose_name': '\u83b7\u5956',
+                'verbose_name_plural': '\u83b7\u5956',
+            },
+        ),
+    ]

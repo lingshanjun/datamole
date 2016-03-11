@@ -183,3 +183,67 @@ class Soft(models.Model):
 
     show_soft_onsite.short_description = '在站点查看'
     show_soft_onsite.allow_tags = True
+
+
+class Prize(models.Model):
+    GRADE = [
+        (1, '国际级'),
+        (2, '国家级'),
+        (3, '省市级'),
+        (4, '校级'),
+        (0, '其它')
+    ]
+    title = models.CharField('获奖名称', max_length=50, help_text='*必填*')
+    prize_descripe = models.TextField('内容描述', help_text='*必填*')
+    persons = models.ManyToManyField(Member, verbose_name=u'获奖人', help_text='在列表中选择包含的发明人')
+    all_persons = models.CharField('所有获奖人', max_length=50, help_text='*必填*, 请按顺序输入所有发明人笔名，如“张三，李四，王五”')
+    time = models.DateField('获奖时间', blank=True)
+    cover = models.ImageField('封面图', blank=True, upload_to='prize/cover/')
+    grade = models.SmallIntegerField('奖项级别', choices=GRADE, help_text='*必填*')
+
+    def __unicode__(self):
+        return self.title
+
+    class Meta:
+        db_table = 'prize'
+        verbose_name = '获奖'
+        verbose_name_plural = '获奖'
+
+    def get_summery(self):
+        """获奖描述"""
+        return self.prize_descripe[:20]
+
+    get_summery.short_description = '获奖描述'
+
+    def person_in_member(self):
+        members = Prize.objects.get(pk=self.id).persons.all()
+
+        html_str = []
+        for obj in members:
+            html_str.append(obj.name)
+
+        html_str = ','.join(html_str)
+
+        return html_str
+
+    person_in_member.short_description = '成员获奖人'
+    person_in_member.allow_tags = True
+
+    def show_cover(self):
+        """显示该封面图片"""
+        return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.cover.url)
+
+    show_cover.short_description = '封面'
+    show_cover.allow_tags = True
+
+    def get_absolute_url(self):
+        """在站点查看该获奖--admin默认"""
+        return '/science/prize/%s' % self.id
+
+    def show_soft_onsite(self):
+        """在站点查看该获奖--自定义"""
+        return format_html(
+            '<a href="/science/prize/{0}" target="_blank"><i class="glyphicon glyphicon-eye-open"></i></a>', self.id)
+
+    show_soft_onsite.short_description = '在站点查看'
+    show_soft_onsite.allow_tags = True
