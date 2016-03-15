@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('monograph', '0002_auto_20160315_2212'),
+    ]
+
+    operations = [
+        migrations.AlterField(
+            model_name='monochapter',
+            name='order',
+            field=models.DecimalField(help_text=b"*\xe5\xbf\x85\xe5\xa1\xab*, \xe4\xb8\xba\xe6\x95\xb4\xe6\x95\xb0, \xe5\xa6\x82'0','1','2'\xe7\xad\x89", verbose_name=b'\xe7\xab\xa0\xe5\xba\x8f\xe5\x8f\xb7', max_digits=2, decimal_places=1),
+        ),
+        migrations.AlterField(
+            model_name='monosection',
+            name='order',
+            field=models.DecimalField(help_text=b'*\xe5\xbf\x85\xe5\xa1\xab*, \xe5\x8f\xaa\xe6\x94\xaf\xe6\x8c\x81\xe4\xba\x8c\xe7\xba\xa7\xe6\xa0\x87\xe9\xa2\x98\xe7\x9a\x84\xe5\xba\x8f\xe5\x8f\xb7\xef\xbc\x8c\xe5\xa6\x821.1\xef\xbc\x8c2.3\xef\xbc\x8c\xe4\xb8\x8d\xe6\x94\xaf\xe6\x8c\x81\xe5\x85\xb6\xe5\xae\x83\xe7\xba\xa7\xe6\xa0\x87\xe9\xa2\x98\xef\xbc\x8c\xe5\xa6\x821.1.2\xef\xbc\x8c3.4.2.1\xe7\xad\x89', verbose_name=b'\xe8\x8a\x82\xe5\xba\x8f\xe5\x8f\xb7', max_digits=2, decimal_places=1),
+        ),
+    ]

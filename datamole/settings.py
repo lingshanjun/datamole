@@ -32,6 +32,7 @@ INSTALLED_APPS = (
     'member',
     'science',
     'news',
+    'monograph',
 )
 
 MIDDLEWARE_CLASSES = (

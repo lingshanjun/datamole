@@ -4,7 +4,7 @@ from blog.admin import SimditorMixin, _wrap
 
 
 class PaperAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'get_summery', 'author_in_member', 'all_authors', 'pub_time', 'pub_location',
+    list_display = ('id', 'title', 'author_in_member', 'all_authors', 'pub_time', 'pub_location',
                     'pub_pulications', 'show_link', 'is_download', 'dl_file', 'show_paper_onsite')
     search_fields = ('id', 'title', 'abstract', 'all_authors', 'pub_location', 'link')
     list_display_links = ('title',)
@@ -14,7 +14,7 @@ class PaperAdmin(admin.ModelAdmin):
 
 
 class PatentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'get_summery', 'creator_in_member', 'all_creators', 'status', 'num_apply',
+    list_display = ('id', 'title', 'creator_in_member', 'all_creators', 'status', 'num_apply',
                     'num_open', 'num_enpower', 'time_apply', 'time_open', 'time_enpower', 'show_link',
                     'show_patent_onsite')
     search_fields = ('id', 'title', 'descripe', 'all_creators', 'status', 'link')
@@ -26,7 +26,7 @@ class PatentAdmin(admin.ModelAdmin):
 
 
 class SoftAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'get_summery', 'creator_in_member', 'all_creators', 'number', 'time', 'show_pic',
+    list_display = ('id', 'title', 'creator_in_member', 'all_creators', 'number', 'time', 'show_pic',
                     'show_soft_onsite')
     search_fields = ('id', 'title', 'descripe', 'all_creators', 'number')
     list_display_links = ('title',)
@@ -36,7 +36,7 @@ class SoftAdmin(admin.ModelAdmin):
 
 
 class PrizeAdmin(admin.ModelAdmin, SimditorMixin):
-    list_display = ('id', 'title', 'get_summery', 'person_in_member', 'all_persons', 'time', 'show_cover', 'grade',
+    list_display = ('id', 'title', 'person_in_member', 'all_persons', 'time', 'show_cover', 'grade',
                     'show_soft_onsite')
     search_fields = ('id', 'title', 'prize_descripe', 'all_persons', 'grade')
     list_display_links = ('title',)

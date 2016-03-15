@@ -25,18 +25,13 @@ class Paper(models.Model):
         verbose_name = '论文'
         verbose_name_plural = '论文'
 
-    def get_summery(self):
-        """摘要"""
-        return self.abstract[:20]
-
-    get_summery.short_description = '摘要'
-
     def author_in_member(self):
         members = Paper.objects.get(pk=self.id).authors.all()
 
         html_str = []
         for obj in members:
-            html_str.append(obj.name)
+            html_obj = format_html('<a href="{0}" target="_blank">{1}</a>', obj.get_absolute_url(), obj.name)
+            html_str.append(html_obj)
 
         html_str = ','.join(html_str)
 
@@ -90,18 +85,13 @@ class Patent(models.Model):
         verbose_name = '专利'
         verbose_name_plural = '专利'
 
-    def get_summery(self):
-        """专利描述"""
-        return self.descripe[:20]
-
-    get_summery.short_description = '摘要'
-
     def creator_in_member(self):
         members = Patent.objects.get(pk=self.id).creators.all()
 
         html_str = []
         for obj in members:
-            html_str.append(obj.name)
+            html_obj = format_html('<a href="{0}" target="_blank">{1}</a>', obj.get_absolute_url(), obj.name)
+            html_str.append(html_obj)
 
         html_str = ','.join(html_str)
 
@@ -127,6 +117,9 @@ class Patent(models.Model):
         return format_html(
             '<a href="{0}" target="_blank">{0}</a>', self.link)
 
+    show_link.short_description = '公开链接'
+    show_link.allow_tags = True
+
 
 class Soft(models.Model):
     title = models.CharField('软著名称', max_length=50, help_text='*必填*')
@@ -145,18 +138,13 @@ class Soft(models.Model):
         verbose_name = '软著'
         verbose_name_plural = '软著'
 
-    def get_summery(self):
-        """软著描述"""
-        return self.descripe[:20]
-
-    get_summery.short_description = '摘要'
-
     def creator_in_member(self):
         members = Soft.objects.get(pk=self.id).creators.all()
 
         html_str = []
         for obj in members:
-            html_str.append(obj.name)
+            html_obj = format_html('<a href="{0}" target="_blank">{1}</a>', obj.get_absolute_url(), obj.name)
+            html_str.append(html_obj)
 
         html_str = ','.join(html_str)
 
@@ -209,18 +197,13 @@ class Prize(models.Model):
         verbose_name = '获奖'
         verbose_name_plural = '获奖'
 
-    def get_summery(self):
-        """获奖描述"""
-        return self.prize_descripe[:20]
-
-    get_summery.short_description = '获奖描述'
-
     def person_in_member(self):
         members = Prize.objects.get(pk=self.id).persons.all()
 
         html_str = []
         for obj in members:
-            html_str.append(obj.name)
+            html_obj = format_html('<a href="{0}" target="_blank">{1}</a>', obj.get_absolute_url(), obj.name)
+            html_str.append(html_obj)
 
         html_str = ','.join(html_str)
 

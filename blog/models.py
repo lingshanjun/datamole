@@ -66,13 +66,6 @@ class Blog(models.Model):
         verbose_name = '博客详情'
         verbose_name_plural = '博客详情'
 
-    def get_summery(self):
-        """获取该blog的摘要"""
-        summary = self.content_show[:10]
-        return summary
-
-    get_summery.short_description = '摘要'
-
     def show_cover(self):
         """显示封面图"""
         return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.cover.url)

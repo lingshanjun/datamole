@@ -36,12 +36,6 @@ class Member(models.Model):
         verbose_name = '成员列表'
         verbose_name_plural = '成员列表'
 
-    def get_summery(self):
-        """获取该成员的简介"""
-        return self.descripe[:20]
-
-    get_summery.short_description = '简介'
-
     def show_cover(self):
         """显示该成员头像"""
         return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.avatar.url)

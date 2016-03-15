@@ -20,12 +20,6 @@ class News(models.Model):
         verbose_name = '新闻列表'
         verbose_name_plural = '新闻列表'
 
-    def get_summery(self):
-        """内容"""
-        return self.news_descripe[:20]
-
-    get_summery.short_description = '内容'
-
     def show_cover(self):
         """显示该新闻封面"""
         return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.cover.url)
