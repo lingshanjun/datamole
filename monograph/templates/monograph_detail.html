@@ -1,0 +1,63 @@
+{% extends 'base.html' %}{% load staticfiles %}
+{% block title %}{{blog.title}}专著详情-数据锚{% endblock %}
+{% block css %}
+<!-- <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}"> -->
+<style>
+	.active{font-weight: bolder;}
+</style>
+{% endblock %}
+{% block content %}
+	<div class="jumbotron">
+		<div class="container">
+		  	<h1>专著详情</h1>
+		  	<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+	  	</div>
+	</div>
+	<div class="container-fluid- container">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="panel panel-info">
+				  	<div class="panel-heading">侧栏导航<a href="" class="pull-right"><i>></i></a></div>
+				  	<div class="panel-body">
+				    	这里展示的是侧栏内容
+				  	</div>
+				  	<ul class="list-group">
+				  		{% for chapter in chapters %}
+				    	<li class="list-group-item"><a href="?">{{chapter.order}}&nbsp;&nbsp;{{chapter.title}}&nbsp;&nbsp;</a></li>
+				    	<ul>
+				    		{% for obj in chapter.sections %}
+				    		<li {% if obj.order == section.order %}class="active"{% endif%}><a href="?sorder={{obj.order}}">{{obj.order}}&nbsp;&nbsp;{{obj.title}}&nbsp;&nbsp;</a></li>
+				    		{% endfor %}
+				    	</ul>
+				    	{% empty%}
+				    	<li class="list-group-item">还没有章目录哦～</li>
+				    	{% endfor %}
+				  	</ul>
+				</div>
+			</div>
+			<div class="col-sm-9">
+				{% if not section %}
+				<div class="well">
+					<ul class="list-group">
+						<li class="list-group-item">标题:{{mono.title}}</li>
+						<li class="list-group-item"></li>
+					</ul>
+					{% for cover in mono.covers.all%}
+					<img src="{{cover.img.url}}" alt="" width="200">
+					{%  endfor %}
+					{% for buy in mono.buys.all%}
+					<p>{{buy.link | urlize}}</p>
+					{%  endfor %}
+				</div>
+				{% else %}
+				<div class="well">
+					{{section.content | safe}}
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block js %}
+<!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
+{% endblock %}

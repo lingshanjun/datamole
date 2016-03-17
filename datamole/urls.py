@@ -41,4 +41,6 @@ urlpatterns = [
                   url(r'^news/$', 'news.views.newsList', name='news_list'),  # 新闻列表
                   url(r'^news/(?P<id>\d+)/$', 'news.views.newsDetail', name='news_detail'),  # 新闻详情
 
+                  url(r'^monograph/(?P<id>\d+)/$', 'monograph.views.monographDetail', name='monograph_detail'),  # 专著详情
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
