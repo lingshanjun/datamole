@@ -23,10 +23,10 @@
 				  	</div>
 				  	<ul class="list-group">
 				  		{% for chapter in chapters %}
-				    	<li class="list-group-item"><a href="?">{{chapter.order}}&nbsp;&nbsp;{{chapter.title}}&nbsp;&nbsp;</a></li>
+				    	<li class="list-group-item"><a href="?corder={{chapter.order}}">{{chapter.order}}&nbsp;&nbsp;{{chapter.title}}&nbsp;&nbsp;</a></li>
 				    	<ul>
-				    		{% for obj in chapter.sections %}
-				    		<li {% if obj.order == section.order %}class="active"{% endif%}><a href="?sorder={{obj.order}}">{{obj.order}}&nbsp;&nbsp;{{obj.title}}&nbsp;&nbsp;</a></li>
+				    		{% for section in chapter.sections %}
+				    		<li {% if section.order == section_detail.order %}class="active"{% endif%}><a href="?sorder={{section.order}}">{{section.order}}&nbsp;&nbsp;{{section.title}}&nbsp;&nbsp;</a></li>
 				    		{% endfor %}
 				    	</ul>
 				    	{% empty%}
@@ -36,7 +36,15 @@
 				</div>
 			</div>
 			<div class="col-sm-9">
-				{% if not section %}
+				{% if section_detail %}
+				<div class="well">
+					{{section_detail.mono_section_content | safe}}
+				</div>
+				{% elif chapter_detail %}
+				<div class="well">
+					{{chapter_detail.mono_chapter_content | safe}}
+				</div>
+				{% else %}
 				<div class="well">
 					<ul class="list-group">
 						<li class="list-group-item">标题:{{mono.title}}</li>
@@ -48,10 +56,6 @@
 					{% for buy in mono.buys.all%}
 					<p>{{buy.link | urlize}}</p>
 					{%  endfor %}
-				</div>
-				{% else %}
-				<div class="well">
-					{{section.content | safe}}
 				</div>
 				{% endif %}
 			</div>
