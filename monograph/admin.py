@@ -28,7 +28,7 @@ class MonoBuyAdmin(admin.ModelAdmin):
     actions_on_bottom = True
 
 
-class MonoChapterAdmin(admin.ModelAdmin):
+class MonoChapterAdmin(admin.ModelAdmin, SimditorMixin):
     list_display = ('id', 'order', 'title', 'show_list', 'add_time')
     search_fields = ('id', 'order', 'title')
     list_display_links = ('title', )

@@ -131,6 +131,7 @@ class MonoChapter(models.Model):
     order = models.SmallIntegerField('章序号', help_text="*必填*, 为整数,严格安装此格式,'0','1','2'等")
     title = models.CharField('章标题', max_length=100, help_text='*必填*')
     list = models.ForeignKey(MonoList, verbose_name=u'所属专著', help_text='*必填*')
+    mono_chapter_content = models.TextField('本章介绍', help_text='可在此处编辑本章的介绍内容', blank=True)
     add_time = models.DateField('创建时间', auto_now_add=True)
 
     def __unicode__(self):
@@ -152,7 +153,7 @@ class MonoSection(models.Model):
                                 help_text='*必填*, 只支持二级标题的序号，如1.1，2.3，不支持其它级标题，如1.1.2，3.4.2.1等')
     title = models.CharField('节标题', max_length=100, help_text='*必填*')
     chapter = models.ForeignKey(MonoChapter, verbose_name=u'所属章目录', help_text='*必填*')
-    content = models.TextField('具体内容', help_text='可在此处编辑每章的具体内容,注意:')
+    mono_section_content = models.TextField('具体内容', blank=True, help_text='可在此处编辑每章的具体内容,注意:')
     add_time = models.DateField('创建时间', auto_now_add=True)
 
     def __unicode__(self):
