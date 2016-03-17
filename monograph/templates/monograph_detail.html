@@ -34,6 +34,19 @@
 				    	{% endfor %}
 				  	</ul>
 				</div>
+				<div class="panel panel-info">
+				  	<div class="panel-heading">其它专著<a href="" class="pull-right"><i>></i></a></div>
+				  	<div class="panel-body">
+				    	这里展示的是其它专著的信息
+				  	</div>
+				  	<ul class="list-group">
+				  		{% for obj in monolist %}
+				  		<li class="list-group-item">{{forloop.counter}}.{{obj.title}}</li>
+				    	{% empty%}
+				    	<li class="list-group-item">还没有其它专著哦～</li>
+				    	{% endfor %}
+				  	</ul>
+				</div>
 			</div>
 			<div class="col-sm-9">
 				{% if section_detail %}

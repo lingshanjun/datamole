@@ -7,6 +7,8 @@ from django.http import HttpResponseServerError
 def monographDetail(request, id=None):
     """monograph详情页"""
     data = {}
+    data['monolist'] = MonoList.objects.exclude(pk=id).order_by('id')
+
     mono = MonoList.objects.get(pk=id)
     data['mono'] = mono
 
