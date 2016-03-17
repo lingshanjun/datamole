@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import MonoList, MonoCover, MonoBuy, MonoChapter, MonoSection
-
+from blog.admin import SimditorMixin, _wrap
 
 class MonolistAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'author_in_member', 'all_authors', 'show_covers', 'show_buys', 'pub_time',
@@ -39,7 +39,7 @@ class MonoChapterAdmin(admin.ModelAdmin):
     actions_on_bottom = True
 
 
-class MonoSectionAdmin(admin.ModelAdmin):
+class MonoSectionAdmin(admin.ModelAdmin, SimditorMixin):
     list_display = ('id', 'order', 'title', 'show_chapter', 'show_list', 'add_time')
     search_fields = ('id', 'order', 'title', 'add_time')
     list_display_links = ('title', )
