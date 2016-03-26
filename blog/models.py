@@ -68,7 +68,7 @@ class Blog(models.Model):
 
     def show_cover(self):
         """显示封面图"""
-        return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.cover.url)
+        return format_html('<a href="{0}" target="_blank"> <img src="{0}" width="60" height="auto"></a>', self.cover.url)
 
     show_cover.short_description = '封面'
     show_cover.allow_tags = True

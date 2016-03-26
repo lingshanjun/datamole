@@ -155,7 +155,7 @@ class Soft(models.Model):
 
     def show_pic(self):
         """显示该软著证书图片"""
-        return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.pic.url)
+        return format_html('<a href="{0}" target="_blank"> <img src="{0}" width="60" height="auto"></a>', self.pic.url)
 
     show_pic.short_description = '证书图片'
     show_pic.allow_tags = True
@@ -214,7 +214,7 @@ class Prize(models.Model):
 
     def show_cover(self):
         """显示该封面图片"""
-        return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.cover.url)
+        return format_html('<a href="{0}" target="_blank"> <img src="{0}" width="60" height="auto"></a>', self.cover.url)
 
     show_cover.short_description = '封面'
     show_cover.allow_tags = True

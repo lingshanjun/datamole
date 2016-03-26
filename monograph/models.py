@@ -20,7 +20,7 @@ class MonoCover(models.Model):
 
     def show_img(self):
         """显示该封面图片"""
-        return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.img.url)
+        return format_html('<a href="{0}" target="_blank"> <img src="{0}" width="60" height="auto"></a>', self.img.url)
 
     show_img.short_description = '图片'
     show_img.allow_tags = True

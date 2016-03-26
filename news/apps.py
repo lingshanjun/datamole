@@ -5,4 +5,4 @@ from django.apps import AppConfig
 
 class NewsConfig(AppConfig):
     name = 'news'
-    verbose_name = u'新闻动态'
+    verbose_name = u'新闻&轮播图'

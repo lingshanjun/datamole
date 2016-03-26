@@ -22,7 +22,7 @@ class News(models.Model):
 
     def show_cover(self):
         """显示该新闻封面"""
-        return format_html('<a href="{0}"> <img src="{0}" width="60" height="auto"></a>', self.cover.url)
+        return format_html('<a href="{0}" target="_blank"> <img src="{0}" width="60" height="auto"></a>', self.cover.url)
 
     show_cover.short_description = ' 封面'
     show_cover.allow_tags = True
@@ -38,3 +38,25 @@ class News(models.Model):
 
     show_news_onsite.short_description = '在站点查看'
     show_news_onsite.allow_tags = True
+
+
+class Slide(models.Model):
+    name = models.CharField('图片名称', max_length=100, help_text='*必填*, 用于提示该轮播图片的信息')
+    priority = models.SmallIntegerField('优先级',unique=True ,default=0, help_text='*必填*, 从0开始的整数,用于设置轮播图的播放顺序,数越小,越先播放,默认为0')
+    add_time = models.DateField('创建时间', auto_now_add=True)
+    img = models.ImageField('图片', upload_to='index/slide/', help_text="*必填*, 尺寸必须为1920*600, 否则影响播放效果")
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'slide'
+        verbose_name = '首页轮播图'
+        verbose_name_plural = '首页轮播图'
+
+    def show_img(self):
+        """显示该封面图片"""
+        return format_html('<a href="{0}" target="_blank"> <img src="{0}" width="60" height="auto"></a>', self.img.url)
+
+    show_img.short_description = '图片'
+    show_img.allow_tags = True
