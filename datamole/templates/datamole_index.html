@@ -1,24 +1,41 @@
 {% extends 'base.html' %}{% load staticfiles %}
-{% block title %}{{blog.title}}数据锚-datamole{% endblock %}
+{% block title %}数据锚-datamole{% endblock %}
 {% block css %}
-<!-- <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}"> -->
+<link rel="stylesheet" href="{% static 'index/lib/swiper/swiper.min.css' %}">
+<style>
+	.banner{
+		overflow: hidden;
+	}
+    .swiper-container {
+    	width: 1920px;
+        height:600px;
+    }
+</style>
 {% endblock %}
 {% block content %}
-	<div class="jumbotron">
-		<div class="container">
-		  	<h1>首页</h1>
-		  	<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-	  	</div>
+<div class="banner">
+	<div class="swiper-container">
+	    <div class="swiper-wrapper">
+	        {% for slide in slides %}
+			<img src="{{slide.img.url}}" alt="" class="swiper-slide">
+			{% endfor %}
+	    </div>
+	    <!-- 如果需要分页器 -->
+	    <div class="swiper-pagination"></div>
 	</div>
-	<div class="container-fluid- container">
-		<div class="row">
-			<div class="col-sm-9">
-			</div>
-			<div class="col-sm-3">
-			</div>
-		</div>
-	</div>
+</div>
 {% endblock %}
 {% block js %}
-<!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
+<script src="{% static 'index/lib/swiper/swiper.jquery.min.js' %}"></script>
+<script>
+	$(function(){
+		$('.swiper-container').css('margin-left', -(1920-window.innerWidth)/2);
+		var mySwiper = new Swiper ('.swiper-container', {
+			autoplay:3000,
+	    	loop: true,
+	    	pagination: '.swiper-pagination',
+	    	roundLengths : true
+  		});
+	});
+</script>
 {% endblock %}
