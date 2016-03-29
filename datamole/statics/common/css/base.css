@@ -1,0 +1,16 @@
+/*header*/
+.navbar-custom{
+	background-color: #fff;
+	height: 80px;
+	margin-bottom: 0;
+	line-height: 80px;
+}
+.navbar-nav>li>a{
+	line-height: 50px;
+	font-size: 18px;
+	color: #666;
+}
+.navbar-brand{
+	height: 80px;
+	padding-top: 10px;
+}
