@@ -11,6 +11,10 @@
     	width: 1920px;
         height:600px;
     }
+    .swiper-pagination-bullet{
+    	width: 10px;
+    	height: 10px;
+    }
 </style>
 {% endblock %}
 {% block content %}
@@ -28,29 +32,7 @@
 	</div>
 </div>
 <div class="container">
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
-	ddd <br>
+	
 </div>
 {% endblock %}
 {% block js %}
@@ -62,7 +44,8 @@
 			autoplay:3000,
 	    	loop: true,
 	    	pagination: '.swiper-pagination',
-	    	roundLengths : true
+	    	paginationClickable: true,
+	    	autoplayDisableOnInteraction: false
   		});
 	});
 </script>
