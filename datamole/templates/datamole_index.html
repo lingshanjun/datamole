@@ -2,23 +2,9 @@
 {% block title %}数据锚-datamole{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'index/lib/swiper/swiper.min.css' %}">
-<style>
-	.banner{
-		margin-top: 80px;
-		overflow: hidden;
-	}
-    .swiper-container {
-    	width: 1920px;
-        height:600px;
-    }
-    .swiper-pagination-bullet{
-    	width: 10px;
-    	height: 10px;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'index/css/index.css' %}">
 {% endblock %}
 {% block content %}
-{% include 'common/header.html' %}
 <!-- Slider -->
 <div class="banner">
 	<div class="swiper-container">
@@ -32,7 +18,6 @@
 	</div>
 </div>
 <div class="container">
-	
 </div>
 {% endblock %}
 {% block js %}

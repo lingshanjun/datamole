@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/bootstrap-theme.min.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'common/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'common/css/common.css' %}">
     {% block css %}{% endblock %}
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
@@ -24,8 +24,9 @@
     <link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
   </head>
   <body>
+    {% include 'common/header.html' %}
     {% block content %}{% endblock %}
-
+    {% include 'common/footer.html' %}
     <script src="{% static 'blog/js/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
     <!-- // <script src="{% static 'assets/js/django-ajax.js' %}"></script> -->
