@@ -7,9 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'blog/css/bootstrap-theme.min.css' %}">
-    <link rel="stylesheet" href="{% static 'blog/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'common/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'common/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'common/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'common/css/common.css' %}">
     {% block css %}{% endblock %}
     <!--[if lt IE 9]>
@@ -27,8 +27,8 @@
     {% include 'common/header.html' %}
     {% block content %}{% endblock %}
     {% include 'common/footer.html' %}
-    <script src="{% static 'blog/js/jquery-1.11.3.min.js' %}"></script>
-    <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'common/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'common/js/bootstrap.min.js' %}"></script>
     <!-- // <script src="{% static 'assets/js/django-ajax.js' %}"></script> -->
     <!-- // <script src="{% static 'assets/js/jquery.jbasicext.js' %}"></script> -->
     <!-- // <script src="{% static 'assets/js/common.js' %}"></script> -->
