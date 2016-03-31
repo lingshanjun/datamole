@@ -1,6 +1,6 @@
 # coding=utf-8
 from django.shortcuts import render
-from .models import Paper, Patent, Soft
+from .models import Paper, Patent, Soft, Prize
 from django.http import HttpResponseServerError
 
 
@@ -35,3 +35,21 @@ def softList(request):
     data = {'softs': Soft.objects.order_by('-id')}
 
     return render(request, 'soft_list.html', data)
+
+def prizeList(request):
+    """prize列表页"""
+    data = {'prizes': Prize.objects.order_by('-time')}
+
+    return render(request, 'prize_list.html', data)
+
+
+def prizeDetail(request, id=None):
+    """prize详情页"""
+    data = {}
+    prize = Prize.objects.get(pk=id)
+    data['prize'] = prize
+
+    if not prize:
+        return HttpResponseServerError('获奖信息不存在！')
+
+    return render(request, 'prize_detail.html', data)

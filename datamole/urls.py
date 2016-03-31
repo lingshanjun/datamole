@@ -38,6 +38,9 @@ urlpatterns = [
 
                   url(r'^science/soft/$', 'science.views.softList', name='soft_list'),  # 软著列表
 
+                  url(r'^science/prize/$', 'science.views.prizeList', name='prize_list'),  # 获奖列表
+                  url(r'^science/prize/(?P<id>\d+)/$', 'science.views.prizeDetail', name='prize_detail'),  # 获奖详情
+
                   url(r'^news/$', 'news.views.newsList', name='news_list'),  # 新闻列表
                   url(r'^news/(?P<id>\d+)/$', 'news.views.newsDetail', name='news_detail'),  # 新闻详情
 
