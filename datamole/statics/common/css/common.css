@@ -9,6 +9,14 @@
 	line-height: 50px;
 	font-size: 18px;
 	color: #666;
+	letter-spacing: 3px;
+}
+.navbar-nav>li.active>a{
+	color:#38adff;
+}
+.navbar-nav>li:hover>a{
+	color:#38adff;
+	background-color: transparent;
 }
 .navbar-brand{
 	height: 80px;
