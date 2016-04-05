@@ -4,6 +4,7 @@
 	height: 80px;
 	margin-bottom: 0;
 	line-height: 80px;
+	box-shadow: 0 1px 4px #d7d7d7;
 }
 .navbar-nav>li>a{
 	line-height: 50px;

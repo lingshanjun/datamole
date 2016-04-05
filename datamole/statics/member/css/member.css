@@ -2,7 +2,7 @@
  * from tm,total website. remain some about member
  */
 body {background: #fff;text-align: center;font-family: 'Open Sans', Helvetica, Arial, sans-serif;color: #888;font-size: 12px;}
-a {color: #33a1dc;text-decoration: none;-o-transition: all .3s;-moz-transition: all .3s;-webkit-transition: all .3s;-ms-transition: all .3s;}
+a {color: #33adff;text-decoration: none;-o-transition: all .3s;-moz-transition: all .3s;-webkit-transition: all .3s;-ms-transition: all .3s;}
 a:hover { color: #888; text-decoration: none; }
 strong { font-weight: bold; }
 .clear{zoom:1}
@@ -42,7 +42,7 @@ strong { font-weight: bold; }
 .team {margin-top: 30px;}
 .team-title {background: url(../img/line.png) left center repeat-x;}
 .team-title h3 {width: 220px;margin: 0 auto;background: #fff;font-size: 24px;color: #5d5d5d;}
-.team-text {margin-top: 40px;padding: 0;padding-bottom: 20px;background: #f8f8f8;border-bottom: 2px solid #33a1dc;border-radius: 4px;overflow: hidden;}
+.team-text {margin-top: 40px;padding: 0;padding-bottom: 20px;background: #f8f8f8;border-bottom: 2px solid #33adff;border-radius: 4px;overflow: hidden;}
 .team-text .img-responsive{width: 100%;border-radius: 4px 4px 0 0;}
 .team-text:hover img {opacity: 0.7;-o-transition: all .3s;-moz-transition: all .3s;-webkit-transition: all .3s;-ms-transition: all .3s;}
 .team-text:hover {
@@ -56,32 +56,32 @@ strong { font-weight: bold; }
     -ms-transition: all .5s;
 }
 .team-text .social-links {margin-top: 15px;}
-.team-text .social-links a { display: inline-block; width: 40px; height: 40px; margin: 0 4px;line-height: 40px;border-radius: 20px;background-color:#fff;color: #33a1dc;border: 1px solid #33a1dc;}
-.team-text .social-links a:hover {background-color: #33a1dc;color: #fff;}
+.team-text .social-links a { display: inline-block; width: 40px; height: 40px; margin: 0 4px;line-height: 40px;border-radius: 20px;background-color:#fff;color: #33adff;border: 1px solid #33adff;}
+.team-text .social-links a:hover {background-color: #33adff;color: #fff;}
 .team-text .fa-lg{vertical-align: 0;}
 .team-text h4 {margin-top: 20px;font-family: 'Droid Sans', Helvetica, Arial, sans-serif;font-size: 14px;color: #5d5d5d;text-transform: uppercase;text-shadow: 0 1px 0 rgba(255,255,255,.7);}
 .team-text h4 a{color: #5d5d5d;}
 .team-text p {line-height: 24px;font-style:normal;}
 
 /* ----- zhuanli PAGE ----- */
-.zhuanli { margin-top: 30px;}
+/*.zhuanli { margin-top: 30px;}
 .zhuanli .lnav{position: fixed;top: 150px;left: 0px;}
 .zhuanli .lnav ul{border: 1px solid #5d5d5d;}
-.zhuanli .lnav li{list-style: none;border-bottom: 1px solid #33a1dc;text-align: center;}
+.zhuanli .lnav li{list-style: none;border-bottom: 1px solid #33adff;text-align: center;}
 .zhuanli .lnav li a{font-size: 16px;color: #000;display: block;}
-.zhuanli .lnav li:hover a{color: #fff;background-color: #33a1dc;}
+.zhuanli .lnav li:hover a{color: #fff;background-color: #33adff;}
 
 .zhuanli .rcontent {}
 .zhuanli .rcontent .categary{background: url(../img/line.png) left center repeat-x;margin: 30px 0 20px;}
 .zhuanli .rcontent .categary span{display:block;width: 200px;background-color: #fff;margin: 0 auto;}
-.zhuanli .rcontent .zl-box{border-bottom: 1px solid #33a1dc;}
+.zhuanli .rcontent .zl-box{border-bottom: 1px solid #33adff;}
 .zhuanli .rcontent .box-l{text-align:left;}
 .zhuanli .rcontent .box-l h4{}
 .zhuanli .rcontent .box-l .author{font-style: italic;float: left;margin-right: 20px;}
 .zhuanli .rcontent .box-l .num{font-style: italic;float: left;}
 .zhuanli .rcontent .box-l p{margin-top: 5px;}
-.zhuanli .rcontent .box-l p em{color: #33a1dc;font-style: italic;cursor: pointer;margin-left: 20px;}
+.zhuanli .rcontent .box-l p em{color: #33adff;font-style: italic;cursor: pointer;margin-left: 20px;}
 .zhuanli .rcontent .box-r{margin-top: 50px;text-align: center;}
-.zhuanli .rcontent .box-r a{border: 1px solid #33a1dc;color:#33a1dc;display: inline-block;width: 60px;height: 25px;line-height: 25px;border-radius: 3px;margin: 0 10px; }
-.zhuanli .rcontent .box-r a:hover{background-color: #33a1dc;color: #fff;}
+.zhuanli .rcontent .box-r a{border: 1px solid #33adff;color:#33adff;display: inline-block;width: 60px;height: 25px;line-height: 25px;border-radius: 3px;margin: 0 10px; }
+.zhuanli .rcontent .box-r a:hover{background-color: #33adff;color: #fff;}*/
 

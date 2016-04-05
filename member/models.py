@@ -14,19 +14,19 @@ class Member(models.Model):
         (0, '离职'),
         (1, '在职'),
     ]
-    name = models.CharField('姓名', max_length=10)
-    sex = models.SmallIntegerField('性别', choices=SEX, default=0)
-    avatar = models.ImageField('头像', blank=True, upload_to='team/')
-    descripe = models.TextField('简介', default='一句话介绍自己')
-    birthday = models.DateField('生日', blank=True)
+    name = models.CharField('姓名', max_length=10, help_text='*必填*')
+    sex = models.SmallIntegerField('性别', choices=SEX, default=0, help_text='*必填*')
+    avatar = models.ImageField('头像', blank=True, upload_to='team/', help_text='*必填*')
+    descripe = models.TextField('简介', default='一句话介绍自己', help_text='*必填*')
+    birthday = models.DateField('生日', help_text='*必填*')
     qq = models.CharField('QQ', max_length=15, blank=True)
     wechat = models.CharField('微信', max_length=50, blank=True)
     weibo = models.CharField('微博', max_length=50, blank=True)
     email = models.EmailField('邮箱', blank=True)
 
-    jionin = models.DateField('加入时间')
-    work_status = models.SmallIntegerField('在职状态', choices=WORK_STATUS, default=1)
-    search = models.CharField('研究方向', max_length=100)
+    jionin = models.DateField('加入时间', help_text='*必填*')
+    work_status = models.SmallIntegerField('在职状态', choices=WORK_STATUS, default=1, help_text='*必填*')
+    search = models.CharField('研究方向', max_length=100, help_text='*必填*')
 
     def __unicode__(self):
         return self.name
