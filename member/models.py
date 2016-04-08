@@ -25,7 +25,7 @@ class Member(models.Model):
     weibo = models.CharField('微博', max_length=50, blank=True)
     email = models.EmailField('邮箱', blank=True)
 
-    jionin = models.DateField('加入时间', help_text='*必填*')
+    joinin = models.DateField('加入时间', help_text='*必填*')
     work_status = models.SmallIntegerField('在职状态', choices=WORK_STATUS, default=1, help_text='*必填*')
     search = models.CharField('研究方向', max_length=100, help_text='*必填*')
 
