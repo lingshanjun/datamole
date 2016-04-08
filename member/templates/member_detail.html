@@ -1,16 +1,17 @@
 {% extends 'base.html' %}{% load staticfiles %}
-{% block title %}{{blog.title}}团队成员-数据锚{% endblock %}
+{% block title %}{{blog.title}}{{member.name}}-数据锚{% endblock %}
 {% block css %}
-<!-- <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}"> -->
+<link rel="stylesheet" href="{% static 'member/css/member.css' %}">
 {% endblock %}
 {% block content %}
-	<div>
-		 <img src="{% static 'member/img/member_top2.png' %}" alt="" style="height:277px;">
+	<div class="dtop">
+		<div class="dtop_box">
+			<i>{{member.name}}</i>
+			<p>{{member.descripe}}</p>
+		</div>
 	</div>
 	<div class="container-fluid- container">
-		<div class="row">
-		egwe
-		</div>
+		
 	</div>
 {% endblock %}
 {% block js %}

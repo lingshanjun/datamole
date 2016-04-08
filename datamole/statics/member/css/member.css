@@ -63,25 +63,40 @@ strong { font-weight: bold; }
 .team-text h4 a{color: #5d5d5d;}
 .team-text p {line-height: 24px;font-style:normal;}
 
-/* ----- zhuanli PAGE ----- */
-/*.zhuanli { margin-top: 30px;}
-.zhuanli .lnav{position: fixed;top: 150px;left: 0px;}
-.zhuanli .lnav ul{border: 1px solid #5d5d5d;}
-.zhuanli .lnav li{list-style: none;border-bottom: 1px solid #33adff;text-align: center;}
-.zhuanli .lnav li a{font-size: 16px;color: #000;display: block;}
-.zhuanli .lnav li:hover a{color: #fff;background-color: #33adff;}
+/*member detail*/
 
-.zhuanli .rcontent {}
-.zhuanli .rcontent .categary{background: url(../img/line.png) left center repeat-x;margin: 30px 0 20px;}
-.zhuanli .rcontent .categary span{display:block;width: 200px;background-color: #fff;margin: 0 auto;}
-.zhuanli .rcontent .zl-box{border-bottom: 1px solid #33adff;}
-.zhuanli .rcontent .box-l{text-align:left;}
-.zhuanli .rcontent .box-l h4{}
-.zhuanli .rcontent .box-l .author{font-style: italic;float: left;margin-right: 20px;}
-.zhuanli .rcontent .box-l .num{font-style: italic;float: left;}
-.zhuanli .rcontent .box-l p{margin-top: 5px;}
-.zhuanli .rcontent .box-l p em{color: #33adff;font-style: italic;cursor: pointer;margin-left: 20px;}
-.zhuanli .rcontent .box-r{margin-top: 50px;text-align: center;}
-.zhuanli .rcontent .box-r a{border: 1px solid #33adff;color:#33adff;display: inline-block;width: 60px;height: 25px;line-height: 25px;border-radius: 3px;margin: 0 10px; }
-.zhuanli .rcontent .box-r a:hover{background-color: #33adff;color: #fff;}*/
-
+/*top banner*/
+.dtop{
+    background: url('/static/member/img/member_top2.png') no-repeat center;
+    height: 277px;
+}
+.dtop_box{
+    width: 990px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.dtop_box i{
+    position: absolute;
+    top: 80px;
+    left: 0;
+    z-index: 100;
+    width: 990px;
+    font-size: 60px;
+    color: #fff;
+    text-align: center;
+    font-style: normal;
+    font-weight: 100;
+    font-family:'方正兰亭纤黑_GBK','方正兰亭纤黑简体','方正兰亭纤黑繁体','微软雅黑','Helvetica Neue',Helvetica,Arial;
+}
+.dtop_box p{
+    position: absolute;
+    top: 171px;
+    left: 0;
+    z-index: 100;
+    width: 990px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    font-weight: 100;
+}
