@@ -1,0 +1,40 @@
+/**
+ * blog css
+ */
+
+/*list top*/
+.ltop{
+    background: url('/static/blog/img/blog_top1.png') no-repeat center;
+    background-size: cover;
+    height: 300px;
+}
+.ltop_box{
+    width: 990px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.ltop_box i{
+	position: absolute;
+	top: 80px;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    font-size: 60px;
+    color: #fff;
+    text-align: center;
+    font-style: normal;
+    font-weight: 100;
+    font-family:'方正兰亭纤黑_GBK','方正兰亭纤黑简体','方正兰亭纤黑繁体','微软雅黑','Helvetica Neue',Helvetica,Arial;
+}
+.ltop_box p{
+	position: absolute;
+    top: 171px;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    font-weight: 100;
+}
