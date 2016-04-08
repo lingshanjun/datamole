@@ -1,6 +1,12 @@
 # coding=utf-8
 from django.db import models
 from django.utils.html import format_html
+from HTMLParser import HTMLParser
+
+class myHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print 'tag', tag
+        print 'attrs', attrs
 
 
 class BlogBigType(models.Model):
@@ -81,7 +87,6 @@ class Blog(models.Model):
     def get_cover(self):
         """获取封面图
             若上传封面图,则此即为封面图;
-            若没有上传封面图,则从文章中获取第一张插图即为封面图;
             若文章中也没有插图,则选择默认的图片为封面图
         """
         if self.cover:
