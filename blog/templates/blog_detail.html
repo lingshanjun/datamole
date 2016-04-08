@@ -2,37 +2,10 @@
 {% block title %}{{blog.title}}-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}">
-<style>
-	pre {
-    	position: relative;
-    	padding:0px 0px 0px 21px;
-	}
-	.pre-numbering {
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    width: 20px;
-	    height: 100%;
-	    padding: 7px 2px 0px 0px;
-	    border-right: 1px solid #C3CCD0;
-	    border-radius: 3px 0 0 3px;
-	    background-color: #EEE;
-	    text-align: right;
-	    font-family: Menlo, monospace;
-	    font-size: 1em;
-	    color: #AAA;
-	    margin-bottom: 0;
-	}
-</style>
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
 {% block content %}
-	<div class="jumbotron">
-		<div class="container">
-		  	<h1>巨幕</h1>
-		  	<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-	  	</div>
-	</div>
-	<div class="container-fluid- container">
+	<div class="container-fluid- container dcontainer">
 		<div class="row">
 			<div class="col-sm-9">
 				<div class="media well">
