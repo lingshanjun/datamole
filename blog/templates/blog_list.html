@@ -1,4 +1,4 @@
-{% extends 'base.html' %}{% load staticfiles %}
+{% extends 'base.html' %}{% load staticfiles %}{% load pagination_tags %}
 {% block title %}教程博客{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
@@ -13,7 +13,8 @@
 	<div class="container-fluid- container lcontainer">
 		<div class="row">
 			<div class="col-sm-9">
-				{% for obj in blog %}
+				{% autopaginate blogs 10 %}
+				{% for obj in blogs %}
 				<div class="media well">
 				  	<div class="media-left media-middle col-sm-4">
 				    	<a href="/blog/{{obj.id}}/" class="thumbnail">
@@ -91,4 +92,6 @@
 			</div>
 		</div>
 	</div>
+	<div class="text-center text-danger">{% paginate %}</div>
+
 {% endblock %}

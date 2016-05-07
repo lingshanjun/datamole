@@ -4,7 +4,6 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print 'haha',BASE_DIR
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -33,6 +32,7 @@ INSTALLED_APPS = (
     'science',
     'news',
     'monograph',
+    'pagination',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -44,6 +44,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'datamole.urls'
@@ -61,7 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.core.context_processors.request',#suit need
+                'django.core.context_processors.request',   # suit need
             ],
         },
     },
@@ -69,7 +71,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'datamole.wsgi.application'
 
-
+TEMPLATE_CONTEXT_PROCESSORS = (
+                                "django.core.context_processors.auth",
+                                "django.core.context_processors.debug",
+                                "django.core.context_processors.i18n",
+                                "django.core.context_processors.media",
+                                "django.core.context_processors.request",
+)
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
@@ -98,8 +106,8 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-#upload path
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+# upload path
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -136,4 +144,3 @@ STATICFILES_DIRS = (
 #     #     {'app':'dm','lable':'网站'},
 #     # )
 # }
-
