@@ -41,3 +41,71 @@
 .lcontainer{
     margin-top: 40px;
 }
+
+/*list content*/
+.box {
+    background-color: #ecf0f5;
+    border-radius: 6px;
+    padding: 14px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.box img {
+    height: 100px;
+    margin: 31px 0 27px;
+    vertical-align: bottom;
+}
+
+.box .big-illustration {
+    height: 111px;
+    margin-top: 20px;
+    width: 112px;
+}
+
+.box h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.box p {
+    margin-bottom: 33px;
+}
+
+.box.box-hot:before {
+    background: url("../img/ribbon.png") 0 0 no-repeat;
+    background-size: 82px 82px;
+    content: "";
+    height: 82px;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 82px;
+}
+
+.box a {
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 16.996px;
+    line-height: 20px;
+    padding: 12px 18px 13px;
+    background: #1da9cc;
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+}
+
+.box a:hover {
+    background: #1fb7d8;
