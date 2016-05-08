@@ -1,25 +1,35 @@
 {% extends 'base.html' %}{% load staticfiles %}
 {% block title %}论文详情-数据锚{% endblock %}
 {% block css %}
-<!-- <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}"> -->
+<link rel="stylesheet" href="{% static 'science/css/paper.css' %}">
 {% endblock %}
 {% block content %}
-	<div class="jumbotron">
-		<div class="container">
-		  	<h1>论文详情</h1>
-		  	<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-	  	</div>
+	<div class="ltop">
+		<div class="ltop_box">
+			<i>论文详情&nbsp;&nbsp;这里描述</i>
+			<p>论文详情这里描述</p>
+		</div>
 	</div>
 	<div class="container-fluid- container">
 		<div class="row">
 			<div class="col-sm-9">
+				<p>题目：{{paper.title}}</p>
+				<p>摘要：{{paper.abstract}}</p>
+				<p>关键字：{{paper.key_words}}</p>
+				<p>作者：{% for author in paper.authors.all %}{{author}} {% endfor %}</p>
+				<p>全部作者：{{paper.all_authors}}</p>
+				<p>发布时间：{{paper.pub_time}}</p>
+				<p>发布地点：{{paper.pub_location}}</p>
+				<p>发布刊物：{{paper.pub_pulications}}</p>
+				<p>公开链接：{{paper.link | urlize}}</p>
+				<p>是否允许下载：{{paper.is_download}}</p>
+				<p>下载文件：<a href="{{paper.dl_file.url}}">{{paper.dl_file}}</a></p>
 			</div>
 			<div class="col-sm-3">
-				
+				侧栏设置
 			</div>
 		</div>
 	</div>
 {% endblock %}
 {% block js %}
-<!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
 {% endblock %}

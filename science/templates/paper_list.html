@@ -19,7 +19,7 @@
 					<img class="big-illustration" alt="Spaceship" src="{% static 'science/img/default.png' %}">
 					<h3>{{obj.all_authors}}</h3>
 					<p>{{obj.title}}</p>
-					<a href="" target="_blank">Check it out</a>
+					<a href="{{obj.get_absolute_url}}" target="_blank">Check it out</a>
 				</div>
 			</div>
 			{% empty %}
