@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-
+from __future__ import unicode_literals
 from django.db import models
 from member.models import Member
 from django.utils.html import format_html
@@ -8,6 +8,7 @@ from django.utils.html import format_html
 class Paper(models.Model):
     title = models.CharField('题目', max_length=50, help_text='*必填*')
     abstract = models.TextField('摘要', help_text='*必填*')
+    key_words = models.CharField('关键字', max_length=100, help_text="*必填*, 用逗号隔开", default='')
     authors = models.ManyToManyField(Member, verbose_name=u'作者', blank=True, help_text='在列表中选择包含的作者')
     all_authors = models.CharField('所有作者', max_length=50, help_text='*必填*, 请按顺序输入所有作者笔名，如“张三，李四，王五”')
     pub_time = models.DateField('发表时间', help_text='*必填*')
@@ -22,8 +23,8 @@ class Paper(models.Model):
 
     class Meta:
         db_table = 'paper'
-        verbose_name = '论文'
-        verbose_name_plural = '论文'
+        verbose_name = u'论文'
+        verbose_name_plural = u'论文'
 
     def author_in_member(self):
         members = Paper.objects.get(pk=self.id).authors.all()
