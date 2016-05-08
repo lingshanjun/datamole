@@ -1,4 +1,4 @@
-{% extends 'base.html' %}{% load staticfiles %}
+{% extends 'base.html' %}{% load staticfiles %}{% load pagination_tags %}
 {% block title %}论文列表-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'science/css/paper.css' %}">
@@ -12,64 +12,22 @@
 	</div>
 	<div class="container-fluid- container lcontainer">
 		<div class="row">
+			{% autopaginate papers 10 %}
+			{% for obj in papers %}
 			<div class="col-sm-3">
 				<div class="box">
 					<img class="big-illustration" alt="Spaceship" src="{% static 'science/img/default.png' %}">
-					<h3>Boilerplate</h3>
-					<p>The most popular template for beginners and above.</p>
+					<h3>{{obj.all_authors}}</h3>
+					<p>{{obj.title}}</p>
 					<a href="" target="_blank">Check it out</a>
 				</div>
 			</div>
-			<div class="col-sm-3">
-				<div class="box">
-					<img class="big-illustration" alt="Spaceship" src="{% static 'science/img/default.png' %}">
-					<h3>Boilerplate</h3>
-					<p>The most popular template for beginners and above.</p>
-					<a href="" target="_blank">Check it out</a>
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="box box-hot">
-					<img class="big-illustration" alt="Spaceship" src="{% static 'science/img/default.png' %}">
-					<h3>Boilerplate</h3>
-					<p>The most popular template for beginners and above.</p>
-					<a href="" target="_blank">Check it out</a>
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="box">
-					<img class="big-illustration" alt="Spaceship" src="{% static 'science/img/default.png' %}">
-					<h3>Boilerplate</h3>
-					<p>The most popular template for beginners and above.</p>
-					<a href="" target="_blank">Check it out</a>
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="box">
-					<img class="big-illustration" alt="Spaceship" src="{% static 'science/img/default.png' %}">
-					<h3>Boilerplate</h3>
-					<p>The most popular template for beginners and above.</p>
-					<a href="" target="_blank">Check it out</a>
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="box">
-					<img class="big-illustration" alt="Spaceship" src="{% static 'science/img/default.png' %}">
-					<h3>Boilerplate</h3>
-					<p>The most popular template for beginners and above.</p>
-					<a href="" target="_blank">Check it out</a>
-				</div>
-			</div>
-			<div class="col-sm-3">
-				<div class="box">
-					<img class="big-illustration" alt="Spaceship" src="{% static 'science/img/default.png' %}">
-					<h3>Boilerplate</h3>
-					<p>The most popular template for beginners and above.</p>
-					<a href="" target="_blank">Check it out</a>
-				</div>
-			</div>
+			{% empty %}
+			<p>还没有发布的文章哦～</p>
+			{% endfor %}
 		</div>
 	</div>
+	<div class="text-center text-danger">{% paginate %}</div>
 {% endblock %}
 {% block js %}
 <!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
