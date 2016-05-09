@@ -3,6 +3,7 @@
 {% block css %}
 <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}">
 <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+<link rel="stylesheet" href="{% static 'blog/lib/scrolltop/css/css.css' %}">
 {% endblock %}
 {% block content %}
 	<div class="container-fluid- container dcontainer">
@@ -68,9 +69,21 @@
 			</div>
 		</div>
 	</div>
+	<div id="scrolltop">
+		<div id="moquu_wxin" class="moquu_wxin">
+			<a href="javascript:void(0)">
+				<div class="moquu_wxinh"></div>
+			</a>
+		</div>
+		<div id="moquu_wmaps">
+			<a href="" class='moquu_wmaps' target="_blank"></a>
+		</div>
+		<a id="moquu_top" href="javascript:void(0)"></a>
+	</div>
 {% endblock %}
 {% block js %}
 <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script>
+<script src="{% static 'blog/lib/scrolltop/js/js.js' %}"></script>
 <script>
 	$(function(){
 		$('pre code').each(function(i, block) {
