@@ -28,11 +28,17 @@ def blogDetail(request, id=None):
     """blog详细页面"""
     data = {}
     blog = Blog.objects.get(pk=id)
+
     if blog.status == 0:
         return HttpResponseServerError('文章不存在！')
+
     data['blog'] = blog
     data['bigtype'] = BlogBigType.objects.all().order_by('id')
 
     blog.counts += 1
     blog.save()
+
+    authors = blog.authors.all()
+    data['authors'] = authors
+
     return render(request, 'blog_detail.html', data)

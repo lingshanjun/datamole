@@ -1,7 +1,10 @@
-# coding=utf-8
+# -*- coding:utf-8 -*-
+from __future__ import unicode_literals
 from django.db import models
 from django.utils.html import format_html
 from HTMLParser import HTMLParser
+from member.models import Member
+
 
 class myHTMLParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
@@ -68,6 +71,7 @@ class Blog(models.Model):
     is_recomment = models.BooleanField('推荐', default=False)
     status = models.SmallIntegerField('编辑状态', choices=STATUS, default=0)
     origin = models.SmallIntegerField('是否原创', choices=ORIGIN, default=0)
+    authors = models.ManyToManyField(Member, verbose_name=u'作者', blank=True, help_text='在列表中选择包含的作者')
 
     def __unicode__(self):
         return self.title
@@ -100,6 +104,24 @@ class Blog(models.Model):
             cover_src = '/static/common/img/default.png'
 
         return cover_src
+
+    def author_in_member(self):
+        members = Blog.objects.get(pk=self.id).authors.all()
+
+        html_str = []
+        if members:
+            for obj in members:
+                html_obj = format_html('<a href="{0}" target="_blank">{1}</a>', obj.get_absolute_url(), obj.name)
+                html_str.append(html_obj)
+        else:
+            html_str.append('datamole') # 默认
+
+        html_str = ','.join(html_str)
+
+        return html_str
+
+    author_in_member.short_description = '作者'
+    author_in_member.allow_tags = True
 
     def get_absolute_url(self):
         """在站点查看该blog--admin默认"""

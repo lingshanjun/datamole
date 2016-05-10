@@ -28,7 +28,7 @@
 				<div class="panel panel-info">
 				  	<div class="panel-heading">作者信息</div>
 				  	<div class="panel-body">
-				    	这里展示的是文章作者的信息
+				    	本文的作者是：{% for author in authors %} <a href="{{author.get_absolute_url}}">{{author.name}}</a>{% endfor %}
 				  	</div>
 				</div>
 				<div class="panel panel-info">
