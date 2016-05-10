@@ -36,6 +36,32 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<h3>论文</h3>
+				{% for paper in papers %}
+				<p>{{paper.title}}</p>
+				{% endfor %}
+			</div>
+			<div class="col-sm-3">
+				<h3>专利</h3>
+				{% for patent in patents %}
+				<p>{{patent.title}}</p>
+				{% endfor %}
+			</div>
+			<div class="col-sm-3">
+				<h3>软著</h3>
+				{% for soft in softs %}
+				<p>{{soft.title}}</p>
+				{% endfor %}
+			</div>
+			<div class="col-sm-3">
+				<h3>获奖</h3>
+				{% for prize in prizes %}
+				<p>{{prize.title}}</p>
+				{% endfor %}
+			</div>
+		</div>
 	</div>
 {% endblock %}
 {% block js %}
