@@ -55,6 +55,10 @@ class Blog(models.Model):
         (0, '草稿'),
         (1, '发布'),
     ]
+    ORIGIN = [
+        (0, '原创'),
+        (1, '转载'),
+    ]
     title = models.CharField('标题', max_length=100, help_text='*必填*')
     type = models.ForeignKey(BlogType, verbose_name=u'所属分类', help_text='*必填*')
     cover = models.ImageField('封面图', null= True, upload_to='blog/', blank=True)  # 博客导图
@@ -63,6 +67,7 @@ class Blog(models.Model):
     counts = models.IntegerField('点击数', default=0)  # 热度
     is_recomment = models.BooleanField('推荐', default=False)
     status = models.SmallIntegerField('编辑状态', choices=STATUS, default=0)
+    origin = models.SmallIntegerField('是否原创', choices=ORIGIN, default=0)
 
     def __unicode__(self):
         return self.title

@@ -45,11 +45,11 @@ class BlogTypeAdmin(admin.ModelAdmin):
 
 
 class BlogAdmin(SimditorMixin, admin.ModelAdmin):
-    list_display = ('id', 'title', 'show_cover', 'add_date', 'counts', 'is_recomment', 'status', 'type',
+    list_display = ('id', 'title', 'show_cover', 'add_date', 'counts', 'is_recomment', 'status', 'origin', 'type',
                     'show_blog_onsite')
     search_fields = ('id', 'title', 'content_show')
     list_display_links = ('title', )
-    radio_fields = {'status': admin.HORIZONTAL}
+    radio_fields = {'status': admin.HORIZONTAL, 'origin':admin.HORIZONTAL}
     list_per_page = 10
     actions_on_bottom = True
 

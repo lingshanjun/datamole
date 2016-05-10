@@ -11,7 +11,17 @@
 			<div class="col-sm-9">
 				<div class="media well">
 				  	<h3>{{blog.title}}</h3>
+				  	<span class="label label-info">{% if blog.origin %}转载{% else %}原创{% endif %}</span>
 				  	<div>{{blog.content_show |safe}}</div>
+				</div>
+				<div class="well blog-copyright">
+				 	<p>
+				 		<label>温馨提示：</label>
+				 		<span class="con">本站文章除注明转载外，均为原创文章。转载请保留原出处及其显示链接，以方便溯源，避免陈旧错误知识的误导，同时有更好的阅读体验。本站和作者保留随时要求删除文章的权利！</span>
+				 	</p>
+				 	<p>
+				 		<label>本文链接：</label>
+				 		<a href="javascript:;">{{request.get_host}}{{request.path}}</a></p>
 				</div>
 			</div>
 			<div class="col-sm-3">
