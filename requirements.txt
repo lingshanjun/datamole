@@ -1,2 +1,5 @@
 Django==1.8.5
 MySQL-python==1.2.5
+django-pagination==1.0.5
+django-suit==0.3a1
+Pillow==3.1.1
