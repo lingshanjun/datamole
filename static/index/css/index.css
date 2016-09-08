@@ -1,0 +1,12 @@
+/*banner*/
+.banner{
+	overflow: hidden;
+}
+.swiper-container {
+	width: 1920px;
+    height:600px;
+}
+.swiper-pagination-bullet{
+	width: 10px;
+	height: 10px;
+}
