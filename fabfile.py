@@ -1,24 +1,21 @@
 from fabric.api import *
 from fabric.contrib import django
 
-
 env.hosts = ['root@138.68.6.219']
 
 
-# echo remote env variables
-def env():
-    run('env')
-
-
 # checkout remote project to be develop status
-def develop():
-    django.settings_module('datamole.settings')
+def develop_r():
+    with lcd('/home/django/datamole/settings/'):
+        local('echo "debug = True" > debug_conf.py ')
+        restart()
 
 
 # checkout remote project to be product status
-def product():
-    django.settings_module('datamole.settings.production')
-    # restart()
+def product_r():
+    with lcd('/home/django/datamole/settings/'):
+        local('echo "debug = False" > debug_conf.py ')
+        restart()
 
 
 # update code from git repo and restart server
@@ -38,3 +35,16 @@ def pull():
 def restart():
     with cd('/home/django/datamole'):
         run('service gunicorn restart')
+
+
+# checkout local project to be develop status
+def develop_l():
+    with lcd('/Users/lwj/mysite/datamole/datamole/settings/'):
+        local('echo "debug = True" > debug_conf.py ')
+
+
+# checkout local project to be product status
+def product_l():
+     with lcd('/Users/lwj/mysite/datamole/datamole/settings/'):
+        local('echo "debug = False" > debug_conf.py ')
+    # restart()
