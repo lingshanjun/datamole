@@ -3,21 +3,14 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# datamole app abspath
+DAPP_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# datamole project abpath
+PROJECT_DIR = os.path.dirname(DAPP_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'rwr4di0x1v!#k_d%7%3$)8^fb7_(vagv(8movzw(n4(*$xn)ja'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-TEMPLATE_DEBUG = False
-
-ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -56,7 +49,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(os.path.dirname(__file__), 'templates'),
+            os.path.join(DAPP_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -80,17 +73,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
                                 "django.core.context_processors.media",
                                 "django.core.context_processors.request",
 )
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'datamole',
-        'USER': 'datamole',
-        'PASSWORD': 'datamole',
-    }
-}
 
 
 # Internationalization
@@ -109,7 +91,7 @@ USE_TZ = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 # upload path
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -122,15 +104,14 @@ MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    # os.path.join(BASE_DIR, 'statics'),
-    os.path.join(os.path.dirname(__file__), 'statics'),
+    os.path.join(DAPP_DIR, 'statics'),
 )
 
 # suit config
