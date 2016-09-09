@@ -6,14 +6,14 @@ env.hosts = ['root@138.68.6.219']
 
 # checkout remote project to be develop status
 def develop_r():
-    with cd('/home/django/datamole/settings/'):
+    with cd('/home/django/datamole/datamole/settings/'):
         run('echo "debug = True" > debug_conf.py ')
         restart()
 
 
 # checkout remote project to be product status
 def product_r():
-    with cd('/home/django/datamole/settings/'):
+    with cd('/home/django/datamole/datamole/settings/'):
         run('echo "debug = False" > debug_conf.py ')
         restart()
 
