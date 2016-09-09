@@ -1,7 +1,9 @@
 from fabric.api import *
+from fabric.contrib import django
 
 
 env.hosts = ['root@138.68.6.219']
+
 
 # echo remote env variables
 def env():
@@ -10,16 +12,13 @@ def env():
 
 # checkout remote project to be develop status
 def develop():
-    run('echo "export DJANGO_SETTINGS_MODULE=datamole.settings" > /etc/profile')
-    run('source /etc/profile')
-    run('env')
+    django.settings_module('datamole.settings')
 
 
 # checkout remote project to be product status
 def product():
-    run('echo "export DJANGO_SETTINGS_MODULE=datamole.settings.production" > /etc/profile')
-    run('source /etc/profile')
-    run('env')
+    django.settings_module('datamole.settings.production')
+    # restart()
 
 
 # update code from git repo and restart server
