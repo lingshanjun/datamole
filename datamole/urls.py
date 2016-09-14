@@ -24,6 +24,8 @@ urlpatterns = [
 
     url(r'^$', 'datamole.views.datamoleIndex', name='index'),  # 网站首页
 
+    url(r'^introduce/$', 'datamole.views.introduce', name='introduce'),  # 实验室介绍页面
+
     url(r'^blog/$', 'blog.views.blogList', name='blog_list'),  # 教程列表
     url(r'^blog/type/(?P<id>\d+)/$', 'blog.views.type', name='blog_type'),  # 教程列表（根据分类显示）
     url(r'^blog/(?P<id>\d+)/$', 'blog.views.blogDetail', name='blog_detail'),  # 教程列表（根据标签显示）

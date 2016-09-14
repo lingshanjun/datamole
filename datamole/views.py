@@ -10,3 +10,9 @@ def datamoleIndex(request):
     slides = Slide.objects.order_by('priority').all()
     data['slides'] = slides
     return render(request, 'datamole_index.html', data)
+
+
+def introduce(request):
+    """介绍实验室的详细页面"""
+    data = {}
+    return render(request, 'datamole_introduce.html', data)

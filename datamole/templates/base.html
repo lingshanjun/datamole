@@ -25,7 +25,9 @@
   </head>
   <body>
     {% include 'common/header.html' %}
-    {% block content %}{% endblock %}
+    <div id="out-container">
+        {% block content %}{% endblock %}
+    </div>
     {% include 'common/footer.html' %}
     <script src="{% static 'common/js/jquery-1.11.3.min.js' %}"></script>
     <script src="{% static 'common/js/bootstrap.min.js' %}"></script>
