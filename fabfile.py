@@ -48,3 +48,15 @@ def product_l():
      with lcd('/Users/lwj/mysite/datamole/datamole/settings/'):
         local('echo "debug = False" > debug_conf.py ')
     # restart()
+
+
+# start local server
+def run():
+    with lcd('/Users/lwj/mysite/datamole/'):
+        local('python manage.py runserver 8080')
+
+
+# local collect statics
+def static():
+    with lcd('/Users/lwj/mysite/datamole/'):
+        local('python manage.py collectstatic')

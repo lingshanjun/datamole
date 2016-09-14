@@ -20,30 +20,30 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-                  url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
 
-                  url(r'^$', 'datamole.views.datamoleIndex', name='index'),  # 网站首页
+    url(r'^$', 'datamole.views.datamoleIndex', name='index'),  # 网站首页
 
-                  url(r'^blog/$', 'blog.views.blogList', name='blog_list'),  # 教程列表
-                  url(r'^blog/type/(?P<id>\d+)/$', 'blog.views.type', name='blog_type'),  # 教程列表（根据分类显示）
-                  url(r'^blog/(?P<id>\d+)/$', 'blog.views.blogDetail', name='blog_detail'),  # 教程列表（根据标签显示）
+    url(r'^blog/$', 'blog.views.blogList', name='blog_list'),  # 教程列表
+    url(r'^blog/type/(?P<id>\d+)/$', 'blog.views.type', name='blog_type'),  # 教程列表（根据分类显示）
+    url(r'^blog/(?P<id>\d+)/$', 'blog.views.blogDetail', name='blog_detail'),  # 教程列表（根据标签显示）
 
-                  url(r'^member/$', 'member.views.memberList', name='member_list'),  # 成员列表
-                  url(r'^member/(?P<id>\d+)/$', 'member.views.memberDetail', name='member_detail'),  # 成员详情
+    url(r'^member/$', 'member.views.memberList', name='member_list'),  # 成员列表
+    url(r'^member/(?P<id>\d+)/$', 'member.views.memberDetail', name='member_detail'),  # 成员详情
 
-                  url(r'^science/paper/$', 'science.views.paperList', name='paper_list'),  # 论文列表
-                  url(r'^science/paper/(?P<id>\d+)/$', 'science.views.paperDetail', name='paper_detail'),  # 论文详情
+    url(r'^science/paper/$', 'science.views.paperList', name='paper_list'),  # 论文列表
+    url(r'^science/paper/(?P<id>\d+)/$', 'science.views.paperDetail', name='paper_detail'),  # 论文详情
 
-                  url(r'^science/patent/$', 'science.views.patentList', name='patent_list'),  # 专利列表
+    url(r'^science/patent/$', 'science.views.patentList', name='patent_list'),  # 专利列表
 
-                  url(r'^science/soft/$', 'science.views.softList', name='soft_list'),  # 软著列表
+    url(r'^science/soft/$', 'science.views.softList', name='soft_list'),  # 软著列表
 
-                  url(r'^science/prize/$', 'science.views.prizeList', name='prize_list'),  # 获奖列表
-                  url(r'^science/prize/(?P<id>\d+)/$', 'science.views.prizeDetail', name='prize_detail'),  # 获奖详情
+    url(r'^science/prize/$', 'science.views.prizeList', name='prize_list'),  # 获奖列表
+    url(r'^science/prize/(?P<id>\d+)/$', 'science.views.prizeDetail', name='prize_detail'),  # 获奖详情
 
-                  url(r'^news/$', 'news.views.newsList', name='news_list'),  # 新闻列表
-                  url(r'^news/(?P<id>\d+)/$', 'news.views.newsDetail', name='news_detail'),  # 新闻详情
+    url(r'^news/$', 'news.views.newsList', name='news_list'),  # 新闻列表
+    url(r'^news/(?P<id>\d+)/$', 'news.views.newsDetail', name='news_detail'),  # 新闻详情
 
-                  url(r'^monograph/(?P<id>\d+)/$', 'monograph.views.monographDetail', name='monograph_detail'),  # 专著详情
+    url(r'^monograph/(?P<id>\d+)/$', 'monograph.views.monographDetail', name='monograph_detail'),  # 专著详情
 
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

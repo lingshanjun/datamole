@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseServerError
 from news.models import Slide
 
+
 def datamoleIndex(request):
     """datamole首页"""
     data = {}

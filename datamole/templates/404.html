@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en-US">
+<head>{% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - 对不起，您查找的页面不存在！</title>
+<link rel="stylesheet" href="{% static 'common/css/error.css' %}">
+<!-- Favicon and touch icons -->
+<link rel="shortcut icon" href="{% static 'ico/favicon.ico' %}">
+</head>
+<body>
+<div>
+  <div id="main">
+    <div id="header">
+      <h1><span class="icon">!</span>404</h1>
+    </div>
+    <div id="content">
+      <span class="sub">page not found</span>
+      <p>对不起，您查找的页面不存在！</p>
+    </div>
+    <div id="footer">
+      <a class="button" href="/">网站首页</a>
+      <a class="button" href="#" onClick="history.go(-1);return true;">返回上页</a>
+    </div>
+  </div>
+</div>
+	</body>
+</html>
