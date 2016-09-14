@@ -51,7 +51,7 @@ def product_l():
 
 
 # start local server
-def run():
+def server():
     with lcd('/Users/lwj/mysite/datamole/'):
         local('python manage.py runserver 8080')
 
