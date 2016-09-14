@@ -1,31 +1,19 @@
-/* --------------------------------
-
-Primary style
-
--------------------------------- */
-html * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-*, *:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body {
-  font-size: 100%;
+.recruit-section {
   color: #7f8c97;
   background-color: #e9f0f5;
 }
-
-
-
-img {
-  max-width: 100%;
+.recruit-section .sec-title{
+  font-size: 30px;
+  color: #5d5d5d;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 15px;
 }
-
+.recruit-section .sec-desc{
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
 .cd-container {
   width: 90%;
   max-width: 1170px;
@@ -156,9 +144,10 @@ Main components
   clear: both;
 }
 .cd-timeline-content h2 {
-  color: #303e49;
+  color: #5d5d5d;
   font-size: 16px;
   margin:10px 0;
+  line-height: 1.2em;
 }
 .cd-timeline-content::before {
   content: '';
@@ -178,7 +167,7 @@ Main components
 @media only screen and (min-width: 1170px) {
   .cd-timeline-content {
     margin-left: 0;
-    padding: 1.6em;
+    padding: 0.8em 1.6em;
     width: 45%;
   }
   .cd-timeline-content::before {
