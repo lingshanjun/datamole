@@ -18,6 +18,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
+from tools.upload import file_upload
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -47,5 +48,7 @@ urlpatterns = [
     url(r'^news/(?P<id>\d+)/$', 'news.views.newsDetail', name='news_detail'),  # 新闻详情
 
     url(r'^monograph/(?P<id>\d+)/$', 'monograph.views.monographDetail', name='monograph_detail'),  # 专著详情
+
+    url(r'^upload/', file_upload),  # upload file with simditor
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
