@@ -1,10 +1,10 @@
 {% extends 'base.html' %}{% load staticfiles %}
-{% block title %}{{blog.title}}{{member.name}}-数据锚{% endblock %}
+{% block title %}{{member.name}}-数据锚{% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'member/css/member.css' %}">
+<link rel="stylesheet" href="{% static 'member/css/member-detail.css' %}">
 {% endblock %}
 {% block content %}
-	<div class="dtop">
+	<!-- <div class="dtop">
 		<div class="dtop_box">
 			<i>{{member.name}}</i>
 			<p>{{member.descripe}}</p>
@@ -62,8 +62,131 @@
 				{% endfor %}
 			</div>
 		</div>
+	</div> -->
+	<div class="container">
+        <ol class="breadcrumb">
+            <li><a href="/"><span>首页</span></a></li>
+            <li><a href="/member/"><span>团队成员</span></a></li>
+            <li><a href="#"><span>{{member.name}}</span></a></li>
+        </ol>
+    </div>
+    <div class="member-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="left-img"><img class="img-circle img-responsive img" src="{{member.avatar.url}}" alt="{{member.name}}" width="200px" height="200px">
+                        <h3 class="text-nowrap text-center">{{member.name}} </h3>
+                        <p class="text-center">{{member.descripe}} </p>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8">
+                    <div class="right-text">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3"><span class="label label-default">信息</span></div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"><span>{{member.introduction}} </span></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3"><span class="label label-default">研究方向 </span></div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"><span>{{member.search}} </span></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3"><span class="label label-default">加入时间 </span></div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"><span>{{member.joinin}} </span></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3"><span class="label label-default">联系方式 </span></div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"><span><strong>微信: </strong>{{member.wechat}} <strong>QQ：</strong>{{member.qq}} <strong>微博：</strong>{{member.weibo}}<strong> 邮箱：</strong>{{member.email}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <hr class="section-hr">
+    </div>
+    <div class="his-fruits">
+        <div class="container">
+            <h2 class="text-center">{% if member.sex == 2 %}她{% else %}他{% endif %}的成果 </h2>
+            <div class="categories">
+                <ul class="cat">
+                    <li><a href="#" class="active">论文 </a></li>
+                    <li><a href="#">专利 </a></li>
+                    <li><a href="#">软著 </a></li>
+                    <li><a href="#">获奖 </a></li>
+                </ul>
+            </div>
+        </div>
+	    <div class="container">
+			<div class="row">
+				{% for paper in papers %}
+				<div class="col-sm-4 col-md-3 col-lg-3  paper-box">
+					<div class="box">
+						<i class="fa fa-mortar-board"></i>
+						<h3 class="title">{{paper.title}}</h3>
+	                    <p class="author">{{paper.all_authors}}</p>
+	                    <p class="date">发表于 {{paper.pub_time}}</p>
+						<a href="{{paper.get_absolute_url}}" target="_blank">Check it out</a>
+					</div>
+				</div>
+				{% endfor %}
+				{% for patent in patents %}
+				<div class="col-sm-4 col-md-3 col-lg-3 patent-box">
+					<div class="box">
+						<i class="fa fa-filter"></i>
+						<h3 class="title">{{patent.title}}</h3>
+	                    <p class="author">{{patent.all_creators}}</p>
+	                    <p class="date">
+	                    	{% if patent.status == 1 %}
+	                    	<span class="label label-default status status-accept">受理</span>
+	                    	{% elif patent.status == 2 %}
+	                    	<span class="label label-default status status-public">公开</span>
+	                    	{% else %}
+	                    	<span class="label label-default status status-authorize">授权</span>
+	                    	{% endif %}
+	                    	时间 {{patent.time_apply}}
+	                    </p>
+						<a href="{{patent.get_absolute_url}}" target="_blank">专利详情</a>
+					</div>
+				</div>
+				{% endfor %}
+				{% for soft in softs %}
+	            <div class="col-sm-4 col-md-3 col-lg-3 soft-box">
+					<div class="box">
+						<i class="fa fa-file-code-o"></i>
+						<h3 class="title">{{soft.title}}</h3>
+	                    <p class="author">{{soft.all_creators}}</p>
+	                    <p class="date">发表于 {{soft.time}}</p>
+						<a href="{{soft.get_absolute_url}}" target="_blank">查看登记证书</a>
+					</div>
+				</div>
+				{% endfor %}
+				{% for prize in prizes %}
+	            <div class="col-sm-4 col-md-3 col-lg-3 prize-box">
+					<div class="box">
+						<i class="fa fa-trophy"></i>
+						<h3 class="title">{{soft.title}}</h3>
+	                    <p class="author">{{soft.all_persons}}</p>
+	                    <p class="date">{{soft.time}}
+	                    	<span class="label label-default classic">
+	                    	{% if soft.grade == 1 %}国际级
+	                    	{% elif soft.grade == 2 %}国家级
+	                    	{% elif soft.grade == 3 %}省市级
+	                    	{% elif soft.grade == 4 %}校级
+	                    	{% else %}其它
+	                    	{% endif %}
+	                    	</span>
+	                    </p>
+						<a href="#" target="_blank">查看详情</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
 	</div>
 {% endblock %}
 {% block js %}
-<!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
 {% endblock %}

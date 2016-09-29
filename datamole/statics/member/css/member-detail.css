@@ -1,0 +1,213 @@
+/* breadcrumb */
+.breadcrumb li span {
+  color:#19b5fe;
+}
+
+/* member detail */
+.member-detail {
+  padding:40px 0;
+}
+
+.member-detail div.left-img {
+  border:1px solid #d7d7d7;
+  padding:30px 20px;
+}
+
+.member-detail img.img-circle.img-responsive.img {
+  margin:0 auto;
+}
+
+.member-detail .right-text .label {
+  font-size:12px;
+  background-color:#727a80;
+  width:100%;
+  display:block;
+  text-align:center;
+}
+
+@media (max-width:767px) {
+  .member-detail .right-text .label {
+    margin:5px 0;
+  }
+}
+
+@media (max-width:991px) {
+  .member-detail .right-text .label {
+    padding-left:0;
+    padding-right:0;
+  }
+}
+
+.member-detail .right-text hr {
+  margin:10px 0;
+  border-color:#d7d7d7;
+}
+
+
+/* fruits section */
+.section-hr {
+  display:block;
+  height:2px;
+  border:0;
+  margin:20px 0 10px;
+  padding:0;
+  background-image:-webkit-linear-gradient(left, #fff, #19B5FE, #fff);
+  background-image:-moz-linear-gradient(left, #fff, #19B5FE, #fff);
+  background-image:-ms-linear-gradient(left, #fff, #19B5FE, #fff);
+  background-image:-o-linear-gradient(left, #fff, #19B5FE, #fff);
+  position:relative;
+  border:none;
+}
+
+div.his-fruits {
+  padding:30px 0;
+  background:rgb(255,255,255);
+}
+
+.his-fruits h2.text-center {
+  text-align:center;
+  font-size:34px;
+  color:#666;
+  font-weight:500;
+  line-height:37.4px;
+  margin-bottom:30px;
+  margin-top:20px;
+}
+
+div.categories {
+  padding-bottom:40px;
+  text-align:center;
+}
+
+.categories ul {
+  padding:0;
+  webkit-padding:0;
+  moz-padding:0;
+  list-style:none;
+  margin-bottom:0;
+}
+
+.categories .cat li {
+  display:inline-block;
+  margin-left:20px;
+}
+
+.categories .cat li a {
+  color:#8a9095;
+  border:1px solid #fff;
+  padding:4px 8px;
+  border-radius:4px;
+  text-decoration:none;
+}
+
+.categories .cat li a.active {
+  color:#8a9095;
+  border-bottom:1px solid #19B5FE;
+}
+
+.categories .cat li a:hover {
+  color:#8a9095;
+  border-bottom:1px solid #19B5FE;
+}
+
+
+.box {
+  border-radius:6px;
+  padding:20px;
+  position:relative;
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.box h3.title {
+  font-size:20px;
+  height:3.4em;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.box p.author {
+  overflow:hidden;
+  margin:10px 0 2px;
+  text-align:center;
+  white-space:nowrap;
+  font-size:14px;
+  text-overflow:ellipsis;
+  color:#727A80;
+}
+
+.box p.date {
+  text-align:center;
+  color:#727A80;
+  margin-bottom:5px;
+  font-style:normal;
+  font-size:12px;
+}
+
+.box i.fa {
+  font-size:50px;
+  color:#19b5fe;
+}
+
+.box a {
+  display:block;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  font-size:16.996px;
+  line-height:20px;
+  padding:12px 18px 13px;
+  background:#19b5fe;
+  border:none;
+  color:#ffffff;
+  text-decoration:none;
+  text-shadow:none;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  border-radius:6px;
+  -webkit-box-shadow:none;
+  -moz-box-shadow:none;
+  box-shadow:none;
+  -webkit-backface-visibility:hidden;
+  width:100%;
+}
+
+.box a:hover {
+  background:#159ad8;
+}
+
+
+.paper-box .box {
+  background-color:#ecf0f5;
+}
+
+.patent-box .box {
+  background-color:rgba(169,170,170,0.4);
+}
+
+.soft-box .box {
+  background-color:rgba(117,174,209,0.35);
+}
+
+.prize-box .box {
+  background-color:#dac9eb;
+}
+
+.patent-box .label.status {
+  margin-right:10px;
+  font-size:12px;
+}
+.patent-box .label.status-accept {
+  background-color:#c5352c;
+}
+.patent-box .label.status-public {
+  background-color:#dad434;
+}
+.patent-box .label.status-authorize {
+  background-color:#2acd26;
+}
+
+.prize-box .box p.date .classic {
+  margin-left:10px;
+}
+
