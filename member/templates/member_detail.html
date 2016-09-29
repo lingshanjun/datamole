@@ -109,19 +109,19 @@
 	            <div class="col-sm-4 col-md-3 col-lg-3 prize-box">
 					<div class="box">
 						<i class="fa fa-trophy"></i>
-						<h3 class="title">{{soft.title}}</h3>
-	                    <p class="author">{{soft.all_persons}}</p>
-	                    <p class="date">{{soft.time}}
+						<h3 class="title">{{prize.title}}</h3>
+	                    <p class="author">{{prize.all_persons}}</p>
+	                    <p class="date">{{prize.time}}
 	                    	<span class="label label-default classic">
-	                    	{% if soft.grade == 1 %}国际级
-	                    	{% elif soft.grade == 2 %}国家级
-	                    	{% elif soft.grade == 3 %}省市级
-	                    	{% elif soft.grade == 4 %}校级
+	                    	{% if prize.grade == 1 %}国际级
+	                    	{% elif prize.grade == 2 %}国家级
+	                    	{% elif prize.grade == 3 %}省市级
+	                    	{% elif prize.grade == 4 %}校级
 	                    	{% else %}其它
 	                    	{% endif %}
 	                    	</span>
 	                    </p>
-						<a href="#">查看详情</a>
+						<a href="{{prize.get_absolute_url}}">查看详情</a>
 					</div>
 				</div>
 				{% endfor %}

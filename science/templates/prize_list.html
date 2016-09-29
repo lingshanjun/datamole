@@ -1,43 +1,10 @@
 {% extends 'base.html' %}{% load staticfiles %}
 {% block title %}获奖列表-数据锚{% endblock %}
 {% block css %}
-<!-- <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}"> -->
+<link rel="stylesheet" href="{% static 'science/css/prize.css' %}">
 {% endblock %}
 {% block content %}
-	<div class="jumbotron">
-		<div class="container">
-		  	<h1>获奖列表</h1>
-		  	<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-	  	</div>
-	</div>
-	<div class="container-fluid- container">
-		<div class="row">
-			<div class="col-sm-3">
-				<div class="panel panel-info">
-				  	<div class="panel-heading">侧栏导航<a href="" class="pull-right"><i>></i></a></div>
-				  	<div class="panel-body">
-				    	这里展示的是侧栏内容
-				  	</div>
-				  	<!-- List group -->
-				  	<ul class="list-group">
-				  		<li class="list-group-item">还没有热门文章哦～</li>
-				  		<li class="list-group-item">还没有热门文章哦～</li>
-				  		<li class="list-group-item">还没有热门文章哦～</li>
-				  		<li class="list-group-item">还没有热门文章哦～</li>
-				  		<li class="list-group-item">还没有热门文章哦～</li>
-				  	</ul>
-				  	{% comment %}
-				  	<ul class="list-group">
-				  		{% for obj in hot %}
-				    	<li class="list-group-item"><a href="/blog/{{obj.id}}/">{{forloop.counter}}&nbsp;&nbsp;{{obj.title}}&nbsp;&nbsp;<span class="badge">{{obj.counts}}</span></a></li>
-				    	{% empty%}
-				    	<li class="list-group-item">还没有热门文章哦～</li>
-				    	{% endfor %}
-				  	</ul>
-				  	{% endcomment%}
-				</div>
-			</div>
-			<div class="col-sm-9">
+			<!-- <div class="col-sm-9">
 				{% for obj in papers %}
 				<div class="well">
 					<ul class="list-group">
@@ -48,10 +15,41 @@
 					</ul>
 				</div>
 				{% endfor %}
+			</div> -->
+<div class="jumbotron-circular-addon-wrapper">
+    <div class="jumbotron-addon jumbotron-addon-top jumbotron-addon-circle"><span class="bg-primary fa fa-trophy"> </span></div>
+    <div class="jumbotron">
+        <h1>评奖评优 </h1>
+        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+    </div>
+    <div class="jumbotron-addon jumbotron-addon-bottom jumbotron-addon-circle"><span class="bg-primary"> <i class="fa fa-angle-double-down"></i></span></div>
+</div>
+<div id="prize-list">
+    <div class="container">
+		<div class="row">
+			{% for prize in prizes %}
+			<div class="col-sm-4 col-md-3 col-lg-3">
+				<div class="box">
+					<i class="fa fa-trophy"></i>
+					<h3 class="title">{{prize.title}}</h3>
+                    <p class="author">{{prize.all_persons}}</p>
+                    <p class="date">{{prize.time}}
+                    	<span class="label label-default classic">
+                    	{% if prize.grade == 1 %}国际级
+                    	{% elif prize.grade == 2 %}国家级
+                    	{% elif prize.grade == 3 %}省市级
+                    	{% elif prize.grade == 4 %}校级
+                    	{% else %}其它
+                    	{% endif %}
+                    	</span>
+	                </p>
+					<a href="{{prize.get_absolute_url}}">查看详情</a>
+				</div>
 			</div>
+			{% endfor %}
 		</div>
 	</div>
+</div>
 {% endblock %}
 {% block js %}
-<!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
 {% endblock %}
