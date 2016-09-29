@@ -4,65 +4,6 @@
 <link rel="stylesheet" href="{% static 'member/css/member-detail.css' %}">
 {% endblock %}
 {% block content %}
-	<!-- <div class="dtop">
-		<div class="dtop_box">
-			<i>{{member.name}}</i>
-			<p>{{member.descripe}}</p>
-		</div>
-	</div>
-	<div class="container-fluid- container">
-		<div class="row dinfor">
-			<div class="col-sm-4">
-				<div class="dl">
-					<img src="{{member.avatar.url}}" alt="{{member.name}}" class="img">
-					<p class="p1">{{member.name}}</p>
-					<p class="p2">{{member.search}}</p>
-				</div>
-			</div>
-			<div class="col-sm-8">
-				<div class="dr">
-					<p>姓名：{{member.name}}</p>
-					<p>性别：{{member.sex}}</p>
-					<p>简介：{{member.descripe}}</p>
-					<p>信息：{{member.introduction}}</p>
-					<p>生日：{{member.birthday}}</p>
-					<p>加入时间：{{member.joinin}}</p>
-					<p>研究方向：{{member.search}}</p>
-					<p>在职状态：{{member.work_status}}</p>
-					<p>联系方式：
-						<span>微信：{{member.wechat}}</span><span>QQ：{{member.qq}}</span><span>微博：{{member.weibo}}</span><span>邮箱：{{member.email}}</span>
-					</p>
-
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-3">
-				<h3>论文</h3>
-				{% for paper in papers %}
-				<p>{{paper.title}}</p>
-				{% endfor %}
-			</div>
-			<div class="col-sm-3">
-				<h3>专利</h3>
-				{% for patent in patents %}
-				<p>{{patent.title}}</p>
-				{% endfor %}
-			</div>
-			<div class="col-sm-3">
-				<h3>软著</h3>
-				{% for soft in softs %}
-				<p>{{soft.title}}</p>
-				{% endfor %}
-			</div>
-			<div class="col-sm-3">
-				<h3>获奖</h3>
-				{% for prize in prizes %}
-				<p>{{prize.title}}</p>
-				{% endfor %}
-			</div>
-		</div>
-	</div> -->
 	<div class="container">
         <ol class="breadcrumb">
             <li><a href="/"><span>首页</span></a></li>

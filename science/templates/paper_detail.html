@@ -1,35 +1,45 @@
 {% extends 'base.html' %}{% load staticfiles %}
-{% block title %}论文详情-数据锚{% endblock %}
+{% block title %}{{paper.title}}-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'science/css/paper.css' %}">
 {% endblock %}
 {% block content %}
-	<div class="ltop">
-		<div class="ltop_box">
-			<i>论文详情&nbsp;&nbsp;这里描述</i>
-			<p>论文详情这里描述</p>
-		</div>
-	</div>
-	<div class="container-fluid- container">
-		<div class="row">
-			<div class="col-sm-9">
-				<p>题目：{{paper.title}}</p>
-				<p>摘要：{{paper.abstract}}</p>
-				<p>关键字：{{paper.key_words}}</p>
-				<p>作者：{% for author in paper.authors.all %}{{author}} {% endfor %}</p>
-				<p>全部作者：{{paper.all_authors}}</p>
-				<p>发布时间：{{paper.pub_time}}</p>
-				<p>发布地点：{{paper.pub_location}}</p>
-				<p>发布刊物：{{paper.pub_pulications}}</p>
-				<p>公开链接：{{paper.link | urlize}}</p>
-				<p>是否允许下载：{{paper.is_download}}</p>
-				<p>下载文件：<a href="{{paper.dl_file.url}}">{{paper.dl_file}}</a></p>
-			</div>
-			<div class="col-sm-3">
-				侧栏设置
-			</div>
-		</div>
-	</div>
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="/"><span>首页</span></a></li>
+        <li><a href="/science/paper/"><span>论文</span></a></li>
+        <li><a href="#"><span>{{paper.title}}</span></a></li>
+    </ol>
+</div>
+<div class="paper-detail container">
+    <h1>【论文】{{paper.title}} </h1>
+    <hr />
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <h3>摘要 </h3>
+            <p class="text-left">{{paper.abstract}}</p>
+            <a href="{{paper.link}}">查看全文 <i class="fa fa-angle-double-right"></i></a>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><span class="label label-default">关键字 </span><span>{{paper.key_words}}</span></li>
+                <li class="list-group-item"><span class="label label-default">全部作者 </span><span>{{paper.all_authors}}</span></li>
+                <li class="list-group-item"><span class="label label-default">发布时间 </span><span>{{paper.pub_time}}</span></li>
+                <li class="list-group-item"><span class="label label-default">发布地点 </span><span>{% if paper.pub_location %}{{paper.pub_location}}{% else %}暂无{% endif %}</span></li>
+                <li class="list-group-item"><span class="label label-default">发布刊物 </span><span>{% if paper.pub_pulications %}{{paper.pub_pulications}}{% else %}暂无{% endif %}</span></li>
+            	{% if paper.is_download %}
+                <li class="list-group-item"><span class="label label-default">下载本文 </span><a href="{{paper.dl_file.url}}"><i class="fa fa-cloud-download"></i></a></li>
+                {% endif %}
+            </ul>
+            <nav>
+                <ul class="pager">
+                    <li class="previous"><a href="">上一篇 </a></li>
+                    <li class="next"><a href="">下一篇</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
 {% endblock %}
 {% block js %}
 {% endblock %}

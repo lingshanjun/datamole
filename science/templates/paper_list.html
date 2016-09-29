@@ -4,31 +4,31 @@
 <link rel="stylesheet" href="{% static 'science/css/paper.css' %}">
 {% endblock %}
 {% block content %}
-	<div class="ltop">
-		<div class="ltop_box">
-			<i>论文列表&nbsp;&nbsp;这里描述</i>
-			<p>论文列表这里描述</p>
-		</div>
-	</div>
-	<div class="container-fluid- container lcontainer">
+<div class="jumbotron-circular-addon-wrapper">
+    <div class="jumbotron-addon jumbotron-addon-top jumbotron-addon-circle"><span class="bg-primary fa fa-mortar-board"> </span></div>
+    <div class="jumbotron">
+        <h1> 学术论文</h1>
+        <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+    </div>
+    <div class="jumbotron-addon jumbotron-addon-bottom jumbotron-addon-circle"><span class="bg-primary"> <i class="fa fa-angle-double-down"></i></span></div>
+</div>
+<div id="paper-list">
+    <div class="container">
 		<div class="row">
-			{% autopaginate papers 10 %}
-			{% for obj in papers %}
-			<div class="col-sm-3">
+			{% for paper in papers %}
+			<div class="col-sm-4 col-md-3 col-lg-3">
 				<div class="box">
-					<img class="big-illustration" alt="Spaceship" src="{% static 'science/img/default.png' %}">
-					<h3>{{obj.all_authors}}</h3>
-					<p>{{obj.title}}</p>
-					<a href="{{obj.get_absolute_url}}" target="_blank">Check it out</a>
+					<i class="fa fa-mortar-board"></i>
+					<h3 class="title">{{paper.title}}</h3>
+                    <p class="author">{{paper.all_authors}}</p>
+                    <p class="date">发表于 {{paper.pub_time}}</p>
+					<a href="{{paper.get_absolute_url}}" target="_blank">Check it out</a>
 				</div>
 			</div>
-			{% empty %}
-			<p>还没有发布的文章哦～</p>
 			{% endfor %}
 		</div>
 	</div>
-	<div class="text-center text-danger">{% paginate %}</div>
+</div>
 {% endblock %}
 {% block js %}
-<!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
 {% endblock %}
