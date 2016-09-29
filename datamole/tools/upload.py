@@ -12,7 +12,7 @@ import cloudinary.uploader
 import cloudinary.api
 
 from datamole.settings.safe_data import cloudinary_data
-print cloudinary_data
+
 
 # use to upload file to local media folders
 # @csrf_exempt  # 取消csrf验证，否则会有403错误

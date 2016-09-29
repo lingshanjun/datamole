@@ -1,43 +1,101 @@
 {% extends 'base.html' %}{% load staticfiles %}
 {% block title %}智能感知和数据研究室-数据锚{% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'index/lib/swiper/swiper.min.css' %}">
 <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
 {% endblock %}
 {% block content %}
-<!-- Slider -->
-<div class="banner">
-	<div class="swiper-container">
-	    <div class="swiper-wrapper">
-	        {% for slide in slides %}
-			<img src="{{slide.img.url}}" alt="" class="swiper-slide">
-			{% endfor %}
+<header class="text-center" name="home" id="header-section">
+  	<div class="intro-text">
+    	<h1 class="wow zoomIn animated" style="visibility: visible; animation-name: zoomIn;">Welcome to <span class="color">DATAMOLE</span></h1>
+    	<p class="wow fadeInDown animated" data-wow-delay="600ms" style="visibility: visible; animation-delay: 600ms; animation-name: fadeInDown;">智能感知与数据研究室</p>
+    	<div class="clearfix"></div>
+    	<a href="#works-section" class="btn btn-default btn-lg page-scroll wow fadeInDown animated" data-wow-delay="1000ms" style="visibility: visible; animation-delay: 1000ms; animation-name: fadeInDown;">GET MORE</a>
+    </div>
+</header>
+<div id="lab-section" class="section-common">
+  	<div class="container">
+    	<div class="row">
+      		<h2 class="centered">研究室</h2>
+      		<hr>
+      		<div class="col-lg-8 col-lg-offset-2 centered">
+        		<p class="large">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+      		</div>
+    	</div>
+    	<div class="row">
+      		<div class="col-md-6"> <img class="img-responsive" src="{% static 'index/img/about1.jpg' %}" align=""> </div>
+      		<div class="col-md-6">
+        		<h3>About us</h3>
+        		<p>Lorem ipsum dolor sit amet, quo meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel. Te sit malorum ceteros repudiandae, ne tritani adipisci vis.</p>
+        		<h3>Why choose us?</h3>
+        		<p>Lorem ipsum dolor sit amet, quo meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel.</p>
+      		</div>
+    	</div>
+	    <div class="row">
+	      	<div class="col-md-6">
+		        <h3>About us</h3>
+		        <p>Lorem ipsum dolor sit amet, quo meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel. Te sit malorum ceteros repudiandae, ne tritani adipisci vis.</p>
+		        <h3>Why choose us?</h3>
+		        <p>Lorem ipsum dolor sit amet, quo meis audire placerat eu, te eos porro veniam. An everti maiorum detracto mea. Eu eos dicam voluptaria, erant bonorum albucius et per, ei sapientem accommodare est. Saepe dolorum constituam ei vel.</p>
+	      	</div>
+	     	<div class="col-md-6"> <img class="img-responsive" src="{% static 'index/img/about1.jpg' %}" align=""> </div>
 	    </div>
-	    <!-- 如果需要分页器 -->
-	    <div class="swiper-pagination"></div>
-	</div>
+  	</div>
 </div>
-<div class="container">
-	<div class="row box box1">
-		box1
-	</div>
-	<div class="row box box1">
-		box2
-	</div>
+<div id="services-section" class="text-center section-common">
+  	<div class="container">
+    	<div class="row">
+      		<h2 class="centered">研究成果</h2>
+      	<hr>
+    	</div>
+    	<div class="space"></div>
+    	<div class="row wow fadeInDown animated" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInDown;">
+      		<div class="col-md-6 col-sm-6 service"> <i class="fa fa-book icon-zhuanzhu"></i>
+      		</div>
+      		<div class="col-md-6 col-sm-6 service">
+        		<h4>专业著作</h4>
+        		<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.</p>
+        		<a href="#" class="learn-more">Learn more »</a>
+      		</div>
+    	</div>
+    	<div class="space"></div>
+    	<div class="row wow fadeInDown animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInDown;">
+      		<div class="col-md-3 col-sm-6 service"> <i class="fa fa-mortar-board"></i>
+        		<h4>学术论文</h4>
+        		<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
+        	<a href="#" class="learn-more">Learn more »</a>
+      		</div>
+      		<div class="col-md-3 col-sm-6 service"> <i class="fa fa-filter"></i>
+        		<h4>发明专利</h4>
+        		<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.</p>
+        		<a href="#" class="learn-more">Learn more »</a>
+      		</div>
+      		<div class="col-md-3 col-sm-6 service"> <i class="fa fa-file-code-o"></i>
+        		<h4>软件著作</h4>
+        		<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
+        		<a href="#" class="learn-more">Learn more »</a>
+      		</div>
+      		<div class="col-md-3 col-sm-6 service"> <i class="fa fa-trophy"></i>
+        		<h4>评奖评优</h4>
+        		<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.</p>
+        		<a href="#" class="learn-more">Learn more »</a>
+      		</div>
+    	</div>
+  	</div>
+</div>
+<div id="join-section" class="section-common">
+  	<div class="container">
+    	<div class="row">
+      		<h2 class="centered">招贤令</h2>
+      		<hr>
+      		<div class="col-lg-10 col-lg-offset-1 centered">
+        		<p class="large">北京工商大学“智能感知数据研究中心”与量化策略研发公司“XX”合作研究智能投资算法。现亟需大量计算机与金融方面人才。无论您是本科还是研究生，无论您是在职还是在校生，只要您有统计、机器学习、大数据、数学、计算机、会计、管理、经济学、计量、审计等相关专业背景，热爱量化投资行业，就可以加入我们。我们会有专业指导，让您对量化投资逐步深入并学以致用。</p>
+        		<p class="large">扫描二维码或搜索微信公众号 <strong>datamole</strong>，加入量化学习群。</p>
+        		<img src="{% static 'index/img/1.pic.jpg' %}" class="img-responsive qrcode"/>
+      		</div>
+    	</div>
+  	</div>
 </div>
 {% endblock %}
 {% block js %}
-<script src="{% static 'index/lib/swiper/swiper.jquery.min.js' %}"></script>
-<script>
-	$(function(){
-		$('.swiper-container').css('margin-left', -(1920-window.innerWidth)/2);
-		var mySwiper = new Swiper ('.swiper-container', {
-			autoplay:3000,
-	    	loop: true,
-	    	pagination: '.swiper-pagination',
-	    	paginationClickable: true,
-	    	autoplayDisableOnInteraction: false
-  		});
-	});
-</script>
+
 {% endblock %}

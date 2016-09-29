@@ -1,31 +1,26 @@
 <!-- Header -->
 {% load staticfiles %}
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+<!-- <div style="height:80px;"></div> -->
+<nav id="menu" class="navbar navbar-default navbar-fixed-top on">
     <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                <i class="fa fa-bars fa-2x"></i>
-            </button>
-            <a class="navbar-brand" href="/"><img src="{% static 'common/img/logo1.png'%}" alt=""></a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <a class="navbar-brand" href="/"><i class="fa fa-signal"></i> Datamole</a>
         </div>
-        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-            <ul class="nav navbar-nav">
-                <li {% if '/' == request.path %}class="active"{% endif %}><a href="/">首页</a></li>
-                <li {% if '/introduce/' == request.path %}class="active"{% endif %}><a href="/introduce/">实验室</a></li>
-                <li {% if '/member/' in request.path %}class="active"{% endif %}><a href="/member/">成员</a></li>
-                <li {% if '/monograph/' in request.path %}class="active"{% endif %}><a href="/monograph/1/">专著</a></li>
-                <li class="dropdown {% if '/science/' in request.path %} active {% endif %}">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">研究<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="/science/paper/">论文</a></li>
-                        <li><a href="/science/patent/">专利</a></li>
-                        <li><a href="/science/soft/">软著</a></li>
-                        <li><a href="/science/prize/">获奖</a></li>
-                    </ul>
-                </li>
-                <li {% if '/blog/' in request.path %}class="active"{% endif %}><a href="/blog/">博客</a></li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li {% if '/' == request.path %}class="active-"{% endif %}><a href="/" class="page-scroll">首页</a></li>
+                <li {% if '/introduce/' == request.path %}class="active"{% endif %}><a href="/introduce/" class="page-scroll">研究室</a></li>
+                <li {% if '/member/' in request.path %}class="active"{% endif %}><a href="/member" class="page-scroll">成员</a></li>
+                <li {% if '/monograph/' in request.path %}class="active"{% endif %}><a href="/monograph/" class="page-scroll">专著</a></li>
+                <li {% if '/science/' in request.path %} active {% endif %}><a href="/science/" class="page-scroll">研究</a></li>
+                <li {% if '/blog/' in request.path %}class="active"{% endif %}><a href="/blog/" class="page-scroll">博客</a></li>
+                <li class=""><a href="#contact-section" class="page-scroll">联系我们</a></li>
             </ul>
         </div>
+        <!-- /.navbar-collapse -->
     </div>
+    <!-- /.container-fluid -->
 </nav>
-<div style="height:80px;"></div>
