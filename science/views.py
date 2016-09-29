@@ -48,6 +48,19 @@ def softList(request):
 
     return render(request, 'soft_list.html', data)
 
+
+def softDetail(request, id=None):
+    """soft详情页"""
+    data = {}
+    soft = Soft.objects.get(pk=id)
+    data['soft'] = soft
+
+    if not soft:
+        return HttpResponseServerError('软著不存在！')
+
+    return render(request, 'soft_detail.html', data)
+
+
 def prizeList(request):
     """prize列表页"""
     data = {'prizes': Prize.objects.order_by('-time')}

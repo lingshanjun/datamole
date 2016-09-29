@@ -38,9 +38,10 @@ urlpatterns = [
     url(r'^science/paper/(?P<id>\d+)/$', 'science.views.paperDetail', name='paper_detail'),  # 论文详情
 
     url(r'^science/patent/$', 'science.views.patentList', name='patent_list'),  # 专利列表
-    url(r'^science/patent/(?P<id>\d+)/$', 'science.views.patentDetail', name='patent_detail'),  # 论文详情
+    url(r'^science/patent/(?P<id>\d+)/$', 'science.views.patentDetail', name='patent_detail'),  # 专利详情
 
     url(r'^science/soft/$', 'science.views.softList', name='soft_list'),  # 软著列表
+    url(r'^science/soft/(?P<id>\d+)/$', 'science.views.softDetail', name='soft_detail'),  # 软著详情
 
     url(r'^science/prize/$', 'science.views.prizeList', name='prize_list'),  # 获奖列表
     url(r'^science/prize/(?P<id>\d+)/$', 'science.views.prizeDetail', name='prize_detail'),  # 获奖详情
