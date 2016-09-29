@@ -30,6 +30,18 @@ def patentList(request):
     return render(request, 'patent_list.html', data)
 
 
+def patentDetail(request, id=None):
+    """patent详情页"""
+    data = {}
+    patent = Patent.objects.get(pk=id)
+    data['patent'] = patent
+
+    if not patent:
+        return HttpResponseServerError('专利不存在！')
+
+    return render(request, 'patent_detail.html', data)
+
+
 def softList(request):
     """soft列表页"""
     data = {'softs': Soft.objects.order_by('-id')}

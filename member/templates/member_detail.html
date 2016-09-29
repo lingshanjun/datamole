@@ -70,7 +70,7 @@
 						<h3 class="title">{{paper.title}}</h3>
 	                    <p class="author">{{paper.all_authors}}</p>
 	                    <p class="date">发表于 {{paper.pub_time}}</p>
-						<a href="{{paper.get_absolute_url}}" target="_blank">Check it out</a>
+						<a href="{{paper.get_absolute_url}}">Check it out</a>
 					</div>
 				</div>
 				{% endfor %}
@@ -90,7 +90,7 @@
 	                    	{% endif %}
 	                    	时间 {{patent.time_apply}}
 	                    </p>
-						<a href="{{patent.get_absolute_url}}" target="_blank">专利详情</a>
+						<a href="{{patent.get_absolute_url}}">专利详情</a>
 					</div>
 				</div>
 				{% endfor %}
@@ -101,7 +101,7 @@
 						<h3 class="title">{{soft.title}}</h3>
 	                    <p class="author">{{soft.all_creators}}</p>
 	                    <p class="date">发表于 {{soft.time}}</p>
-						<a href="{{soft.get_absolute_url}}" target="_blank">查看登记证书</a>
+						<a href="{{soft.get_absolute_url}}">查看登记证书</a>
 					</div>
 				</div>
 				{% endfor %}
@@ -121,7 +121,7 @@
 	                    	{% endif %}
 	                    	</span>
 	                    </p>
-						<a href="#" target="_blank">查看详情</a>
+						<a href="#">查看详情</a>
 					</div>
 				</div>
 				{% endfor %}

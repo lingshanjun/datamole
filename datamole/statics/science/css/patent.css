@@ -1,8 +1,6 @@
 /**
- * paper list
+ * patent list
  */
-
-/* jumbotron */
 .jumbotron-circular-addon-wrapper {
   background-color:#f1f1f1;
   margin:32px 0;
@@ -10,7 +8,7 @@
   -moz-transform-style:preserve-3d;
   transform-style:preserve-3d;
   position:relative;
-  background:url('/static/science/img/pattern.svg');
+  background:url('/static/science/img/pattern3.svg');
 }
 
 .jumbotron-circular-addon-wrapper .jumbotron {
@@ -69,13 +67,9 @@
   color:#f4f3f3;
 }
 
-/*box list */
-#paper-list {
-  padding-top:40px;
-  padding-bottom:40px;
-}
+
 .box {
-  background-color:#ecf0f5;
+  background-color:rgba(169,170,170,0.4);
   border-radius:6px;
   padding:20px;
   position:relative;
@@ -103,8 +97,7 @@
 .box p.date {
   text-align:center;
   color:#727A80;
-  margin-bottom:5px;
-  font-style:normal;
+  margin-bottom:10px;
   font-size:12px;
 }
 
@@ -141,10 +134,31 @@
   color: #fff;
 }
 
-/**
- * paper detail
- */
+#patent-list {
+  padding-top:40px;
+  padding-bottom:40px;
+}
 
+#patent-list .label.status {
+  margin-right:10px;
+  font-size:12px;
+}
+
+#patent-list .label.status-accept {
+  background-color:#c5352c;
+}
+
+#patent-list .label.status-public {
+  background-color:#dad434;
+}
+
+#patent-list .label.status-authorize {
+  background-color:#2acd26;
+}
+
+/**
+ * patent detail
+ */
 .breadcrumb li span {
   color:#19b5fe;
 }
@@ -158,7 +172,7 @@ a:hover, a:focus {
   text-decoration:none;
 }
 
-.paper-detail hr {
+#patent-detail hr {
   height:2px;
   background-image:-webkit-linear-gradient(left, #fff, #19B5FE, #fff);
   background-image:-moz-linear-gradient(left, #fff, #19B5FE, #fff);
@@ -166,7 +180,7 @@ a:hover, a:focus {
   background-image:-o-linear-gradient(left, #fff, #19B5FE, #fff);
 }
 
-.paper-detail .label {
+#patent-detail .label {
   margin-right:10px;
   font-size:12px;
   width:5em;
@@ -174,18 +188,6 @@ a:hover, a:focus {
   padding:5px 0px;
   text-align:center;
   background-color:#727a80;
-}
-
-.paper-detail i.fa.fa-cloud-download {
-  font-size:24px;
-  margin-left:10px;
-  color:#19b5fe;
-  line-height:28px;
-}
-
-.paper-detail i.fa.fa-cloud-download:hover {
-  color:#159ad8;
-  font-size:28px;
 }
 
 

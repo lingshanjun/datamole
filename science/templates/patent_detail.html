@@ -1,0 +1,49 @@
+{% extends 'base.html' %}{% load staticfiles %}
+{% block title %}{{patent.title}}-数据锚{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'science/css/patent.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="/"><span>首页</span></a></li>
+        <li><a href="/science/patent/"><span>专利</span></a></li>
+        <li><a href="#"><span>{{patent.title}}</span></a></li>
+    </ol>
+</div>
+<div class="container" id="patent-detail">
+    <h1>【专利】{{patent.title}} </h1>
+    <hr>
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <h1>摘要 </h1>
+            <p>{{patent.descripe}}</p>
+            <a href="{{patent.link}}">公布公告 <i class="fa fa-angle-double-right"></i></a>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item"><span class="label label-default"> 发明人 </span><span>{{patent.all_creators}}</span></li>
+                <li class="list-group-item"><span class="label label-default">状态 </span>
+                {% if patent.status == 1 %}
+                <span>受理</span>
+                {% elif patent.status == 2 %}
+                <span>公开</span>
+                {% else %}
+                <span>授权</span>
+                {% endif %}
+                </li>
+                <li class="list-group-item"><span class="label label-default">状态编号 </span><span>{{patent.num_apply}}</span></li>
+                <li class="list-group-item"><span class="label label-default">状态时间 </span><span>{{patent.time_apply}}</span></li>
+            </ul>
+            <nav>
+                <ul class="pager">
+                    <li class="previous"><a href="#">上一发明 </a></li>
+                    <li class="next"><a href="#">下一发明 </a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+{% endblock %}
