@@ -4,37 +4,31 @@
 <link rel="stylesheet" href="{% static 'member/css/member.css' %}">
 {% endblock %}
 {% block content %}
-    <!-- Top Banner -->
-    <div class="ltop">
-        <div class="ltop_box">
-            <i>我们的团队</i>
-            <p>没有完美的个人，只有更好的团队</p>
-        </div>
-    </div>
-    <!-- Team Members -->
-    <div class="team container">
-        <div class="team-title">
-            <h3>团队成员</h3>
-        </div>
+<div class="jumbotron member-jump">
+    <h1>团队成员 </h1>
+    <p>没有完美的个人，只有更好的团队 </p>
+</div>
+<div class="member-wraper">
+    <div class="container">
         <div class="row">
             {% for mem in members %}
-            <div class="col-md-3 col-sm-4 col-xs-6">
-                <div class="team-text">
-                   <a href="/member/{{mem.id}}/"> <img src="{{mem.avatar.url}}" alt="{{mem.name}}" class="img-responsive"></a>
-                    <h4><a href="/team/{{mem.id}}">{{mem.name}}</a></h4>
-                    <p>{{mem.descripe | truncatechars:20}}</p>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                <div class="team-box">
+                    <a href="/member/{{mem.id}}/"><img class="img-responsive" src="{{mem.avatar.url}}" alt="{{mem.name}}"></a>
+                    <h4>{{mem.name}}</h4>
+                    <p>{{mem.descripe | truncatechars:20}} </p>
                     <div class="social-links">
                         <a href="{{mem.qq}}"><i class="fa fa-qq fa-lg"></i></a>
-                        <a href="{{mem.wechat}}"><i class="fa fa-weixin fa-lg"></i></a>
-                        <a href="{{mem.weibo}}"><i class="fa fa-weibo fa-lg"></i></a>
-                        <a href="{{mem.email}}"><i class="fa fa-envelope fa-lg"></i></a>
+                        <a href="{{mem.wechat}}"><i class="fa fa-weixin"></i></a>
+                        <a href="{{mem.weibo}}"><i class="fa fa-weibo"></i></a>
+                        <a href="{{mem.email}}"><i class="fa fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
+</div>
 {% endblock %}
 {% block js %}
-<!-- <script src="{% static 'blog/lib/highlight/highlight.pack.js' %}"></script> -->
 {% endblock %}

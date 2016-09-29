@@ -1,139 +1,97 @@
-/**
- * from tm,total website. remain some about member
- */
-body {background: #fff;text-align: center;font-family: 'Open Sans', Helvetica, Arial, sans-serif;color: #888;font-size: 12px;}
-a {color: #33adff;text-decoration: none;-o-transition: all .3s;-moz-transition: all .3s;-webkit-transition: all .3s;-ms-transition: all .3s;}
-a:hover { color: #888; text-decoration: none; }
-strong { font-weight: bold; }
-.clear{zoom:1}
-.clear:after{content:".";display:block;visibility:hidden;height:0;clear:both;}
-
-/* member list */
-.ltop{
-    background: url('/static/member/img/member_top.jpg') no-repeat center;
-    background-size: cover;
-    height: 300px;
-}
-.ltop_box{
-    width: 990px;
-    height: 100%;
-    margin: 0 auto;
-    position: relative;
-}
-.ltop_box i{
-    position: absolute;
-    top: 80px;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    font-size: 60px;
-    color: #fff;
-    text-align: center;
-    font-style: normal;
-    font-weight: 100;
-    font-family:'方正兰亭纤黑_GBK','方正兰亭纤黑简体','方正兰亭纤黑繁体','微软雅黑','Helvetica Neue',Helvetica,Arial;
-}
-.ltop_box p{
-    position: absolute;
-    top: 171px;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    font-size: 16px;
-    color: #fff;
-    text-align: center;
-    font-weight: 100;
-}
-.lcontainer{
-    margin-top: 40px;
+/* jumbtron */
+.member-jump {
+  background-color:transparent;
+  text-align:center;
+  background:url('/static/member/img/bg.jpg') no-repeat center center fixed;
 }
 
-/*----- Team PAGE ----- */
+.member-jump h1 {
+  color:#fff;
+}
 
-.team-us {margin-top: 20px;background-color: #364957;}
-.team-us-text {text-align: left;color: #fff;}
-.team-us-text h4 {margin-top: 25px;padding: 0 20px;font-family: 'Droid Sans', Helvetica, Arial, sans-serif;font-size: 16px;text-shadow: 0 1px 0 rgba(255,255,255,.7);}
-.team-us-text p {padding: 0 20px;line-height: 28px;font-size: 14px;}
-.team {margin-top: 30px;}
-.team-title {background: url(../img/line.png) left center repeat-x;}
-.team-title h3 {width: 220px;margin: 0 auto;background: #fff;font-size: 24px;color: #5d5d5d;}
-.team-text {margin-top: 40px;padding: 0;padding-bottom: 20px;background: #f8f8f8;border-bottom: 2px solid #33adff;border-radius: 4px;overflow: hidden;}
-.team-text .img-responsive{width: 100%;border-radius: 4px 4px 0 0;}
-.team-text:hover img {opacity: 0.7;-o-transition: all .3s;-moz-transition: all .3s;-webkit-transition: all .3s;-ms-transition: all .3s;}
-.team-text:hover {
-    box-shadow:
-        0 5px 15px 0 rgba(0,0,0,.05),
+.member-jump p {
+  color:#fff;
+  font-size:18px;
+}
+
+/* member list*/
+.member-wraper {
+  background:rgb(255,255,255);
+  padding-top:40px;
+  padding-bottom:40px;
+}
+
+.member-wraper .team-box {
+  padding:0;
+  padding-bottom:20px;
+  margin-bottom:30px;
+  background:#f8f8f8;
+  border-bottom:2px solid #19b5fe;
+  border-radius:4px;
+  overflow:hidden;
+  text-align:center;
+}
+
+.member-wraper .team-box .img-responsive {
+  width:100%;
+  border-radius:4px 4px 0 0;
+}
+
+.member-wraper .team-box:hover img {
+  opacity:0.7;
+  -o-transition:all .3s;
+  -moz-transition:all .3s;
+  -webkit-transition:all .3s;
+  -ms-transition:all .3s;
+}
+
+.member-wraper .team-box:hover {
+  box-shadow:0 5px 15px 0 rgba(0,0,0,.05),
         0 1px 25px 0 rgba(0,0,0,.05) inset,
         0 -1px 25px 0 rgba(0,0,0,.05) inset;
-    -o-transition: all .5s;
-    -moz-transition: all .5s;
-    -webkit-transition: all .5s;
-    -ms-transition: all .5s;
-}
-.team-text .social-links {margin-top: 15px;}
-.team-text .social-links a { display: inline-block; width: 40px; height: 40px; margin: 0 4px;line-height: 40px;border-radius: 20px;background-color:#fff;color: #33adff;border: 1px solid #33adff;}
-.team-text .social-links a:hover {background-color: #33adff;color: #fff;}
-.team-text .fa-lg{vertical-align: 0;}
-.team-text h4 {margin-top: 20px;font-family: 'Droid Sans', Helvetica, Arial, sans-serif;font-size: 14px;color: #5d5d5d;text-transform: uppercase;text-shadow: 0 1px 0 rgba(255,255,255,.7);}
-.team-text h4 a{color: #5d5d5d;}
-.team-text p {line-height: 24px;font-style:normal;}
-
-/*member detail*/
-
-/*top banner*/
-.dtop{
-    background: url('/static/member/img/member_top2.png') no-repeat center;
-    height: 277px;
-}
-.dtop_box{
-    width: 990px;
-    height: 100%;
-    margin: 0 auto;
-    position: relative;
-}
-.dtop_box i{
-    position: absolute;
-    top: 80px;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    font-size: 60px;
-    color: #fff;
-    text-align: center;
-    font-style: normal;
-    font-weight: 100;
-    font-family:'方正兰亭纤黑_GBK','方正兰亭纤黑简体','方正兰亭纤黑繁体','微软雅黑','Helvetica Neue',Helvetica,Arial;
-}
-.dtop_box p{
-    position: absolute;
-    top: 171px;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    font-size: 16px;
-    color: #fff;
-    text-align: center;
-    font-weight: 100;
+  -o-transition:all .5s;
+  -moz-transition:all .5s;
+  -webkit-transition:all .5s;
+  -ms-transition:all .5s;
 }
 
-/*member information*/
-.dinfor{
-    height: 400px;
-    margin-top: 40px;
+.member-wraper .team-box h4 {
+  margin-top:20px;
+  font-family:'Droid Sans', Helvetica, Arial, sans-serif;
+  font-size:14px;
+  color:#5d5d5d;
+  text-transform:uppercase;
+  text-shadow:0 1px 0 rgba(255,255,255,.7);
 }
-.dl{
-    height: 400px;
-    border: 1px solid #d7d7d7;
-    text-align: center;
+
+.member-wraper .team-box p {
+  line-height:24px;
+  font-style:normal;
+  font-size:12px;
+  color:#888;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
 }
-.dl .img{
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
-    margin: 20px 0;
+
+.member-wraper .team-box .social-links a {
+  display:inline-block;
+  width:40px;
+  height:40px;
+  margin:0 4px;
+  line-height:40px;
+  border-radius:20px;
+  background-color:#fff;
+  color:#19b5fe;
+  border:1px solid #19b5fe;
 }
-.dr{
-    height: 400px;
-    border: 1px solid #d7d7d7;
-    text-align: left;
+
+.member-wraper .team-box .social-links a:hover {
+  background-color:#19b5fe;
+  color:#fff;
 }
+
+
