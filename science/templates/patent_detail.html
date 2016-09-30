@@ -37,8 +37,12 @@
             </ul>
             <nav>
                 <ul class="pager">
-                    <li class="previous"><a href="#">上一发明 </a></li>
-                    <li class="next"><a href="#">下一发明 </a></li>
+                    {% if page.has_prev %}
+                    <li class="previous"><a href="{{page.prev.get_absolute_url}}" title="{{page.prev.title}}">上一发明 </a></li>
+                    {% endif %}
+                    {% if page.has_next %}
+                    <li class="next"><a href="{{page.next.get_absolute_url}}" title="{{page.next.title}}">下一发明</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>

@@ -20,6 +20,20 @@ def paperDetail(request, id=None):
     if not paper:
         return HttpResponseServerError('论文不存在！')
 
+    page = {"has_prev": False, "has_next": False, "next": None, "prev": None}
+    papers = Paper.objects.all()
+    ids = map(lambda x: x.id, papers)
+
+    if int(id)+1 in ids:
+        page['next'] = papers.get(pk=int(id)+1)
+        page['has_next']= True
+
+    if int(id)-1 in ids:
+        page['prev'] = papers.get(pk=int(id)-1)
+        page['has_prev'] = True
+
+    data['page'] = page
+
     return render(request, 'paper_detail.html', data)
 
 
@@ -38,6 +52,20 @@ def patentDetail(request, id=None):
 
     if not patent:
         return HttpResponseServerError('专利不存在！')
+
+    page = {"has_prev": False, "has_next": False, "next": None, "prev": None}
+    patents = Patent.objects.all()
+    ids = map(lambda x: x.id, patents)
+
+    if int(id)+1 in ids:
+        page['next'] = patents.get(pk=int(id)+1)
+        page['has_next']= True
+
+    if int(id)-1 in ids:
+        page['prev'] = patents.get(pk=int(id)-1)
+        page['has_prev'] = True
+
+    data['page'] = page
 
     return render(request, 'patent_detail.html', data)
 
