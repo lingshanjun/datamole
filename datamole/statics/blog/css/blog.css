@@ -206,6 +206,9 @@ div.side-recommend {
 /**
  * blog detail
  */
+.breadcrumb{
+  background-color: #fff;
+}
 .breadcrumb li span {
   color:#19b5fe;
 }
@@ -237,27 +240,42 @@ div.blog-meta p {
 /*begin side catalog*/
 div.side-catalog {
   margin-top:30px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
-
-.side-catalog .side-body .list-group-item {
+.side-catalog .nav-blog > li{
+  margin-top: 0;
+}
+.side-catalog .nav-blog > li.active a{
+  background-color: #19b5fe;
+  color: #fff;
+}
+.side-catalog .nav-blog > li a {
   border:0;
   border-bottom:1px solid #19b5fe;
-  margin-bottom:0;
-  padding-left:10px;
-  padding-right:10px;
+  margin-right:0;
+  color: #19b5fe;
+  text-decoration: none;
 }
-
-.side-catalog .side-body .list-group-item:last-child {
+.side-catalog .nav-blog > li a:focus,
+.side-catalog .nav-blog > li a:hover{
+  background-color: #19b5fe;
+  color: #fff;
+  border-radius: 0;
+  margin-top: 0;
+}
+.side-catalog .nav-blog > li:last-child a {
   border:0;
 }
 
-.side-catalog .side-body .list-group-item > a {
-  color:#727a80;
-  text-decoration:none;
-}
 /*end side catalog*/
 
 /*begin side share*/
+.side-share{
+  margin-top: 30px;
+}
 .side-share .side-body {
   background-color:#fff;
   border-radius:4px;
@@ -292,9 +310,16 @@ div.side-catalog {
   overflow: hidden;
 }
 
-.blog-detail-container pre {
+.blog-detail-container .blog-text pre {
 	position: relative;
 	padding:0px 0px 0px 21px;
+}
+.blog-detail-container .blog-text blockquote{
+  border-color: #19b5fe;
+}
+.blog-detail-container .blog-text a{
+  color: #19b5fe;
+  text-decoration: none;
 }
 .blog-detail-container .pre-numbering {
   position: absolute;
