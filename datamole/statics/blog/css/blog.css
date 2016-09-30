@@ -92,32 +92,6 @@ a.btn.btn-more {
 }
 /*end common left*/
 
-/*begin pagination */
-nav.wraper-pagination {
-  text-align:center;
-}
-
-.wraper-pagination .nav-pagination {
-  margin:10px 0;
-}
-
-.wraper-pagination .nav-pagination > li a {
-  color:#19b5fe;
-}
-
-.wraper-pagination .nav-pagination > li.active a {
-  color:#fff;
-  background-color:#19b5fe;
-  border-color:#19b5fe;
-}
-
-.wraper-pagination .nav-pagination > li:hover a {
-  color:#fff;
-  background-color:#159ad8;
-  border-color:#169ad8;
-}
-/*end pagination*/
-
 /* list && detail common section --right*/
 .side-box{
   border-radius:6px;

@@ -1,0 +1,23 @@
+{% if is_paginated %}
+<nav class="wraper-pagination">
+    <ul class="pagination nav-pagination">
+        {% if page_obj.has_previous %}
+        <li><a aria-label="Previous" href="?page={{ page_obj.previous_page_number }}{{ getvars }}{{ hashtag }}"><span aria-hidden="true">«</span></a></li>
+        {% endif %}
+        {% for page in pages %}
+            {% if page %}
+                {% ifequal page page_obj.number %}
+                    <li class="active"><a href="javascript:;">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="?page={{ page }}{{ getvars }}{{ hashtag }}">{{ page }}</a></li>
+                {% endifequal %}
+            {% else %}
+                ...
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li><a aria-label="Next" href="?page={{ page_obj.next_page_number }}{{ getvars }}{{ hashtag }}" ><span aria-hidden="true">»</span></a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
