@@ -10,86 +10,7 @@
 		<p>金融时序、机器人，学习、汲取、积累、分享，是一个循环、成长的过程</p>
 	</div>
 </div>
-<!-- <div class="container-fluid- container lcontainer">
-	<div class="row">
-		<div class="col-sm-9">
-			{% autopaginate blogs 10 %}
-			{% for obj in blogs %}
-			<div class="media well">
-			  	<div class="media-left media-middle col-sm-4">
-			    	<a href="/blog/{{obj.id}}/" class="thumbnail">
-			      	<img class="media-object" src="{{obj.get_cover}}" alt="cover">
-			    	</a>
-			  	</div>
-			  	<div class="media-body">
-			  		<a href="/blog/type/{{obj.type.id}}/" class="btn btn-warning btn-xs pull-right">{{obj.type.name}}</a>
-			    	<h4 class="media-heading"><a href="/blog/{{obj.id}}/">{{obj.title}}</a></h4>
-			    	<p class="lead">{{obj.content_show | striptags | safe| truncatechars:200 }}</p>
-			  	</div>
-			  	<div class="media-footer">
-			  		<span class="label label-info">发表于：{{obj.add_date }}</span>
-			  		<span class="label label-warning">热度：{{obj.counts}}&nbsp;&nbsp;℃</span>
-			  	</div>
-			</div>
-			{% empty %}
-			<p>还没有发布的文章哦～</p>
-			{% endfor %}
-		</div>
-		<div class="col-sm-3">
-			<div class="panel panel-info">
-			  	<div class="panel-heading">热门文章<a href="" class="pull-right"><i>></i></a></div>
-			  	<div class="panel-body">
-			    	这里展示的是最热门的文章
-			  	</div>
-			  	<ul class="list-group">
-			  		{% for obj in hot %}
-			    	<li class="list-group-item"><a href="/blog/{{obj.id}}/">{{forloop.counter}}&nbsp;&nbsp;{{obj.title}}&nbsp;&nbsp;<span class="badge">{{obj.counts}}</span></a></li>
-			    	{% empty%}
-			    	<li class="list-group-item">还没有热门文章哦～</li>
-			    	{% endfor %}
-			  	</ul>
-			</div>
-			<div class="panel panel-info">
-			  	<div class="panel-heading">推荐文章<a href="" class="pull-right"><i class="pull-right">></i></a></div>
-			  	<div class="panel-body">
-			    	这里展示的是推荐的文章
-			  	</div>
-			  	<ul class="list-group">
-			  		{% for obj in recomment %}
-			    	<li class="list-group-item"><a href="/blog/{{obj.id}}/">{{forloop.counter}}&nbsp;&nbsp;{{obj.title}}</a></li>
-			    	{% empty %}
-				  	<li class="list-group-item">还没有推荐文章哦～</li>
-				  	{% endfor %}
-			  	</ul>
-			</div>
-			<div class="panel panel-default">
-			  	<div class="panel-heading">
-			    	<h3 class="panel-title">文章分类</h3>
-			  	</div>
-			  	<div class="panel-body">
-			  		<ul class="nav nav-pills" role="tablist">
-			  			{% for obj in bigtype %}
-				    	<li role="presentation" {% if forloop.first%}class="active"{% endif %}><a href="#{{obj.id}}" aria-controls="{{obj.id}}" role="tab" data-toggle="tab">{{obj.name}}</a></li>
-				    	{% empty %}
-				    	<li>还没有大分类哦～</li>
-				    	{% endfor %}
-				  	</ul>
-			  	</div>
-			  	<div class="tab-content">
-			  		{% for obj in bigtype %}
-			  		<ul class="list-group tab-pane {% if forloop.first %}active{% endif %}" id="{{obj.id}}">
-			  			{% for type in obj.getType %}
-			  			<li class="list-group-item"><a href="/blog/type/{{type.id}}/">{{type.name}}&nbsp;&nbsp;<span class="badge">{{type.getCount}}</span></a></li>
-			  			{% empty %}
-			  			<li>还没有分类哦～</li>
-			  			{% endfor %}
-			  		</ul>
-			  		{% endfor%}
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<!--
 <div class="text-center text-danger">{% paginate %}</div>
  -->
 <div class="blog-list-container">
@@ -105,11 +26,11 @@
                     <p class="blog-abstract">{{blog.abstract | truncatechars:200 }} </p>
                     <div>
                         {% if blog.origin == 0 %}
-                        <a href="#" class="btn btn-sm btn-create">原创 </a>
+                        <a href="?type=create" class="btn btn-sm btn-create">原创 </a>
                         {% else %}
-                        <a href="#" class="btn btn-sm btn-copy">转载 </a>
+                        <a href="?type=copy" class="btn btn-sm btn-copy">转载 </a>
                         {% endif %}
-                        <a href="#" class="btn btn-sm btn-cate">{{blog.type.name}} </a>
+                        <a href="?category={{blog.type.id}}" class="btn btn-sm btn-cate">{{blog.type.name}} </a>
                         <a href="{{blog.get_absolute_url}}" class="btn btn-sm btn-more pull-right">阅读全文 </a>
                     </div>
                 </div>
@@ -146,7 +67,7 @@
                                 <div>
                                     <div class="row">
                                         {% for type in obj.getType %}
-                                        <div class="col-lg-6 col-md-12 col-sm-4 col-xs-6"><a href="#" class="btn btn-sm btn-block btn-cate-list">{{type.name}}<span class="badge cate-badge">{{type.getCount}}</span></a></div>
+                                        <div class="col-lg-6 col-md-12 col-sm-4 col-xs-6"><a href="?category={{type.id}}" class="btn btn-sm btn-block btn-cate-list">{{type.name}}<span class="badge cate-badge">{{type.getCount}}</span></a></div>
                                         {% empty %}
                                         <div>还没有分类哦～</div>
                                         {% endfor %}

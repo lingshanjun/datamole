@@ -5,31 +5,11 @@
 <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 {% endblock %}
 {% block content %}
-	<!-- <div class="container-fluid- container dcontainer">
-		<div class="row">
-			<div class="col-sm-9">
-				<div class="media well">
-				  	<h3>{{blog.title}}</h3>
-				  	<span class="label label-info">{% if blog.origin %}转载{% else %}原创{% endif %}</span>
-				  	<div>{{blog.content_show |safe}}</div>
-				</div>
-				<div class="well blog-copyright">
-				 	<p>
-				 		<label>温馨提示：</label>
-				 		<span class="con">本站文章除注明转载外，均为原创文章。转载请保留原出处及其显示链接，以方便溯源，避免陈旧错误知识的误导，同时有更好的阅读体验。本站和作者保留随时要求删除文章的权利！</span>
-				 	</p>
-				 	<p>
-				 		<label>本文链接：</label>
-				 		<a href="javascript:;">{{request.get_host}}{{request.path}}</a></p>
-				</div>
-			</div>
-		</div>
-	</div> -->
 <div class="container">
     <ol class="breadcrumb">
-        <li><a><span>Home</span></a></li>
-        <li><a><span>Library</span></a></li>
-        <li><a><span>Data</span></a></li>
+        <li><a href="/"><span>首页</span></a></li>
+        <li><a href="/blog/"><span>博客教程</span></a></li>
+        <li><a href="#"><span>{{blog.title}}</span></a></li>
     </ol>
 </div>
 <div class="blog-detail-container">
@@ -40,11 +20,11 @@
                     <h3>【{% if blog.origin == 0 %}原创{% else %}转载{% endif %}】{{blog.title}} </h3>
                     <p class="blog-subtitle"><span>{% for author in blog.authors.all %} {{author}} {% endfor %} </span> · <span>{{blog.add_date}} </span> · <span><i class="fa fa-eye"></i> {{blog.counts}} </span>
                     	{% if blog.origin == 0 %}
-                        <a href="#" class="btn btn-sm btn-create">原创 </a>
+                        <a href="/blog/?type=create" class="btn btn-sm btn-create">原创 </a>
                         {% else %}
-                        <a href="#" class="btn btn-sm btn-copy">转载 </a>
+                        <a href="/blog/?type=copy" class="btn btn-sm btn-copy">转载 </a>
                         {% endif %}
-                    	<a href="#" class="btn btn-sm btn-cate">{{blog.type.name}} </a>
+                    	<a href="/blog/?category={{blog.type.id}}" class="btn btn-sm btn-cate">{{blog.type.name}} </a>
                     </p>
                     <img class="img-rounded img-responsive blog-cover"
                     src="/media/{{blog.cover}}" alt="{{blog.title}}">

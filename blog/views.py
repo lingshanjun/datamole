@@ -7,17 +7,19 @@ from django.http import HttpResponseServerError
 def blogList(request):
     """blog列表页"""
     data = {}
-    data['blogs'] = Blog.objects.exclude(status=0).order_by('-id')  # blog列表
-    data['bigtype'] = BlogBigType.objects.all().order_by('id')  # blog大分类
-    data['hot'] = Blog.objects.exclude(status=0).order_by('-counts')[:10]  # blog 热门文章
-    data['recomment'] = Blog.objects.exclude(status=0).filter(is_recomment=True).order_by('-id')[:10]  # blog 推荐文章
-    return render(request, 'blog_list.html', data)
+    type =  request.REQUEST.get('type', None) #原创或转载
+    category = request.REQUEST.get('category', None) # 分类
+    blogs = Blog.objects.exclude(status=0).order_by('-id')  # blog列表
 
+    if type == 'create':
+        blogs = blogs.filter(origin=0)
+    elif type == 'copy':
+        blogs = blogs.filter(origin=1)
 
-def type(request, id):
-    """根据分类获得blog列表页"""
-    data = {}
-    data['blog'] = Blog.objects.filter(type=id).exclude(status=0).order_by('-id')  # 根据分类获得blog列表页
+    if category is not None:
+        blogs = blogs.filter(type=category)
+
+    data['blogs'] = blogs
     data['bigtype'] = BlogBigType.objects.all().order_by('id')  # blog大分类
     data['hot'] = Blog.objects.exclude(status=0).order_by('-counts')[:10]  # blog 热门文章
     data['recomment'] = Blog.objects.exclude(status=0).filter(is_recomment=True).order_by('-id')[:10]  # blog 推荐文章
