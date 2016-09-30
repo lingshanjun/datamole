@@ -9,13 +9,21 @@
             <a class="navbar-brand" href="/"><i class="fa fa-signal"></i> Datamole</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse dm-navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li {% if '/' == request.path %}class="active-"{% endif %}><a href="/" class="page-scroll">首页</a></li>
+                <li {% if '/' == request.path %}class="active"{% endif %}><a href="/" class="page-scroll">首页</a></li>
                 <li {% if '/introduce/' == request.path %}class="active"{% endif %}><a href="/introduce/" class="page-scroll">研究室</a></li>
                 <li {% if '/member/' in request.path %}class="active"{% endif %}><a href="/member" class="page-scroll">成员</a></li>
                 <li {% if '/monograph/' in request.path %}class="active"{% endif %}><a href="/monograph/" class="page-scroll">专著</a></li>
-                <li {% if '/science/' in request.path %} active {% endif %}><a href="/science/" class="page-scroll">研究</a></li>
+                <li class="dropdown {% if '/science/' in request.path %} active {% endif %}">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">研究<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li {% if '/science/paper/' in request.path %}class="active"{% endif %}><a href="/science/paper/">论文</a></li>
+                        <li {% if '/science/patent/' in request.path %}class="active"{% endif %}><a href="/science/patent/">专利</a></li>
+                        <li {% if '/science/soft/' in request.path %}class="active"{% endif %}><a href="/science/soft/">软著</a></li>
+                        <li {% if '/science/prize/' in request.path %}class="active"{% endif %}><a href="/science/prize/">获奖</a></li>
+                    </ul>
+                </li>
                 <li {% if '/blog/' in request.path %}class="active"{% endif %}><a href="/blog/" class="page-scroll">博客</a></li>
                 <li class=""><a href="#contact-section" class="page-scroll">联系我们</a></li>
             </ul>
