@@ -65,6 +65,7 @@ class Blog(models.Model):
     title = models.CharField('标题', max_length=100, help_text='*必填*')
     type = models.ForeignKey(BlogType, verbose_name=u'所属分类', help_text='*必填*')
     cover = models.ImageField('封面图', null= True, upload_to='blog/', blank=True)  # 博客导图
+    abstract = models.TextField('简介', help_text='*必填*', null=True)
     content_show = models.TextField('正文显示', null= True)
     add_date = models.DateTimeField('创建日期', auto_now_add=True)
     counts = models.IntegerField('点击数', default=0)  # 热度

@@ -102,7 +102,7 @@
                     <h3>{{blog.title}}</h3>
                     <p class="blog-subtitle"><span>{% for author in blog.authors.all %} {{author}} {% endfor %}</span> · <span>{{blog.add_date}}</span> · <span><i class="fa fa-eye"></i> {{blog.counts}}</span></p>
                     <img class="img-rounded img-responsive blog-cover" src="/media/{{blog.cover}}" alt="{{blog.title}}">
-                    <p class="blog-abstract">{{blog.content_show | striptags | safe| truncatechars:200 }} </p>
+                    <p class="blog-abstract">{{blog.abstract | truncatechars:200 }} </p>
                     <div>
                         {% if blog.origin == 0 %}
                         <a href="#" class="btn btn-sm btn-create">原创 </a>
