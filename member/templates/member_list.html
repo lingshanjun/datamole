@@ -14,7 +14,7 @@
             {% for mem in members %}
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
                 <div class="team-box">
-                    <a href="/member/{{mem.id}}/"><img class="img-responsive" src="{{mem.avatar.url}}" alt="{{mem.name}}"></a>
+                    <a href="{{mem.get_absolute_url}}"><img class="img-responsive" src="{{mem.avatar.url}}" alt="{{mem.name}}"></a>
                     <h4>{{mem.name}}</h4>
                     <p>{{mem.descripe | truncatechars:20}} </p>
                     <div class="social-links">
