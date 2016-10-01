@@ -1,4 +1,6 @@
-{% extends 'base.html' %}{% load staticfiles %}
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load cloudinary %}
 {% block title %}{{soft.title}}-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'science/css/soft.css' %}">
@@ -11,7 +13,7 @@
         <li><a href="#"><span>{{soft.title}}</span></a></li>
     </ol>
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2"><img class="img-rounded img-responsive img-responsive" src="{{soft.pic.url}}" alt="{{soft.title}}"></div>
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2"><img class="img-responsive img-soft" src="{% cloudinary_url soft.pic %}" alt="{{soft.title}}"></div>
     </div>
 </div>
 {% endblock %}

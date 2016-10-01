@@ -4,6 +4,19 @@ from django.db import models
 from member.models import Member
 from django.utils.html import format_html
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.models import CloudinaryField
+
+from datamole.settings.safe_data import cloudinary_data
+
+
+cloudinary.config(
+    cloud_name=cloudinary_data['cloud_name'],
+    api_key=cloudinary_data['api_key'],
+    api_secret=cloudinary_data['api_secret']
+)
 
 class Paper(models.Model):
     title = models.CharField('题目', max_length=50, help_text='*必填*')
@@ -129,7 +142,8 @@ class Soft(models.Model):
     all_creators = models.CharField('所有发明人', max_length=50, help_text='*必填*, 请按顺序输入所有发明人笔名，如“张三，李四，王五”')
     number = models.CharField('编号', max_length=50, blank=True)
     time = models.DateField('首次发表时间', auto_now_add=True)
-    pic = models.ImageField('证书图片', help_text='*必填*', upload_to='soft/pic/')
+    # pic = models.ImageField('证书图片', help_text='*必填*', upload_to='soft/pic/')
+    pic = CloudinaryField('证书图片', help_text='*必填*')
 
     def __unicode__(self):
         return self.title
