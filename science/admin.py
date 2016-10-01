@@ -36,7 +36,7 @@ class SoftAdmin(admin.ModelAdmin):
 
 
 class PrizeAdmin(admin.ModelAdmin, SimditorMixin):
-    list_display = ('id', 'title', 'person_in_member', 'all_persons', 'time', 'show_cover', 'grade',
+    list_display = ('id', 'title', 'person_in_member', 'all_persons', 'time', 'grade',
                     'show_soft_onsite')
     search_fields = ('id', 'title', 'prize_descripe', 'all_persons', 'grade')
     list_display_links = ('title',)

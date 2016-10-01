@@ -26,8 +26,10 @@
                         {% endif %}
                     	<a href="/blog/?category={{blog.type.id}}" class="btn btn-sm btn-cate">{{blog.type.name}} </a>
                     </p>
+                    {% if blog.cover %}
                     <img class="img-rounded img-responsive blog-cover"
                     src="/media/{{blog.cover}}" alt="{{blog.title}}">
+                    {% endif%}
                     <div class="blog-text">
                         {{blog.content_show |safe}}
                     </div>

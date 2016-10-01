@@ -17,12 +17,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-                {% autopaginate blogs 1 %}
+                {% autopaginate blogs 10 %}
                 {% for blog in blogs %}
                 <div class="blog-box">
                     <h3>{{blog.title}}</h3>
                     <p class="blog-subtitle"><span>{% for author in blog.authors.all %} {{author}} {% endfor %}</span> · <span>{{blog.add_date}}</span> · <span><i class="fa fa-eye"></i> {{blog.counts}}</span></p>
+                    {% if blog.cover %}
                     <img class="img-rounded img-responsive blog-cover" src="/media/{{blog.cover}}" alt="{{blog.title}}">
+                    {% endif %}
                     <p class="blog-abstract">{{blog.abstract | truncatechars:200 }} </p>
                     <div>
                         {% if blog.origin == 0 %}

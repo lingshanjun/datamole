@@ -2,3 +2,5 @@
 .DS_Store
 debug_conf.py
 safe_data.py
+
+migrations/
