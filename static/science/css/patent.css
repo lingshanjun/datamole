@@ -1,0 +1,193 @@
+/**
+ * patent list
+ */
+.jumbotron-circular-addon-wrapper {
+  background-color:#f1f1f1;
+  margin:32px 0;
+  -webkit-transform-style:preserve-3d;
+  -moz-transform-style:preserve-3d;
+  transform-style:preserve-3d;
+  position:relative;
+  background:url('/static/science/img/pattern3.svg');
+}
+
+.jumbotron-circular-addon-wrapper .jumbotron {
+  background-color:inherit;
+  text-align:center;
+  padding-left:12px;
+  padding-right:12px;
+}
+
+.jumbotron-circular-addon-wrapper .jumbotron-addon {
+  position:absolute;
+  left:50%;
+  text-align:center;
+  -webkit-transform:translateX(-50%);
+  -moz-transform:translateX(-50%);
+  -ms-transform:translateX(-50%);
+  transform:translateX(-50%);
+  z-index:1;
+}
+
+.jumbotron-circular-addon-wrapper .jumbotron-addon-top {
+  top:-32px;
+}
+
+.jumbotron-circular-addon-wrapper .jumbotron-addon-bottom {
+  bottom:-32px;
+}
+
+.jumbotron-addon-circle {
+  font-size:24px;
+  width:64px;
+  height:64px;
+  padding:8px;
+  border-radius:50%;
+  background-color:inherit;
+}
+
+.jumbotron-addon-circle > span, .jumbotron-addon-circle > i {
+  display:block;
+  width:48px;
+  height:48px;
+  line-height:1;
+  padding:25%;
+  border-radius:50%;
+}
+
+.jumbotron-addon-circle .bg-primary {
+  background-color:#19b5fe;
+}
+
+.jumbotron h1 {
+  color:#fff;
+}
+
+.jumbotron p {
+  color:#f4f3f3;
+}
+
+
+.box {
+  background-color:rgba(169,170,170,0.4);
+  border-radius:6px;
+  padding:20px;
+  position:relative;
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.box h3.title {
+  font-size:20px;
+  height:3.4em;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.box p.author {
+  overflow:hidden;
+  margin:10px 0 2px;
+  text-align:center;
+  white-space:nowrap;
+  font-size:14px;
+  text-overflow:ellipsis;
+  color:#727A80;
+}
+
+.box p.date {
+  text-align:center;
+  color:#727A80;
+  margin-bottom:10px;
+  font-size:12px;
+}
+
+.box i.fa {
+  font-size:50px;
+  color:#19b5fe;
+}
+
+.box a.abtn {
+  display:block;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  font-size:16.996px;
+  line-height:20px;
+  padding:12px 18px 13px;
+  background:#19b5fe;
+  border:none;
+  color:#ffffff;
+  text-decoration:none;
+  text-shadow:none;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  border-radius:6px;
+  -webkit-box-shadow:none;
+  -moz-box-shadow:none;
+  box-shadow:none;
+  -webkit-backface-visibility:hidden;
+  width:100%;
+}
+
+.box a.abtn:hover {
+  background:#159ad8;
+  color: #fff;
+}
+
+#patent-list {
+  padding-top:40px;
+  padding-bottom:40px;
+}
+
+#patent-list .label.status {
+  margin-right:10px;
+  font-size:12px;
+}
+
+#patent-list .label.status-accept {
+  background-color:#c5352c;
+}
+
+#patent-list .label.status-public {
+  background-color:#dad434;
+}
+
+#patent-list .label.status-authorize {
+  background-color:#2acd26;
+}
+
+/**
+ * patent detail
+ */
+.breadcrumb li span {
+  color:#19b5fe;
+}
+
+a {
+  color:#19b5fe;
+}
+
+a:hover, a:focus {
+  color:#159ad8;
+  text-decoration:none;
+}
+
+#patent-detail hr {
+  height:2px;
+  background-image:-webkit-linear-gradient(left, #fff, #19B5FE, #fff);
+  background-image:-moz-linear-gradient(left, #fff, #19B5FE, #fff);
+  background-image:-ms-linear-gradient(left, #fff, #19B5FE, #fff);
+  background-image:-o-linear-gradient(left, #fff, #19B5FE, #fff);
+}
+
+#patent-detail .label {
+  margin-right:10px;
+  font-size:12px;
+  width:5em;
+  float:left;
+  padding:5px 0px;
+  text-align:center;
+  background-color:#727a80;
+}
+
+
