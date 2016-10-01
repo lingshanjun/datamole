@@ -42,7 +42,26 @@
                         <hr>
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3"><span class="label label-default">联系方式 </span></div>
-                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"><span><strong>微信: </strong>{{member.wechat}} <strong>QQ：</strong>{{member.qq}} <strong>微博：</strong>{{member.weibo}}<strong> 邮箱：</strong>{{member.email}}</span></div>
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                <span>
+                                {% if member.wechat or member.qq or member.weibo or member.email %}
+                                    {% if member.wechat %}
+                                    <strong>微信: </strong>{{member.wechat}}&nbsp;&nbsp;
+                                    {% endif %}
+                                    {% if member.qq %}
+                                    <strong>QQ：</strong>{{member.qq}}&nbsp;&nbsp;
+                                    {% endif %}
+                                    {% if member.weibo %}
+                                    <strong>微博：</strong>{{member.weibo}}&nbsp;&nbsp;
+                                    {% endif %}
+                                    {% if member.email %}
+                                    <strong> 邮箱：</strong>{{member.email}}
+                                    {% endif %}
+                                {% else %}
+                                无
+                                {% endif %}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,18 +75,19 @@
         <div class="container">
             <h2 class="text-center">{% if member.sex == 2 %}她{% else %}他{% endif %}的成果 </h2>
             <div class="categories">
-                <ul class="cat">
-                    <li><a href="#" class="active">论文 </a></li>
-                    <li><a href="#">专利 </a></li>
-                    <li><a href="#">软著 </a></li>
-                    <li><a href="#">获奖 </a></li>
+                <ul class="cat" id="cat">
+                    <li data-filter="*"><a href="javascript:;" class="active">全部 </a></li>
+                    <li data-filter=".paper-box"><a href="javascript:;">论文 </a></li>
+                    <li data-filter=".patent-box"><a href="javascript:;">专利 </a></li>
+                    <li data-filter=".soft-box"><a href="javascript:;">软著 </a></li>
+                    <li data-filter=".prize-box"><a href="javascript:;">获奖 </a></li>
                 </ul>
             </div>
         </div>
 	    <div class="container">
-			<div class="row">
+			<div class="row" id="isoWrapper">
 				{% for paper in papers %}
-				<div class="col-sm-4 col-md-3 col-lg-3  paper-box">
+				<div class="col-sm-4 col-md-3 col-lg-3  paper-box common-box">
 					<div class="box">
 						<i class="fa fa-mortar-board"></i>
 						<h3 class="title">{{paper.title}}</h3>
@@ -78,7 +98,7 @@
 				</div>
 				{% endfor %}
 				{% for patent in patents %}
-				<div class="col-sm-4 col-md-3 col-lg-3 patent-box">
+				<div class="col-sm-4 col-md-3 col-lg-3 patent-box common-box">
 					<div class="box">
 						<i class="fa fa-filter"></i>
 						<h3 class="title">{{patent.title}}</h3>
@@ -98,7 +118,7 @@
 				</div>
 				{% endfor %}
 				{% for soft in softs %}
-	            <div class="col-sm-4 col-md-3 col-lg-3 soft-box">
+	            <div class="col-sm-4 col-md-3 col-lg-3 soft-box common-box">
 					<div class="box">
 						<i class="fa fa-file-code-o"></i>
 						<h3 class="title">{{soft.title}}</h3>
@@ -109,7 +129,7 @@
 				</div>
 				{% endfor %}
 				{% for prize in prizes %}
-	            <div class="col-sm-4 col-md-3 col-lg-3 prize-box">
+	            <div class="col-sm-4 col-md-3 col-lg-3 prize-box common-box">
 					<div class="box">
 						<i class="fa fa-trophy"></i>
 						<h3 class="title">{{prize.title}}</h3>
@@ -133,4 +153,20 @@
 	</div>
 {% endblock %}
 {% block js %}
+<script src="{% static 'member/js/isotope.pkgd.min.js' %}"></script>
+<script>
+$(function(){
+    var $grid = $('#isoWrapper').isotope({
+        itemSelector: '.common-box',
+        layoutMode: 'fitRows'
+    });
+
+    $('#cat').on('click', 'li', function(e){
+        $(this).parent('ul').find('a').removeClass('active');
+        $(this).children('a').addClass('active');
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+    });
+});
+</script>
 {% endblock %}
