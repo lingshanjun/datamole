@@ -44,13 +44,13 @@
             <div class="col-md-3">
                 <div class="side-box side-cate">
                     <div class="side-head">
-                        <h4 class="text-left">全部分类 </h4></div>
+                        <h4 class="text-left">全部分类 </h4>
+                    </div>
                     <div class="side-body">
+                        {% if bigtype %}
                         <ul class="nav nav-tabs">
                             {% for obj in bigtype %}
                             <li class="{% if forloop.first %}active{% endif %}"><a href="#{{obj.id}}" role="tab" data-toggle="tab">{{obj.name}} </a></li>
-                            {% empty %}
-                            <li>还没有大分类哦～</li>
                             {% endfor %}
                         </ul>
                         <div class="tab-content">
@@ -68,6 +68,9 @@
                             </div>
                             {% endfor%}
                         </div>
+                        {% else %}
+                        还没有大分类哦
+                        {% endif %}
                     </div>
                 </div>
                 <div class="side-box side-views">
