@@ -1,4 +1,6 @@
-{% extends 'base.html' %}{% load staticfiles %}
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load cloudinary %}
 {% block title %}{{member.name}}-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'member/css/member-detail.css' %}">
@@ -15,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4">
-                    <div class="left-img"><img class="img-circle img-responsive img" src="{{member.avatar.url}}" alt="{{member.name}}" width="200px" height="200px">
+                    <div class="left-img"><img class="img-circle img-responsive img" src="{% cloudinary_url member.avatar width='200' height='200' crop='crop' gravity='face' %}" alt="{{member.name}}" width="200px" height="200px">
                         <h3 class="text-nowrap text-center">{{member.name}} </h3>
                         <p class="text-center">{{member.descripe}} </p>
                     </div>

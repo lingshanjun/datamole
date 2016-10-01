@@ -3,6 +3,19 @@
 from django.db import models
 from django.utils.html import format_html
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.models import CloudinaryField
+
+from datamole.settings.safe_data import cloudinary_data
+
+
+cloudinary.config(
+    cloud_name=cloudinary_data['cloud_name'],
+    api_key=cloudinary_data['api_key'],
+    api_secret=cloudinary_data['api_secret']
+)
 
 class Member(models.Model):
     SEX = [
@@ -16,7 +29,8 @@ class Member(models.Model):
     ]
     name = models.CharField('姓名', max_length=10, help_text='*必填*')
     sex = models.SmallIntegerField('性别', choices=SEX, default=0, help_text='*必填*')
-    avatar = models.ImageField('头像', blank=True, upload_to='team/', help_text='*必填*')
+    # avatar = models.ImageField('头像', blank=True, upload_to='team/', help_text='*必填*')
+    avatar = CloudinaryField('头像', help_text='*必填*', blank=True)
     descripe = models.CharField('一句话介绍', max_length=100, help_text='*必填*, 类似于座右铭')
     introduction = models.TextField('详细介绍', help_text='*必填*, 详细介绍成员的情况,多多益善', null=True)
     birthday = models.DateField('生日', help_text='*必填*')
