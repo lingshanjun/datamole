@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load userlinks %}
 {% block title %}软著列表-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'science/css/soft.css' %}">
@@ -21,9 +22,9 @@
 				<div class="box">
 					<i class="fa fa-file-code-o"></i>
 					<h3 class="title">{{soft.title}}</h3>
-                    <p class="author">{{soft.all_creators}}</p>
+                    <p class="author">{{soft.creators.all | userlinks:soft.all_creators}}</p>
                     <p class="date">发表于 {{soft.time}}</p>
-					<a href="{{soft.get_absolute_url}}">查看登记证书</a>
+					<a href="{{soft.get_absolute_url}}" class="abtn">查看登记证书</a>
 				</div>
 			</div>
 			{% endfor %}

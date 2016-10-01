@@ -1,4 +1,7 @@
-{% extends 'base.html' %}{% load staticfiles %}{% load pagination_tags %}
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load userlinks %}
+{% load pagination_tags %}
 {% block title %}论文列表-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'science/css/paper.css' %}">
@@ -20,9 +23,9 @@
 				<div class="box">
 					<i class="fa fa-mortar-board"></i>
 					<h3 class="title">{{paper.title}}</h3>
-                    <p class="author">{{paper.all_authors}}</p>
+                    <p class="author">{{paper.authors.all | userlinks:paper.all_authors}}</p>
                     <p class="date">发表于 {{paper.pub_time}}</p>
-					<a href="{{paper.get_absolute_url}}">Check it out</a>
+					<a href="{{paper.get_absolute_url}}" class="abtn">Check it out</a>
 				</div>
 			</div>
 			{% endfor %}

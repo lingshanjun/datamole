@@ -1,4 +1,6 @@
-{% extends 'base.html' %}{% load staticfiles %}
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load userlinks %}
 {% block title %}{{patent.title}}-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'science/css/patent.css' %}">
@@ -22,7 +24,7 @@
         </div>
         <div class="col-lg-6 col-md-6">
             <ul class="list-group">
-                <li class="list-group-item"><span class="label label-default"> 发明人 </span><span>{{patent.all_creators}}</span></li>
+                <li class="list-group-item"><span class="label label-default"> 发明人 </span><span>{{patent.creators.all | userlinks:patent.all_creators}}</span></li>
                 <li class="list-group-item"><span class="label label-default">状态 </span>
                 {% if patent.status == 1 %}
                 <span>受理</span>
@@ -32,7 +34,7 @@
                 <span>授权</span>
                 {% endif %}
                 </li>
-                <li class="list-group-item"><span class="label label-default">状态编号 </span><span>{{patent.num_apply}}</span></li>
+                <li class="list-group-item"><span class="label label-default">状态编号 </span><span>{% if patent.num_apply%}{{patent.num_apply}}{% else %}无{% endif %}</span></li>
                 <li class="list-group-item"><span class="label label-default">状态时间 </span><span>{{patent.time_apply}}</span></li>
             </ul>
             <nav>

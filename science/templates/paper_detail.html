@@ -1,4 +1,6 @@
-{% extends 'base.html' %}{% load staticfiles %}
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load userlinks %}
 {% block title %}{{paper.title}}-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'science/css/paper.css' %}">
@@ -23,7 +25,7 @@
         <div class="col-lg-6 col-md-6">
             <ul class="list-group">
                 <li class="list-group-item"><span class="label label-default">关键字 </span><span>{{paper.key_words}}</span></li>
-                <li class="list-group-item"><span class="label label-default">全部作者 </span><span>{{paper.all_authors}}</span></li>
+                <li class="list-group-item"><span class="label label-default">全部作者 </span><span>{{paper.authors.all | userlinks:paper.all_authors}}</span></li>
                 <li class="list-group-item"><span class="label label-default">发布时间 </span><span>{{paper.pub_time}}</span></li>
                 <li class="list-group-item"><span class="label label-default">发布地点 </span><span>{% if paper.pub_location %}{{paper.pub_location}}{% else %}暂无{% endif %}</span></li>
                 <li class="list-group-item"><span class="label label-default">发布刊物 </span><span>{% if paper.pub_pulications %}{{paper.pub_pulications}}{% else %}暂无{% endif %}</span></li>

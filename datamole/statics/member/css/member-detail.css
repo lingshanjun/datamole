@@ -149,7 +149,7 @@ div.categories {
   color:#19b5fe;
 }
 
-.box a {
+.box a.abtn {
   display:block;
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
@@ -172,11 +172,18 @@ div.categories {
   width:100%;
 }
 
-.box a:hover {
+.box a.abtn:hover {
   background:#159ad8;
 }
 
-
+a{
+  color: #19b5fe;
+  text-decoration: none;
+}
+a:focus, a:hover{
+  color: #159ad8;
+  text-decoration: none;
+}
 .paper-box .box {
   background-color:#ecf0f5;
 }

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load userlinks %}
 {% load cloudinary %}
 {% block title %}{{member.name}}-数据锚{% endblock %}
 {% block css %}
@@ -70,9 +71,9 @@
 					<div class="box">
 						<i class="fa fa-mortar-board"></i>
 						<h3 class="title">{{paper.title}}</h3>
-	                    <p class="author">{{paper.all_authors}}</p>
+	                    <p class="author">{{paper.authors.all | userlinks:paper.all_authors}}</p>
 	                    <p class="date">发表于 {{paper.pub_time}}</p>
-						<a href="{{paper.get_absolute_url}}">Check it out</a>
+						<a href="{{paper.get_absolute_url}}" class="abtn">Check it out</a>
 					</div>
 				</div>
 				{% endfor %}
@@ -81,7 +82,7 @@
 					<div class="box">
 						<i class="fa fa-filter"></i>
 						<h3 class="title">{{patent.title}}</h3>
-	                    <p class="author">{{patent.all_creators}}</p>
+	                    <p class="author">{{patent.creators.all | userlinks:patent.all_creators}}</p>
 	                    <p class="date">
 	                    	{% if patent.status == 1 %}
 	                    	<span class="label label-default status status-accept">受理</span>
@@ -92,7 +93,7 @@
 	                    	{% endif %}
 	                    	时间 {{patent.time_apply}}
 	                    </p>
-						<a href="{{patent.get_absolute_url}}">专利详情</a>
+						<a href="{{patent.get_absolute_url}}" class="abtn">专利详情</a>
 					</div>
 				</div>
 				{% endfor %}
@@ -101,9 +102,9 @@
 					<div class="box">
 						<i class="fa fa-file-code-o"></i>
 						<h3 class="title">{{soft.title}}</h3>
-	                    <p class="author">{{soft.all_creators}}</p>
+	                    <p class="author">{{soft.creators.all | userlinks:soft.all_creators}}</p>
 	                    <p class="date">发表于 {{soft.time}}</p>
-						<a href="{{soft.get_absolute_url}}">查看登记证书</a>
+						<a href="{{soft.get_absolute_url}}"  class="abtn">查看登记证书</a>
 					</div>
 				</div>
 				{% endfor %}
@@ -112,7 +113,7 @@
 					<div class="box">
 						<i class="fa fa-trophy"></i>
 						<h3 class="title">{{prize.title}}</h3>
-	                    <p class="author">{{prize.all_persons}}</p>
+	                    <p class="author">{{prize.persons.all | userlinks:prize.all_persons}}</p>
 	                    <p class="date">{{prize.time}}
 	                    	<span class="label label-default classic">
 	                    	{% if prize.grade == 1 %}国际级
@@ -123,7 +124,7 @@
 	                    	{% endif %}
 	                    	</span>
 	                    </p>
-						<a href="{{prize.get_absolute_url}}">查看详情</a>
+						<a href="{{prize.get_absolute_url}}"  class="abtn">查看详情</a>
 					</div>
 				</div>
 				{% endfor %}
