@@ -21,7 +21,7 @@
                 {% for blog in blogs %}
                 <div class="blog-box">
                     <h3>{{blog.title}}</h3>
-                    <p class="blog-subtitle"><span>{% for author in blog.authors.all %} {{author}} {% endfor %}</span> · <span>{{blog.add_date}}</span> · <span><i class="fa fa-eye"></i> {{blog.counts}}</span></p>
+                    <p class="blog-subtitle"><span>{% if blog.authors %}{% for author in blog.authors.all %} <a href="{{author.get_absolute_url}}">{{author.name}}</a> {% endfor %}{% else %}Datamole{% endif %}</span> · <span>{{blog.add_date}}</span> · <span><i class="fa fa-eye"></i> {{blog.counts}}</span></p>
                     {% if blog.cover %}
                     <img class="img-rounded img-responsive blog-cover" src="{% cloudinary_url blog.cover width='800' height='200' crop='crop' gravity='face' %}" alt="{{blog.title}}">
                     {% endif %}
@@ -61,7 +61,7 @@
                                         {% for type in obj.getType %}
                                         <div class="col-lg-6 col-md-12 col-sm-4 col-xs-6"><a href="?category={{type.id}}" class="btn btn-sm btn-block btn-cate-list">{{type.name}}<span class="badge cate-badge">{{type.getCount}}</span></a></div>
                                         {% empty %}
-                                        <div>还没有分类哦～</div>
+                                        <div style="padding-left: 15px;">还没有分类哦～</div>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                             {% endfor%}
                         </div>
                         {% else %}
-                        <div style="padding: 10px;">还没有大分类哦</div>
+                        <div style="padding: 10px;">还没有大分类哦～</div>
                         {% endif %}
                     </div>
                 </div>
