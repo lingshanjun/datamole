@@ -1,4 +1,6 @@
-{% extends 'base.html' %}{% load staticfiles %}
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load cloudinary %}
 {% block title %}{{blog.title}}-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'blog/lib/highlight/styles/solarized-light.css' %}">
@@ -28,7 +30,7 @@
                     </p>
                     {% if blog.cover %}
                     <img class="img-rounded img-responsive blog-cover"
-                    src="/media/{{blog.cover}}" alt="{{blog.title}}">
+                    src="{% cloudinary_url blog.cover width='800' height='300' crop='crop' gravity='face' %}" alt="{{blog.title}}">
                     {% endif%}
                     <div class="blog-text">
                         {{blog.content_show |safe}}

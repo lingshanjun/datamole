@@ -5,6 +5,19 @@ from django.utils.html import format_html
 from HTMLParser import HTMLParser
 from member.models import Member
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.models import CloudinaryField
+
+from datamole.settings.safe_data import cloudinary_data
+
+cloudinary.config(
+    cloud_name=cloudinary_data['cloud_name'],
+    api_key=cloudinary_data['api_key'],
+    api_secret=cloudinary_data['api_secret']
+)
+
 
 class myHTMLParser(HTMLParser):
     def handle_starttag(self, tag, attrs):
@@ -64,7 +77,8 @@ class Blog(models.Model):
     ]
     title = models.CharField('标题', max_length=100, help_text='*必填*')
     type = models.ForeignKey(BlogType, verbose_name=u'所属分类', help_text='*必填*')
-    cover = models.ImageField('封面图', null= True, upload_to='blog/', blank=True)  # 博客导图
+    # cover = models.ImageField('封面图', null= True, upload_to='blog/', blank=True)  # 博客导图
+    cover = CloudinaryField('封面图', null= True, blank=True)
     abstract = models.TextField('简介', help_text='*必填*', null=True)
     content_show = models.TextField('正文显示', null= True)
     add_date = models.DateTimeField('创建日期', auto_now_add=True)
@@ -86,25 +100,24 @@ class Blog(models.Model):
         """显示封面图"""
         if self.cover:
             cover_src = self.cover.url
+            return format_html('<a href="{0}" target="_blank"> <img src="{0}" width="60" height="auto"></a>', cover_src)
         else:
-            cover_src = '/static/common/img/default.png'
-
-        return format_html('<a href="{0}" target="_blank"> <img src="{0}" width="60" height="auto"></a>', cover_src)
+            return u'无'
 
     show_cover.short_description = '封面'
     show_cover.allow_tags = True
 
-    def get_cover(self):
-        """获取封面图
-            若上传封面图,则此即为封面图;
-            若文章中也没有插图,则选择默认的图片为封面图
-        """
-        if self.cover:
-            cover_src = self.cover.url
-        else:
-            cover_src = '/static/common/img/default.png'
-
-        return cover_src
+    # def get_cover(self):
+    #     """获取封面图
+    #         若上传封面图,则此即为封面图;
+    #         若文章中也没有插图,则选择默认的图片为封面图
+    #     """
+    #     if self.cover:
+    #         cover_src = self.cover.url
+    #     else:
+    #         cover_src = '/static/common/img/default.png'
+    #
+    #     return cover_src
 
     def author_in_member(self):
         members = Blog.objects.get(pk=self.id).authors.all()

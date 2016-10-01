@@ -28,6 +28,7 @@ INSTALLED_APPS = (
     'news',
     'monograph',
     'pagination',
+    'cloudinary',
 )
 
 MIDDLEWARE_CLASSES = (

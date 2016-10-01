@@ -1,4 +1,7 @@
-{% extends 'base.html' %}{% load staticfiles %}{% load pagination_tags %}
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load cloudinary %}
+{% load pagination_tags %}
 {% block title %}教程博客-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
@@ -10,9 +13,6 @@
 		<p>金融时序、机器人，学习、汲取、积累、分享，是一个循环、成长的过程</p>
 	</div>
 </div>
-<!--
-<div class="text-center text-danger"></div>
- -->
 <div class="blog-list-container">
     <div class="container">
         <div class="row">
@@ -23,7 +23,7 @@
                     <h3>{{blog.title}}</h3>
                     <p class="blog-subtitle"><span>{% for author in blog.authors.all %} {{author}} {% endfor %}</span> · <span>{{blog.add_date}}</span> · <span><i class="fa fa-eye"></i> {{blog.counts}}</span></p>
                     {% if blog.cover %}
-                    <img class="img-rounded img-responsive blog-cover" src="/media/{{blog.cover}}" alt="{{blog.title}}">
+                    <img class="img-rounded img-responsive blog-cover" src="{% cloudinary_url blog.cover width='800' height='200' crop='crop' gravity='face' %}" alt="{{blog.title}}">
                     {% endif %}
                     <p class="blog-abstract">{{blog.abstract | truncatechars:200 }} </p>
                     <div>
