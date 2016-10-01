@@ -65,6 +65,10 @@ p.blog-subtitle {
   letter-spacing:1px;
 }
 
+p.blog-subtitle a{
+  color: #727a80;
+}
+
 p.blog-abstract {
   font-size:14px;
   margin-top:10px;
