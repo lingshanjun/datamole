@@ -21,7 +21,7 @@
                 {% for blog in blogs %}
                 <div class="blog-box">
                     <h3>{{blog.title}}</h3>
-                    <p class="blog-subtitle"><span>{% if blog.authors %}{% for author in blog.authors.all %} <a href="{{author.get_absolute_url}}">{{author.name}}</a> {% endfor %}{% else %}Datamole{% endif %}</span> · <span>{{blog.add_date}}</span> · <span><i class="fa fa-eye"></i> {{blog.counts}}</span></p>
+                    <p class="blog-subtitle"><span>{% if blog.authors.all %}{% for author in blog.authors.all %} <a href="{{author.get_absolute_url}}">{{author.name}}</a> {% endfor %}{% else %}Datamole{% endif %}</span> · <span>{{blog.add_date}}</span> · <span><i class="fa fa-eye"></i> {{blog.counts}}</span></p>
                     {% if blog.cover %}
                     <img class="img-rounded img-responsive blog-cover" src="{% cloudinary_url blog.cover width='800' height='200' crop='crop' gravity='face' %}" alt="{{blog.title}}">
                     {% endif %}
