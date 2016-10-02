@@ -254,6 +254,7 @@ div.side-catalog {
 .side-catalog .nav-blog > li.active a{
   background-color: #19b5fe;
   color: #fff;
+  border-radius: 0;
 }
 .side-catalog .nav-blog > li a {
   border:0;
@@ -268,6 +269,11 @@ div.side-catalog {
   color: #fff;
   border-radius: 0;
   margin-top: 0;
+}
+.side-catalog .nav-blog > li.active a:focus,
+.side-catalog .nav-blog > li.active a:hover{
+  border:0;
+  border-bottom:1px solid #19b5fe;
 }
 .side-catalog .nav-blog > li:last-child a {
   border:0;
@@ -324,6 +330,9 @@ div.side-catalog {
 .blog-detail-container .blog-text a{
   color: #19b5fe;
   text-decoration: none;
+}
+.blog-detail-container .blog-text img{
+  width: 100%;
 }
 .blog-detail-container .pre-numbering {
   position: absolute;
