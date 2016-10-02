@@ -38,7 +38,10 @@
   background-color: transparent;
   color: #19b5fe;
 }
-
+#menu .navbar-nav >.open>a{
+  background-color: #727a80;
+  color: #19b5fe;
+}
 #menu .navbar-nav .dropdown-menu{
   background-color:#727A80;
   color: #fff;
@@ -93,8 +96,6 @@
 .navbar-default .navbar-toggle:hover > .icon-bar {
   background-color:#FFF;
 }
-
-
 
 /*footer*/
 footer {
