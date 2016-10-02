@@ -2,6 +2,7 @@
 {% block title %}智能感知和数据研究室-数据锚{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
+<link rel="stylesheet" href="{% static 'index/css/animate.min.css' %}">
 {% endblock %}
 {% block content %}
 <header class="text-center" name="home" id="header-section">
@@ -14,7 +15,7 @@
 </header>
 <div id="lab-section" class="section-common">
   	<div class="container">
-    	<div class="row">
+    	<div class="row wow fadeInDown animated" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInDown;">
       		<h2 class="centered">研究室</h2>
       		<hr>
       		<div class="col-lg-8 col-lg-offset-2 centered">
@@ -43,13 +44,13 @@
 </div>
 <div id="services-section" class="text-center section-common">
   	<div class="container">
-    	<div class="row">
+    	<div class="row wow fadeInDown animated" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInDown;">
       		<h2 class="centered">研究成果</h2>
       	<hr>
     	</div>
     	<div class="space"></div>
-    	<div class="row wow fadeInDown animated" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInDown;">
-      		<div class="col-md-6 col-sm-6 service"> <i class="fa fa-book icon-zhuanzhu"></i>
+    	<div class="row wow fadeInDown animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInDown;">
+      		<div class="col-md-6 col-sm-6 service wow zoomIn animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: zoomIn;"> <i class="fa fa-book icon-zhuanzhu"></i>
       		</div>
       		<div class="col-md-6 col-sm-6 service">
         		<h4>专业著作</h4>
@@ -58,36 +59,36 @@
       		</div>
     	</div>
     	<div class="space"></div>
-    	<div class="row wow fadeInDown animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInDown;">
+    	<div class="row wow fadeInDown animated" data-wow-delay="800ms" style="visibility: visible; animation-delay: 800ms; animation-name: fadeInDown;">
       		<div class="col-md-3 col-sm-6 service"> <i class="fa fa-mortar-board"></i>
         		<h4>学术论文</h4>
         		<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
-        	<a href="#" class="learn-more">Learn more »</a>
+        	   <a href="/science/paper/" class="learn-more">Learn more »</a>
       		</div>
       		<div class="col-md-3 col-sm-6 service"> <i class="fa fa-filter"></i>
         		<h4>发明专利</h4>
         		<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.</p>
-        		<a href="#" class="learn-more">Learn more »</a>
+        		<a href="/science/patent/" class="learn-more">Learn more »</a>
       		</div>
       		<div class="col-md-3 col-sm-6 service"> <i class="fa fa-file-code-o"></i>
         		<h4>软件著作</h4>
         		<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.</p>
-        		<a href="#" class="learn-more">Learn more »</a>
+        		<a href="/science/soft/" class="learn-more">Learn more »</a>
       		</div>
       		<div class="col-md-3 col-sm-6 service"> <i class="fa fa-trophy"></i>
         		<h4>评奖评优</h4>
         		<p>Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.</p>
-        		<a href="#" class="learn-more">Learn more »</a>
+        		<a href="/science/prize/" class="learn-more">Learn more »</a>
       		</div>
     	</div>
   	</div>
 </div>
 <div id="join-section" class="section-common">
   	<div class="container">
-    	<div class="row">
+    	<div class="row wow fadeInDown animated" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInDown;">
       		<h2 class="centered">招贤令</h2>
       		<hr>
-      		<div class="col-lg-10 col-lg-offset-1 centered">
+      		<div class="col-lg-10 col-lg-offset-1 centered wow fadeInDown animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInDown;">
         		<p class="large">北京工商大学“智能感知数据研究中心”与量化策略研发公司“XX”合作研究智能投资算法。现亟需大量计算机与金融方面人才。无论您是本科还是研究生，无论您是在职还是在校生，只要您有统计、机器学习、大数据、数学、计算机、会计、管理、经济学、计量、审计等相关专业背景，热爱量化投资行业，就可以加入我们。我们会有专业指导，让您对量化投资逐步深入并学以致用。</p>
         		<p class="large">扫描二维码或搜索微信公众号 <strong>datamole</strong>，加入量化学习群。</p>
         		<img src="{% static 'index/img/1.pic.jpg' %}" class="img-responsive qrcode"/>
@@ -97,5 +98,10 @@
 </div>
 {% endblock %}
 {% block js %}
-
+<script src="{% static 'index/js/wow.min.js' %}"></script>
+<script>
+$(function(){
+    new WOW().init();
+});
+</script>
 {% endblock %}
