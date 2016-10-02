@@ -1,3 +1,7 @@
+.space-top{
+  display: none;
+}
+
 /*header section*/
 #header-section {
   background:url('/static/index/img/header-bg.jpg') no-repeat center center;

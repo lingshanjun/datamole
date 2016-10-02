@@ -99,9 +99,5 @@
 {% endblock %}
 {% block js %}
 <script src="{% static 'index/js/wow.min.js' %}"></script>
-<script>
-$(function(){
-    new WOW().init();
-});
-</script>
+<script src="{% static 'index/js/index.js' %}"></script>
 {% endblock %}
