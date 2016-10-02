@@ -12,7 +12,8 @@
         <div class="collapse navbar-collapse dm-navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li {% if '/' == request.path %}class="active"{% endif %}><a href="/" class="page-scroll">首页</a></li>
-                <li {% if '/introduce/' == request.path %}class="active"{% endif %}><a href="/introduce/" class="page-scroll">研究室</a></li>
+                <!-- <li {% if '/introduce/' == request.path %}class="active"{% endif %}><a href="/introduce/" class="page-scroll">研究室</a></li> -->
+                <li><a href="#" class="page-scroll">研究室</a></li>
                 <li {% if '/member/' in request.path %}class="active"{% endif %}><a href="/member" class="page-scroll">成员</a></li>
                 <li {% if '/monograph/' in request.path %}class="active"{% endif %}><a href="/monograph/" class="page-scroll">专著</a></li>
                 <li class="dropdown {% if '/science/' in request.path %} active {% endif %}">

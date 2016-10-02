@@ -25,7 +25,7 @@ INSTALLED_APPS = (
     'blog',
     'member',
     'science',
-    'news',
+    # 'news',
     'monograph',
     'pagination',
     'cloudinary',
