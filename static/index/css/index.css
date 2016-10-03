@@ -2,6 +2,11 @@
   display: none;
 }
 
+#menu.navbar-default{
+  padding: 20px;
+  background-color: transparent;
+}
+
 /*header section*/
 #header-section {
   background:url('/static/index/img/header-bg.jpg') no-repeat center center;

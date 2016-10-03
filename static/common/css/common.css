@@ -1,13 +1,14 @@
 /*header*/
 #menu {
-  padding:20px;
   transition:all 0.8s;
 }
 
 #menu.navbar-default {
-  background-color:rgba(248, 248, 248, 0);
+  /*background-color:rgba(248, 248, 248, 0);*/
   border-color:rgba(231, 231, 231, 0);
   background-image:none;
+  background-color: #727a80;
+  padding: 0;
 }
 
 #menu.on{
