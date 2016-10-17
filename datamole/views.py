@@ -7,8 +7,11 @@ from others.models import Recruit
 def datamoleIndex(request):
     """datamole首页"""
     data = {}
-    recruit = Recruit.objects.filter(is_show=True).order_by('-add_date').all()[0]
-    data['recruit'] = recruit
+    recruit = Recruit.objects.filter(is_show=True).order_by('-add_date').all()
+
+    if recruit:
+        data['recruit'] = recruit[0]
+
     return render(request, 'datamole_index.html', data)
 
 
