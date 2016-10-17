@@ -118,6 +118,18 @@ body{
 
 
 /*lab section*/
+#lab-section .desc1{
+  font-size: 18px;
+  line-height: 1.8em;
+  color: #555;
+}
+#lab-section .desc2{
+  font-size: 18px;
+  line-height: 1.6em;
+  color: #555;
+  font-weight: bold;
+  font-family: serif;
+}
 
 /*service section*/
 #services-section {
