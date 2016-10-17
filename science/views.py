@@ -39,7 +39,7 @@ def paperDetail(request, id=None):
 
 def patentList(request):
     """patent列表页"""
-    data = {'patents': Patent.objects.order_by('-id')}
+    data = {'patents': Patent.objects.order_by('-time')}
 
     return render(request, 'patent_list.html', data)
 
@@ -72,7 +72,7 @@ def patentDetail(request, id=None):
 
 def softList(request):
     """soft列表页"""
-    data = {'softs': Soft.objects.order_by('-id')}
+    data = {'softs': Soft.objects.order_by('-time')}
 
     return render(request, 'soft_list.html', data)
 

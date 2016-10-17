@@ -24,7 +24,7 @@ class Paper(models.Model):
     key_words = models.CharField('关键字', max_length=100, help_text="*必填*, 用逗号隔开", default='')
     authors = models.ManyToManyField(Member, verbose_name=u'作者', blank=True, help_text='在列表中选择包含的作者')
     all_authors = models.CharField('所有作者', max_length=50, help_text='*必填*, 请按顺序输入所有发明人笔名，如“张三/李四/王五”,姓名之间必须用"/"隔开')
-    pub_time = models.DateField('发表时间', help_text='*必填*', auto_now_add=True)
+    pub_time = models.DateField('发表时间', help_text='*必填*')
     pub_location = models.CharField('发表地点', blank=True, max_length=50)
     pub_pulications = models.CharField('发表刊物', blank=True, max_length=50)
     link = models.URLField('公开链接', max_length=200, help_text="*必填*, 例如 https://www.baidu.com/")
@@ -86,9 +86,10 @@ class Patent(models.Model):
     num_apply = models.CharField('申请号', max_length=50, blank=True)
     num_open = models.CharField('公开号', max_length=50, blank=True)
     num_enpower = models.CharField('授权号', max_length=50, blank=True)
-    time_apply = models.DateField('申请时间', auto_now_add=True)
-    time_open = models.DateField('公开时间', auto_now_add=True)
-    time_enpower = models.DateField('授权时间', auto_now_add=True)
+    # time_apply = models.DateField('申请时间', auto_now_add=True)
+    # time_open = models.DateField('公开时间', auto_now_add=True)
+    # time_enpower = models.DateField('授权时间', auto_now_add=True)
+    time = models.DateField('申请/公开/授权时间', help_text='根据状态填写相应的时间')
     link = models.URLField('公开链接', max_length=200, help_text='例如 https://www.baidu.com/')
 
     def __unicode__(self):
@@ -141,7 +142,7 @@ class Soft(models.Model):
     creators = models.ManyToManyField(Member, verbose_name=u'发明人', help_text='在列表中选择包含的发明人')
     all_creators = models.CharField('所有发明人', max_length=50, help_text='*必填*, 请按顺序输入所有发明人笔名，如“张三/李四/王五”,姓名之间必须用"/"隔开')
     number = models.CharField('编号', max_length=50, blank=True)
-    time = models.DateField('首次发表时间', auto_now_add=True)
+    time = models.DateField('首次发表时间')
     # pic = models.ImageField('证书图片', help_text='*必填*', upload_to='soft/pic/')
     pic = CloudinaryField('证书图片', help_text='*必填*')
 
@@ -200,7 +201,7 @@ class Prize(models.Model):
     prize_descripe = models.TextField('内容描述', help_text='*必填*')
     persons = models.ManyToManyField(Member, verbose_name=u'获奖人', help_text='在列表中选择包含的发明人')
     all_persons = models.CharField('所有获奖人', max_length=50, help_text='*必填*, 请按顺序输入所有发明人笔名，如“张三/李四/王五”,姓名之间必须用"/"隔开')
-    time = models.DateField('获奖时间', auto_now_add=True)
+    time = models.DateField('获奖时间')
     grade = models.SmallIntegerField('奖项级别', choices=GRADE, help_text='*必填*')
 
     def __unicode__(self):

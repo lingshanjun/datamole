@@ -15,7 +15,7 @@ class PaperAdmin(admin.ModelAdmin):
 
 class PatentAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'creator_in_member', 'all_creators', 'status', 'num_apply',
-                    'num_open', 'num_enpower', 'time_apply', 'time_open', 'time_enpower', 'show_link',
+                    'num_open', 'num_enpower', 'time', 'show_link',
                     'show_patent_onsite')
     search_fields = ('id', 'title', 'descripe', 'all_creators', 'status', 'link')
     list_display_links = ('title',)

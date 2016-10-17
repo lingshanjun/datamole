@@ -23,9 +23,9 @@ def memberDetail(request, id=None):
     if not member:
         return HttpResponseServerError('成员不存在！')
 
-    data['papers'] = member.paper_set.all()
-    data['patents'] = member.patent_set.all()
-    data['softs'] = member.soft_set.all()
-    data['prizes'] = member.prize_set.all()
+    data['papers'] = member.paper_set.all().order_by('-pub_time')
+    data['patents'] = member.patent_set.all().order_by('-time')
+    data['softs'] = member.soft_set.all().order_by('-time')
+    data['prizes'] = member.prize_set.all().order_by('-time')
 
     return render(request, 'member_detail.html', data)
