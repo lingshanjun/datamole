@@ -1,3 +1,7 @@
+body{
+  background: url(/static/index/img/recruit-bg.jpg);
+}
+
 .space-top{
   display: none;
 }
@@ -158,23 +162,11 @@
 
 /*join section*/
 #join-section {
-  /* Old browsers */
-  background:-moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(238,239,239,1) 100%);
-  /* FF3.6-15 */
-  background:-webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(238,239,239,1) 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background:linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(238,239,239,1) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeefef', GradientType=0 );
+  background-color: transparent;
 }
-
-#join-section img.qrcode {
-  display:block;
-  margin:0 auto;
-  max-width:200px;
-  max-width:200px;
+#join-section .recruit-content{
+  color: #555;
 }
-
 
 
 

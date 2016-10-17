@@ -88,10 +88,8 @@
     	<div class="row wow fadeInDown animated" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInDown;">
       		<h2 class="centered">招贤令</h2>
       		<hr>
-      		<div class="col-lg-10 col-lg-offset-1 centered wow fadeInDown animated" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInDown;">
-        		<p class="large">北京工商大学“智能感知数据研究中心”与量化策略研发公司“XX”合作研究智能投资算法。现亟需大量计算机与金融方面人才。无论您是本科还是研究生，无论您是在职还是在校生，只要您有统计、机器学习、大数据、数学、计算机、会计、管理、经济学、计量、审计等相关专业背景，热爱量化投资行业，就可以加入我们。我们会有专业指导，让您对量化投资逐步深入并学以致用。</p>
-        		<p class="large">扫描二维码或搜索微信公众号 <strong>datamole</strong>，加入量化学习群。</p>
-        		<img src="{% static 'index/img/1.pic.jpg' %}" class="img-responsive qrcode"/>
+      		<div class="col-lg-10 col-lg-offset-1 centered wow fadeInDown animated recruit-content" data-wow-delay="400ms" style="visibility: visible; animation-delay: 400ms; animation-name: fadeInDown;">
+            {{recruit.recruit_content | safe}}
       		</div>
     	</div>
   	</div>
