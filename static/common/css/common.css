@@ -126,6 +126,10 @@ footer {
   color:#5383d3;
 }
 
+.footer-navigation p.links{
+  font-size: 14px;
+  line-height: 1.4;
+}
 .footer-navigation p.links a {
   color:#fff;
   text-decoration:none;
@@ -145,14 +149,23 @@ footer {
 }
 
 .footer-contacts p {
-  display:inline-block;
   color:#ffffff;
   vertical-align:middle;
 }
+.footer-contacts .p-address {
+  font-weight:normal;
+  font-size:14px;
+  line-height:2;
+}
+span.new-line-span{
+  font-size: 14px;
+  font-family: Cookie,cursive;
+  display: inline-block;
+  word-break: break-all;
+}
 
-.footer-contacts p a {
-  color:#5383d3;
-  text-decoration:none;
+.footer-contacts .p-email{
+  line-height: 3;
 }
 
 .fa.footer-contacts-icon {
@@ -167,14 +180,7 @@ footer {
   margin:10px 15px 10px 0;
 }
 
-span.new-line-span {
-  display:block;
-  font-weight:normal;
-  display:block;
-  font-weight:normal;
-  font-size:14px;
-  line-height:2;
-}
+
 
 footer {
   background-color:#727A80;
@@ -186,6 +192,7 @@ footer {
 
 .footer-contacts p a {
   color:#19B5FE;
+  text-decoration:none;
 }
 
 .footer-navigation p.company-name {

@@ -5,26 +5,44 @@
     <div class="row">
         <div class="col-md-4 col-sm-6 footer-navigation">
             <h3><a href="#">Datamole<span>DM </span></a></h3>
-            <p class="links"><a href="#">Home</a><strong> · </strong><a href="#">Blog</a><strong> · </strong><a href="#">Pricing</a><strong> · </strong><a href="#">About</a><strong> · </strong><a href="#">Faq</a><strong> · </strong><a href="#">Contact</a></p>
+            <p class="links">
+                <a href="/">首页</a><strong> · </strong>
+                <a href="#">实验室</a><strong> · </strong>
+                <a href="/member/">成员</a><strong> · </strong>
+                <a href="">专著</a><strong> · </strong>
+                <a href="/science/paper/">论文</a><strong> · </strong>
+                <a href="/science/patent/">专利</a><strong> · </strong>
+                <a href="/science/soft/">软著</a><strong> · </strong>
+                <a href="/science/prize/">获奖</a><strong> · </strong>
+                <a href="/blog/">博客</a><strong> · </strong>
+                <a href="#">联系我们</a></p>
             <p class="company-name">智能感知与数据研究室 © 2016 版权所有</p>
         </div>
         <div class="col-md-4 col-sm-6 footer-contacts">
-            <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-                <p><span class="new-line-span">21 Revolution Street</span> Paris, France</p>
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
+                    <i class="fa fa-map-marker footer-contacts-icon"> </i>
+                </div>
+                <p class="col-md-10 col-sm-10 col-xs-10 col-lg-10 p-address">
+                    北京市海淀区阜成路11号北京工商大学耕耘楼924，邮编100048
+                    <span class="new-line-span">School of Computer and Information Engineering <br>Beijing Technology and Business University, Beijing, 100048, China</span>
+                </p>
             </div>
-            <div><i class="fa fa-phone footer-contacts-icon"></i>
-                <p class="footer-center-info email text-left"> +1 555 123456</p>
-            </div>
-            <div><i class="fa fa-envelope footer-contacts-icon"></i>
-                <p>
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2">
+                    <i class="fa fa-envelope footer-contacts-icon"></i>
+                </div>
+                <p class="col-md-10 col-sm-10 col-xs-10 col-lg-10 p-email">
                     <a href="mailto:datamole@126.com">datamole@126.com</a>
                 </p>
             </div>
         </div>
         <div class="clearfix visible-sm-block"></div>
         <div class="col-md-4 footer-about">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><img src="{% static 'common/img/django翻译小组群二维码.png' %}" class="img-responsive"></div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><img src="{% static 'common/img/django翻译小组群二维码.png' %}" class="img-responsive"></div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-2 col-xs-offset-2">
+                <p>扫描关注微信公众号</p>
+                <img src="{% static 'common/img/qrcode_for_wechat_258.jpg' %}" class="img-responsive">
+            </div>
         </div>
     </div>
 </footer>
